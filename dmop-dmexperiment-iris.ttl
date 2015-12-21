@@ -1,0 +1,679 @@
+@prefix : <http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix DMEX: <http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#> .
+@prefix DMOP: <http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ExtendedDnS: <http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#> .
+@prefix RMOperators: <http://www.e-lico.eu/ontologies/dmo/DMOP/RMOperators.owl#> .
+@prefix WekaOperators: <http://www.e-lico.eu/ontologies/dmo/DMOP/WekaOperators.owl#> .
+@base <http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl> .
+
+<http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl> rdf:type owl:Ontology ;
+                                                    
+                                                    rdfs:comment "DMEX.owl: Sandbox illustrating the representation of a DM experiment with its associated workflow, dataset, results and metadata. " .
+
+
+#################################################################
+#
+#    Annotation properties
+#
+#################################################################
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#definition
+
+DMOP:definition rdf:type owl:AnnotationProperty .
+
+
+
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#executes
+
+DMOP:executes rdf:type owl:ObjectProperty .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#hasDistinctValue
+
+DMOP:hasDistinctValue rdf:type owl:ObjectProperty .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#hasFeature
+
+DMOP:hasFeature rdf:type owl:ObjectProperty .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#hasFirstSubprocess
+
+DMOP:hasFirstSubprocess rdf:type owl:ObjectProperty .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#hasInput
+
+DMOP:hasInput rdf:type owl:ObjectProperty .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#hasOutput
+
+DMOP:hasOutput rdf:type owl:ObjectProperty .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#hasParameterSetting
+
+DMOP:hasParameterSetting rdf:type owl:ObjectProperty .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#hasTargetFeature
+
+DMOP:hasTargetFeature rdf:type owl:ObjectProperty .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#setsValueOf
+
+DMOP:setsValueOf rdf:type owl:ObjectProperty .
+
+
+
+###  http://www.loa-cnr.it/ontologies/ExtendedDnS.owl#direct-successor
+
+ExtendedDnS:direct-successor rdf:type owl:ObjectProperty .
+
+
+
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#hasDataValue
+
+DMOP:hasDataValue rdf:type owl:DatatypeProperty .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#hasNumberOfSupportVectors
+
+DMOP:hasNumberOfSupportVectors rdf:type owl:DatatypeProperty .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#C4.5CrispTreeModel
+
+DMOP:C4.5CrispTreeModel rdf:type owl:Class .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#CategoricalFeature
+
+DMOP:CategoricalFeature rdf:type owl:Class .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#CategoricalFeatureValue
+
+DMOP:CategoricalFeatureValue rdf:type owl:Class .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#CategoricalLabeledDataSet
+
+DMOP:CategoricalLabeledDataSet rdf:type owl:Class .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#ContinuousFeature
+
+DMOP:ContinuousFeature rdf:type owl:Class .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#DM-Experiment
+
+DMOP:DM-Experiment rdf:type owl:Class .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#DM-Operation
+
+DMOP:DM-Operation rdf:type owl:Class .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#DM-Process
+
+DMOP:DM-Process rdf:type owl:Class .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#DM-Workflow
+
+DMOP:DM-Workflow rdf:type owl:Class .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#DataTable
+
+DMOP:DataTable rdf:type owl:Class .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#ModelEvaluationMeasure
+
+DMOP:ModelEvaluationMeasure rdf:type owl:Class .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#OpParameterSetting
+
+DMOP:OpParameterSetting rdf:type owl:Class .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#RM-OperatorParameter
+
+DMOP:RM-OperatorParameter rdf:type owl:Class .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#RapidMinerOperator
+
+DMOP:RapidMinerOperator rdf:type owl:Class .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#Weka-OperatorParameter
+
+DMOP:Weka-OperatorParameter rdf:type owl:Class .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/DMOP.owl#WekaOperator
+
+DMOP:WekaOperator rdf:type owl:Class .
+
+
+
+
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DCHARS.owl#Iris
+
+DCHARS:Iris rdf:type owl:NamedIndividual .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#AvgPerfMeasure3
+
+:AvgPerfMeasure3 rdf:type DMOP:ModelEvaluationMeasure ,
+                          owl:NamedIndividual .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#Exp3-xvalFSC-IG-Weka-J48-Iris
+
+:Exp3-xvalFSC-IG-Weka-J48-Iris rdf:type DMOP:DM-Experiment ,
+                                        owl:NamedIndividual ;
+                               
+                               DMOP:hasFirstSubprocess :Proc3 .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#FSC-Infogain-J48-Xval-Wf
+
+:FSC-Infogain-J48-Xval-Wf rdf:type DMOP:DM-Workflow ,
+                                   owl:NamedIndividual .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#Iris-MainTable
+
+:Iris-MainTable rdf:type DMOP:DataTable ,
+                         owl:NamedIndividual ;
+                
+                DMOP:hasNumberOfSupportVectors 13 ;
+                
+                DMOP:hasFeature :Iris-PetalLength ,
+                                :Iris-PetalWidth ,
+                                :Iris-SepalLength ,
+                                :Iris-SepalWidth ;
+                
+                DMOP:hasTargetFeature :Iris-Species .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#Iris-PetalLength
+
+:Iris-PetalLength rdf:type DMOP:ContinuousFeature ,
+                           owl:NamedIndividual .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#Iris-PetalWidth
+
+:Iris-PetalWidth rdf:type DMOP:ContinuousFeature ,
+                          owl:NamedIndividual .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#Iris-SepalLength
+
+:Iris-SepalLength rdf:type DMOP:ContinuousFeature ,
+                           owl:NamedIndividual .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#Iris-SepalWidth
+
+:Iris-SepalWidth rdf:type DMOP:ContinuousFeature ,
+                          owl:NamedIndividual .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#Iris-Setosa
+
+:Iris-Setosa rdf:type DMOP:CategoricalFeatureValue ,
+                      owl:NamedIndividual .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#Iris-Species
+
+:Iris-Species rdf:type DMOP:CategoricalFeature ,
+                       owl:NamedIndividual ;
+              
+              DMOP:hasDistinctValue :Iris-Setosa ,
+                                    :Iris-Versicolor ,
+                                    :Iris-Virginica .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#Iris-Trn-FSubset3.i
+
+:Iris-Trn-FSubset3.i rdf:type DMOP:CategoricalLabeledDataSet ,
+                              owl:NamedIndividual .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#Iris-Trn-FeatureWeights-3.1.fold-i
+
+:Iris-Trn-FeatureWeights-3.1.fold-i rdf:type DMOP:DataTable ,
+                                             owl:NamedIndividual .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#Iris-Trn3.i
+
+:Iris-Trn3.i rdf:type DMOP:CategoricalLabeledDataSet ,
+                      owl:NamedIndividual .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#Iris-Tst-FSubset3.i
+
+:Iris-Tst-FSubset3.i rdf:type DMOP:CategoricalLabeledDataSet ,
+                              owl:NamedIndividual .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#Iris-Tst-Predictions-3.1.fold-i
+
+:Iris-Tst-Predictions-3.1.fold-i rdf:type DMOP:DataTable ,
+                                          owl:NamedIndividual .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#Iris-Tst3.i
+
+:Iris-Tst3.i rdf:type DMOP:CategoricalLabeledDataSet ,
+                      owl:NamedIndividual .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#Iris-Versicolor
+
+:Iris-Versicolor rdf:type DMOP:CategoricalFeatureValue ,
+                          owl:NamedIndividual .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#Iris-Virginica
+
+:Iris-Virginica rdf:type DMOP:CategoricalFeatureValue ,
+                         owl:NamedIndividual .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#J48Model3.i
+
+:J48Model3.i rdf:type DMOP:C4.5CrispTreeModel ,
+                      owl:NamedIndividual .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#J48Model3Final
+
+:J48Model3Final rdf:type DMOP:C4.5CrispTreeModel ,
+                         owl:NamedIndividual .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#Opex3-TrainFinalModel
+
+:Opex3-TrainFinalModel rdf:type DMOP:DM-Operation ,
+                                owl:NamedIndividual ;
+                       
+                       DMOP:hasInput DCHARS:Iris ;
+                       
+                       DMOP:hasOutput :J48Model3Final .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#Opex3-Xval
+
+:Opex3-Xval rdf:type DMOP:DM-Operation ,
+                     owl:NamedIndividual ;
+            
+            DMOP:hasOutput :AvgPerfMeasure3 ;
+            
+            ExtendedDnS:direct-successor :Opex3-TrainFinalModel ;
+            
+            DMOP:hasParameterSetting :Opset3 ;
+            
+            DMOP:hasFirstSubprocess :Proc3.i ;
+            
+            DMOP:executes RMOperators:RM-X-Validation .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#Opex3.i.1-WeightByInfogain
+
+:Opex3.i.1-WeightByInfogain rdf:type DMOP:DM-Operation ,
+                                     owl:NamedIndividual ;
+                            
+                            DMOP:hasOutput :Iris-Trn-FeatureWeights-3.1.fold-i ,
+                                           :Iris-Trn3.i ;
+                            
+                            DMOP:hasInput :Iris-Trn3.i ;
+                            
+                            ExtendedDnS:direct-successor :Opex3.i.2-SelectByWeights ;
+                            
+                            DMOP:executes RMOperators:RM-Weight_by_Information_Gain .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#Opex3.i.2-SelectByWeights
+
+:Opex3.i.2-SelectByWeights rdf:type DMOP:DM-Operation ,
+                                    owl:NamedIndividual ;
+                           
+                           DMOP:hasInput :Iris-Trn-FeatureWeights-3.1.fold-i ;
+                           
+                           DMOP:hasOutput :Iris-Tst-FSubset3.i ;
+                           
+                           DMOP:hasInput :Iris-Tst3.i ;
+                           
+                           ExtendedDnS:direct-successor :Opex3.i.3-J48 ,
+                                                        :Opex3.i.4-SelectByWeights ;
+                           
+                           DMOP:executes RMOperators:RM-Select_by_Weights .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#Opex3.i.3-J48
+
+:Opex3.i.3-J48 rdf:type DMOP:DM-Operation ,
+                        owl:NamedIndividual ;
+               
+               DMOP:hasInput :Iris-Trn-FSubset3.i ;
+               
+               DMOP:hasOutput :J48Model3.i ;
+               
+               ExtendedDnS:direct-successor :Opex3.i.5-ApplyModel ;
+               
+               DMOP:hasParameterSetting :Opset3.i.1 ;
+               
+               DMOP:executes WekaOperators:Weka-J48 .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#Opex3.i.4-SelectByWeights
+
+:Opex3.i.4-SelectByWeights rdf:type DMOP:DM-Operation ,
+                                    owl:NamedIndividual ;
+                           
+                           DMOP:hasOutput :Iris-Trn-FSubset3.i ;
+                           
+                           DMOP:hasInput :Iris-Trn-FeatureWeights-3.1.fold-i ;
+                           
+                           DMOP:hasOutput :Iris-Trn-FeatureWeights-3.1.fold-i ;
+                           
+                           DMOP:hasInput :Iris-Trn3.i ;
+                           
+                           ExtendedDnS:direct-successor :Opex3.i.5-ApplyModel ;
+                           
+                           DMOP:executes RMOperators:RM-Select_by_Weights .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#Opex3.i.5-ApplyModel
+
+:Opex3.i.5-ApplyModel rdf:type DMOP:DM-Operation ,
+                               owl:NamedIndividual ;
+                      
+                      DMOP:hasInput :Iris-Tst-FSubset3.i ;
+                      
+                      DMOP:hasOutput :Iris-Tst-FSubset3.i ,
+                                     :Iris-Tst-Predictions-3.1.fold-i ;
+                      
+                      DMOP:hasInput :J48Model3.i ;
+                      
+                      ExtendedDnS:direct-successor :Opex3.i.6-Performance ;
+                      
+                      DMOP:executes RMOperators:RM-Apply_Model .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#Opex3.i.6-Performance
+
+:Opex3.i.6-Performance rdf:type DMOP:DM-Operation ,
+                                owl:NamedIndividual ;
+                       
+                       DMOP:hasInput :Iris-Tst-FSubset3.i ,
+                                     :Iris-Tst-Predictions-3.1.fold-i ;
+                       
+                       DMOP:hasOutput :PerfMeasure-3.1.fold-i ;
+                       
+                       DMOP:executes RMOperators:RM-Performance .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#Opset3
+
+:Opset3 rdf:type DMOP:OpParameterSetting ,
+                 owl:NamedIndividual ;
+        
+        DMOP:hasDataValue 10 ;
+        
+        DMOP:setsValueOf RMOperators:RM-X-Validation-number_of_validations .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#Opset3.i.1
+
+:Opset3.i.1 rdf:type DMOP:OpParameterSetting ,
+                     owl:NamedIndividual ;
+            
+            DMOP:hasDataValue "0.25"^^xsd:float ;
+            
+            DMOP:setsValueOf WekaOperators:Weka-J48-C .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#PerfMeasure-3.1.fold-i
+
+:PerfMeasure-3.1.fold-i rdf:type DMOP:ModelEvaluationMeasure ,
+                                 owl:NamedIndividual .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#Proc3
+
+:Proc3 rdf:type DMOP:DM-Process ,
+                owl:NamedIndividual ;
+       
+       DMOP:hasInput DCHARS:Iris ;
+       
+       DMOP:hasOutput :AvgPerfMeasure3 ;
+       
+       DMOP:executes :FSC-Infogain-J48-Xval-Wf ;
+       
+       DMOP:hasOutput :J48Model3Final ;
+       
+       DMOP:hasFirstSubprocess :Opex3-Xval .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#Proc3.i
+
+:Proc3.i rdf:type DMOP:DM-Process ,
+                  owl:NamedIndividual ;
+         
+         DMOP:hasInput :Iris-Trn3.i ,
+                       :Iris-Tst3.i ;
+         
+         DMOP:hasFirstSubprocess :Opex3.i.1-WeightByInfogain ;
+         
+         DMOP:hasOutput :PerfMeasure-3.1.fold-i .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#svalC-Weka-J48-Iris-Wf-1
+
+:svalC-Weka-J48-Iris-Wf-1 rdf:type DMOP:DM-Workflow ,
+                                   owl:NamedIndividual .
+
+
+
+###  http://www.e-LICO.eu/ontologies/dmo/DMOP/DMEX.owl#xvalC-Weka-J48-Iris-Wf-2
+
+:xvalC-Weka-J48-Iris-Wf-2 rdf:type DMOP:DM-Workflow ,
+                                   owl:NamedIndividual .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/RMOperators.owl#RM-Apply_Model
+
+RMOperators:RM-Apply_Model rdf:type DMOP:RapidMinerOperator ,
+                                    owl:NamedIndividual .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/RMOperators.owl#RM-Performance
+
+RMOperators:RM-Performance rdf:type DMOP:RapidMinerOperator ,
+                                    owl:NamedIndividual .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/RMOperators.owl#RM-Select_by_Weights
+
+RMOperators:RM-Select_by_Weights rdf:type DMOP:RapidMinerOperator ,
+                                          owl:NamedIndividual .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/RMOperators.owl#RM-Weight_by_Information_Gain
+
+RMOperators:RM-Weight_by_Information_Gain rdf:type DMOP:RapidMinerOperator ,
+                                                   owl:NamedIndividual .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/RMOperators.owl#RM-X-Validation
+
+RMOperators:RM-X-Validation rdf:type DMOP:RapidMinerOperator ,
+                                     owl:NamedIndividual .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/RMOperators.owl#RM-X-Validation-number_of_validations
+
+RMOperators:RM-X-Validation-number_of_validations rdf:type DMOP:RM-OperatorParameter ,
+                                                           owl:NamedIndividual .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/WekaOperators.owl#Weka-J48
+
+WekaOperators:Weka-J48 rdf:type DMOP:WekaOperator ,
+                                owl:NamedIndividual .
+
+
+
+###  http://www.e-lico.eu/ontologies/dmo/DMOP/WekaOperators.owl#Weka-J48-C
+
+WekaOperators:Weka-J48-C rdf:type DMOP:Weka-OperatorParameter ,
+                                  owl:NamedIndividual .
+
+
+
+
+
+#################################################################
+#
+#    Annotations
+#
+#################################################################
+
+
+DMOP:RegressionTask DMOP:definition "RegressionTask: a PredictiveModelingTask in which the target or dependent variable is continuous-valued." .
+
+
+
+DMOP:StructuredPredictionTask DMOP:definition "StructuredPredictionTask: a PredictiveModelingTask in which the target or dependent variable represents a complex structure (e.g., a vector, graph, probability distribution) rather than a single categorical (classification) or real (regression) value. " .
+
+
+
+DMOP:ClassificationTask DMOP:definition "ClassificationTask:  is a PredictiveModelingTask in which the target or dependent variable takes a finite set of discrete values called classes." .
+
+
+
+
+
