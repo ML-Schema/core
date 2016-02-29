@@ -1,0 +1,325 @@
+@prefix : <https://github.com/ML-Schema/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://github.com/ML-Schema/> .
+
+<https://github.com/ML-Schema/> rdf:type owl:Ontology ;
+                                
+                                rdfs:label "MLS" ;
+                                
+                                <http://purl.org/dc/terms/title> "Machine Learning Schema" ;
+                                
+                                <http://purl.org/dc/terms/description> "ML-Schema is a collaborative, community effort with a mission to develop, maintain, and promote standard schemas for data mining and machine learning algorithms, datasets, and experiment" ;
+                                
+                                <http://protege.stanford.edu/plugins/owl/protege#defaultLanguage> "EN" ;
+                                
+                                owl:imports <http://purl.obolibrary.org/obo/iao/2015-02-23/ontology-metadata.owl> ,
+                                            <http://purl.org/dc/elements/1.1/> .
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  https://github.com/ML-Schema/MLS_0000013
+
+:MLS_0000013 rdf:type owl:ObjectProperty ;
+             
+             rdfs:label "hasPart"@en .
+
+
+
+###  https://github.com/ML-Schema/MLS_0000014
+
+:MLS_0000014 rdf:type owl:ObjectProperty ;
+             
+             rdfs:label "implements"@en .
+
+
+
+###  https://github.com/ML-Schema/MLS_0000015
+
+:MLS_0000015 rdf:type owl:ObjectProperty ;
+             
+             rdfs:label "hasHyperParameter"@en ;
+             
+             rdfs:subPropertyOf owl:topObjectProperty .
+
+
+
+###  https://github.com/ML-Schema/MLS_0000016
+
+:MLS_0000016 rdf:type owl:ObjectProperty ;
+             
+             rdfs:label "executedOnTask"@en ;
+             
+             rdfs:subPropertyOf owl:topObjectProperty .
+
+
+
+###  https://github.com/ML-Schema/MLS_0000017
+
+:MLS_0000017 rdf:type owl:ObjectProperty ;
+             
+             rdfs:label "definedOnData"@en ;
+             
+             rdfs:subPropertyOf owl:topObjectProperty .
+
+
+
+###  https://github.com/ML-Schema/MLS_0000018
+
+:MLS_0000018 rdf:type owl:ObjectProperty ;
+             
+             rdfs:label "evaluatedUsingMeasure"@en ;
+             
+             rdfs:subPropertyOf owl:topObjectProperty .
+
+
+
+###  https://github.com/ML-Schema/MLS_0000019
+
+:MLS_0000019 rdf:type owl:ObjectProperty ;
+             
+             rdfs:label "executedUsingImplementation"@en .
+
+
+
+###  https://github.com/ML-Schema/MLS_0000020
+
+:MLS_0000020 rdf:type owl:ObjectProperty ;
+             
+             rdfs:label "producesModel"@en .
+
+
+
+###  https://github.com/ML-Schema/MLS_0000021
+
+:MLS_0000021 rdf:type owl:ObjectProperty ;
+             
+             rdfs:label "hasSpecification"@en .
+
+
+
+###  https://github.com/ML-Schema/MLS_0000024
+
+:MLS_0000024 rdf:type owl:ObjectProperty ;
+             
+             rdfs:label "hasInput"@en ;
+             
+             rdfs:subPropertyOf owl:topObjectProperty .
+
+
+
+###  https://github.com/ML-Schema/MLS_0000025
+
+:MLS_0000025 rdf:type owl:ObjectProperty ;
+             
+             rdfs:label "definedForTask"@en ;
+             
+             rdfs:subPropertyOf owl:topObjectProperty .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  https://github.com/ML-Schema/MLS_0000001
+
+:MLS_0000001 rdf:type owl:Class ;
+             
+             rdfs:label "investigation"@en ;
+             
+             rdfs:subClassOf :MLS_0000023 ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :MLS_0000013 ;
+                               owl:someValuesFrom :MLS_0000002
+                             ] .
+
+
+
+###  https://github.com/ML-Schema/MLS_0000002
+
+:MLS_0000002 rdf:type owl:Class ;
+             
+             rdfs:label "study"@en ;
+             
+             rdfs:subClassOf :MLS_0000023 ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :MLS_0000013 ;
+                               owl:someValuesFrom :MLS_0000003
+                             ] .
+
+
+
+###  https://github.com/ML-Schema/MLS_0000003
+
+:MLS_0000003 rdf:type owl:Class ;
+             
+             rdfs:label "experiment"@en ;
+             
+             rdfs:subClassOf :MLS_0000023 ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :MLS_0000013 ;
+                               owl:someValuesFrom :MLS_0000004
+                             ] .
+
+
+
+###  https://github.com/ML-Schema/MLS_0000004
+
+:MLS_0000004 rdf:type owl:Class ;
+             
+             rdfs:label "run"@en ;
+             
+             rdfs:subClassOf :MLS_0000023 ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :MLS_0000016 ;
+                               owl:someValuesFrom :MLS_0000008
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :MLS_0000020 ;
+                               owl:someValuesFrom :MLS_0000011
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :MLS_0000018 ;
+                               owl:someValuesFrom :MLS_0000009
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :MLS_0000024 ;
+                               owl:someValuesFrom :MLS_0000012
+                             ] .
+
+
+
+###  https://github.com/ML-Schema/MLS_0000005
+
+:MLS_0000005 rdf:type owl:Class ;
+             
+             rdfs:label "algorithm"@en ;
+             
+             rdfs:subClassOf :MLS_0000022 .
+
+
+
+###  https://github.com/ML-Schema/MLS_0000006
+
+:MLS_0000006 rdf:type owl:Class ;
+             
+             rdfs:label "implementation"@en ;
+             
+             rdfs:subClassOf :MLS_0000022 ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :MLS_0000015 ;
+                               owl:someValuesFrom :MLS_0000007
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :MLS_0000014 ;
+                               owl:someValuesFrom :MLS_0000005
+                             ] .
+
+
+
+###  https://github.com/ML-Schema/MLS_0000007
+
+:MLS_0000007 rdf:type owl:Class ;
+             
+             rdfs:label "hyper-parameter"@en ;
+             
+             rdfs:subClassOf :MLS_0000022 .
+
+
+
+###  https://github.com/ML-Schema/MLS_0000008
+
+:MLS_0000008 rdf:type owl:Class ;
+             
+             rdfs:label "task"@en ;
+             
+             rdfs:subClassOf :MLS_0000022 ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :MLS_0000017 ;
+                               owl:someValuesFrom :MLS_0000012
+                             ] .
+
+
+
+###  https://github.com/ML-Schema/MLS_0000009
+
+:MLS_0000009 rdf:type owl:Class ;
+             
+             rdfs:label "evaluationMeasure"@en ;
+             
+             rdfs:subClassOf :MLS_0000022 ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :MLS_0000025 ;
+                               owl:someValuesFrom :MLS_0000008
+                             ] .
+
+
+
+###  https://github.com/ML-Schema/MLS_0000010
+
+:MLS_0000010 rdf:type owl:Class ;
+             
+             rdfs:label "modelSpecification"@en ;
+             
+             rdfs:subClassOf :MLS_0000022 .
+
+
+
+###  https://github.com/ML-Schema/MLS_0000011
+
+:MLS_0000011 rdf:type owl:Class ;
+             
+             rdfs:label "modelRepresentation"@en ;
+             
+             rdfs:subClassOf :MLS_0000022 ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :MLS_0000021 ;
+                               owl:someValuesFrom :MLS_0000010
+                             ] .
+
+
+
+###  https://github.com/ML-Schema/MLS_0000012
+
+:MLS_0000012 rdf:type owl:Class ;
+             
+             rdfs:label "data"@en ;
+             
+             rdfs:subClassOf :MLS_0000022 .
+
+
+
+###  https://github.com/ML-Schema/MLS_0000022
+
+:MLS_0000022 rdf:type owl:Class ;
+             
+             rdfs:label "informationEntity"@en .
+
+
+
+###  https://github.com/ML-Schema/MLS_0000023
+
+:MLS_0000023 rdf:type owl:Class ;
+             
+             rdfs:label "Process"@en .
+
+
+
+
+###  Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net
+
