@@ -1,4 +1,4 @@
-@prefix : <https://github.com/ML-Schema/> .
+@prefix : <http://www.w3.org/ns/mls#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -94,103 +94,103 @@ xsd:date rdf:type rdfs:Datatype .
 #################################################################
 
 
-###  http://www.w3.org/ns/mls#MLS_0000013
+###  http://www.w3.org/ns/mls#definedFor
 
-<http://www.w3.org/ns/mls#MLS_0000013> rdf:type owl:ObjectProperty ;
-                                       
-                                       rdfs:label "hasPart"@en .
-
-
-
-###  http://www.w3.org/ns/mls#MLS_0000014
-
-<http://www.w3.org/ns/mls#MLS_0000014> rdf:type owl:ObjectProperty ;
-                                       
-                                       rdfs:label "implements"@en .
+:definedFor rdf:type owl:ObjectProperty ;
+            
+            rdfs:label "definedFor"@en ;
+            
+            rdfs:subPropertyOf owl:topObjectProperty .
 
 
 
-###  http://www.w3.org/ns/mls#MLS_0000015
+###  http://www.w3.org/ns/mls#definedOn
 
-<http://www.w3.org/ns/mls#MLS_0000015> rdf:type owl:ObjectProperty ;
-                                       
-                                       rdfs:label "hasHyperParameter"@en ;
-                                       
-                                       rdfs:subPropertyOf owl:topObjectProperty .
-
-
-
-###  http://www.w3.org/ns/mls#MLS_0000016
-
-<http://www.w3.org/ns/mls#MLS_0000016> rdf:type owl:ObjectProperty ;
-                                       
-                                       rdfs:label "executedOnTask"@en ;
-                                       
-                                       rdfs:subPropertyOf owl:topObjectProperty .
+:definedOn rdf:type owl:ObjectProperty ;
+           
+           rdfs:label "definedOn"@en ;
+           
+           rdfs:subPropertyOf owl:topObjectProperty .
 
 
 
-###  http://www.w3.org/ns/mls#MLS_0000017
+###  http://www.w3.org/ns/mls#evaluatedUsing
 
-<http://www.w3.org/ns/mls#MLS_0000017> rdf:type owl:ObjectProperty ;
-                                       
-                                       rdfs:label "definedOnData"@en ;
-                                       
-                                       rdfs:subPropertyOf owl:topObjectProperty .
-
-
-
-###  http://www.w3.org/ns/mls#MLS_0000018
-
-<http://www.w3.org/ns/mls#MLS_0000018> rdf:type owl:ObjectProperty ;
-                                       
-                                       rdfs:label "evaluatedUsingMeasure"@en ;
-                                       
-                                       rdfs:subPropertyOf owl:topObjectProperty .
+:evaluatedUsing rdf:type owl:ObjectProperty ;
+                
+                rdfs:label "evaluatedUsing"@en ;
+                
+                rdfs:subPropertyOf owl:topObjectProperty .
 
 
 
-###  http://www.w3.org/ns/mls#MLS_0000019
+###  http://www.w3.org/ns/mls#executedOn
 
-<http://www.w3.org/ns/mls#MLS_0000019> rdf:type owl:ObjectProperty ;
-                                       
-                                       rdfs:label "executedUsingImplementation"@en .
-
-
-
-###  http://www.w3.org/ns/mls#MLS_0000020
-
-<http://www.w3.org/ns/mls#MLS_0000020> rdf:type owl:ObjectProperty ;
-                                       
-                                       rdfs:label "producesModel"@en .
+:executedOn rdf:type owl:ObjectProperty ;
+            
+            rdfs:label "executedOn"@en ;
+            
+            rdfs:subPropertyOf owl:topObjectProperty .
 
 
 
-###  http://www.w3.org/ns/mls#MLS_0000021
+###  http://www.w3.org/ns/mls#executedUsing
 
-<http://www.w3.org/ns/mls#MLS_0000021> rdf:type owl:ObjectProperty ;
-                                       
-                                       rdfs:label "hasSpecification"@en .
-
-
-
-###  http://www.w3.org/ns/mls#MLS_0000024
-
-<http://www.w3.org/ns/mls#MLS_0000024> rdf:type owl:ObjectProperty ;
-                                       
-                                       rdfs:label "hasInput"@en ;
-                                       
-                                       rdfs:subPropertyOf owl:topObjectProperty .
+:executedUsing rdf:type owl:ObjectProperty ;
+               
+               rdfs:label "executedUsing"@en .
 
 
 
-###  http://www.w3.org/ns/mls#MLS_0000025
+###  http://www.w3.org/ns/mls#hasHyperParameter
 
-<http://www.w3.org/ns/mls#MLS_0000025> rdf:type owl:ObjectProperty ;
-                                       
-                                       rdfs:label "definedForTask"@en ;
-                                       
-                                       rdfs:subPropertyOf owl:topObjectProperty .
+:hasHyperParameter rdf:type owl:ObjectProperty ;
+                   
+                   rdfs:label "hasHyperParameter"@en ;
+                   
+                   rdfs:subPropertyOf owl:topObjectProperty .
+
+
+
+###  http://www.w3.org/ns/mls#hasInput
+
+:hasInput rdf:type owl:ObjectProperty ;
+          
+          rdfs:label "hasInput"@en ;
+          
+          rdfs:subPropertyOf owl:topObjectProperty .
+
+
+
+###  http://www.w3.org/ns/mls#hasPart
+
+:hasPart rdf:type owl:ObjectProperty ;
+         
+         rdfs:label "hasPart"@en .
+
+
+
+###  http://www.w3.org/ns/mls#hasSpecification
+
+:hasSpecification rdf:type owl:ObjectProperty ;
+                  
+                  rdfs:label "hasSpecification"@en .
+
+
+
+###  http://www.w3.org/ns/mls#implements
+
+:implements rdf:type owl:ObjectProperty ;
+            
+            rdfs:label "implements"@en .
+
+
+
+###  http://www.w3.org/ns/mls#produces
+
+:produces rdf:type owl:ObjectProperty ;
+          
+          rdfs:label "produces"@en .
 
 
 
@@ -203,187 +203,187 @@ xsd:date rdf:type rdfs:Datatype .
 #################################################################
 
 
-###  http://www.w3.org/ns/mls#MLS_0000001
+###  http://www.w3.org/ns/mls#Algorithm
 
-<http://www.w3.org/ns/mls#MLS_0000001> rdf:type owl:Class ;
-                                       
-                                       rdfs:label "investigation"@en ;
-                                       
-                                       rdfs:subClassOf <http://www.w3.org/ns/mls#MLS_0000023> ,
-                                                       [ rdf:type owl:Restriction ;
-                                                         owl:onProperty <http://www.w3.org/ns/mls#MLS_0000013> ;
-                                                         owl:someValuesFrom <http://www.w3.org/ns/mls#MLS_0000002>
-                                                       ] .
+:Algorithm rdf:type owl:Class ;
+           
+           rdfs:label "algorithm"@en ;
+           
+           rdfs:subClassOf :InformationEntity .
 
 
 
-###  http://www.w3.org/ns/mls#MLS_0000002
+###  http://www.w3.org/ns/mls#Data
 
-<http://www.w3.org/ns/mls#MLS_0000002> rdf:type owl:Class ;
-                                       
-                                       rdfs:label "study"@en ;
-                                       
-                                       rdfs:subClassOf <http://www.w3.org/ns/mls#MLS_0000023> ,
-                                                       [ rdf:type owl:Restriction ;
-                                                         owl:onProperty <http://www.w3.org/ns/mls#MLS_0000013> ;
-                                                         owl:someValuesFrom <http://www.w3.org/ns/mls#MLS_0000003>
-                                                       ] .
+:Data rdf:type owl:Class ;
+      
+      rdfs:label "data"@en ;
+      
+      rdfs:subClassOf :InformationEntity .
 
 
 
-###  http://www.w3.org/ns/mls#MLS_0000003
+###  http://www.w3.org/ns/mls#EvaluationMeasure
 
-<http://www.w3.org/ns/mls#MLS_0000003> rdf:type owl:Class ;
-                                       
-                                       rdfs:label "experiment"@en ;
-                                       
-                                       rdfs:subClassOf <http://www.w3.org/ns/mls#MLS_0000023> ,
-                                                       [ rdf:type owl:Restriction ;
-                                                         owl:onProperty <http://www.w3.org/ns/mls#MLS_0000013> ;
-                                                         owl:someValuesFrom <http://www.w3.org/ns/mls#MLS_0000004>
-                                                       ] .
-
-
-
-###  http://www.w3.org/ns/mls#MLS_0000004
-
-<http://www.w3.org/ns/mls#MLS_0000004> rdf:type owl:Class ;
-                                       
-                                       rdfs:label "run"@en ;
-                                       
-                                       rdfs:subClassOf <http://www.w3.org/ns/mls#MLS_0000023> ,
-                                                       [ rdf:type owl:Restriction ;
-                                                         owl:onProperty <http://www.w3.org/ns/mls#MLS_0000020> ;
-                                                         owl:someValuesFrom <http://www.w3.org/ns/mls#MLS_0000011>
-                                                       ] ,
-                                                       [ rdf:type owl:Restriction ;
-                                                         owl:onProperty <http://www.w3.org/ns/mls#MLS_0000016> ;
-                                                         owl:someValuesFrom <http://www.w3.org/ns/mls#MLS_0000008>
-                                                       ] ,
-                                                       [ rdf:type owl:Restriction ;
-                                                         owl:onProperty <http://www.w3.org/ns/mls#MLS_0000024> ;
-                                                         owl:someValuesFrom <http://www.w3.org/ns/mls#MLS_0000012>
-                                                       ] ,
-                                                       [ rdf:type owl:Restriction ;
-                                                         owl:onProperty <http://www.w3.org/ns/mls#MLS_0000018> ;
-                                                         owl:someValuesFrom <http://www.w3.org/ns/mls#MLS_0000009>
-                                                       ] .
+:EvaluationMeasure rdf:type owl:Class ;
+                   
+                   rdfs:label "evaluationMeasure"@en ;
+                   
+                   rdfs:subClassOf :InformationEntity ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :definedFor ;
+                                     owl:someValuesFrom :Task
+                                   ] .
 
 
 
-###  http://www.w3.org/ns/mls#MLS_0000005
+###  http://www.w3.org/ns/mls#Experiment
 
-<http://www.w3.org/ns/mls#MLS_0000005> rdf:type owl:Class ;
-                                       
-                                       rdfs:label "algorithm"@en ;
-                                       
-                                       rdfs:subClassOf <http://www.w3.org/ns/mls#MLS_0000022> .
-
-
-
-###  http://www.w3.org/ns/mls#MLS_0000006
-
-<http://www.w3.org/ns/mls#MLS_0000006> rdf:type owl:Class ;
-                                       
-                                       rdfs:label "implementation"@en ;
-                                       
-                                       rdfs:subClassOf <http://www.w3.org/ns/mls#MLS_0000022> ,
-                                                       [ rdf:type owl:Restriction ;
-                                                         owl:onProperty <http://www.w3.org/ns/mls#MLS_0000014> ;
-                                                         owl:someValuesFrom <http://www.w3.org/ns/mls#MLS_0000005>
-                                                       ] ,
-                                                       [ rdf:type owl:Restriction ;
-                                                         owl:onProperty <http://www.w3.org/ns/mls#MLS_0000015> ;
-                                                         owl:someValuesFrom <http://www.w3.org/ns/mls#MLS_0000007>
-                                                       ] .
+:Experiment rdf:type owl:Class ;
+            
+            rdfs:label "experiment"@en ;
+            
+            rdfs:subClassOf :Process ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasPart ;
+                              owl:someValuesFrom :Run
+                            ] .
 
 
 
-###  http://www.w3.org/ns/mls#MLS_0000007
+###  http://www.w3.org/ns/mls#HyperParameter
 
-<http://www.w3.org/ns/mls#MLS_0000007> rdf:type owl:Class ;
-                                       
-                                       rdfs:label "hyper-parameter"@en ;
-                                       
-                                       rdfs:subClassOf <http://www.w3.org/ns/mls#MLS_0000022> .
-
-
-
-###  http://www.w3.org/ns/mls#MLS_0000008
-
-<http://www.w3.org/ns/mls#MLS_0000008> rdf:type owl:Class ;
-                                       
-                                       rdfs:label "task"@en ;
-                                       
-                                       rdfs:subClassOf <http://www.w3.org/ns/mls#MLS_0000022> ,
-                                                       [ rdf:type owl:Restriction ;
-                                                         owl:onProperty <http://www.w3.org/ns/mls#MLS_0000017> ;
-                                                         owl:someValuesFrom <http://www.w3.org/ns/mls#MLS_0000012>
-                                                       ] .
+:HyperParameter rdf:type owl:Class ;
+                
+                rdfs:label "hyper-parameter"@en ;
+                
+                rdfs:subClassOf :InformationEntity .
 
 
 
-###  http://www.w3.org/ns/mls#MLS_0000009
+###  http://www.w3.org/ns/mls#Implementation
 
-<http://www.w3.org/ns/mls#MLS_0000009> rdf:type owl:Class ;
-                                       
-                                       rdfs:label "evaluationMeasure"@en ;
-                                       
-                                       rdfs:subClassOf <http://www.w3.org/ns/mls#MLS_0000022> ,
-                                                       [ rdf:type owl:Restriction ;
-                                                         owl:onProperty <http://www.w3.org/ns/mls#MLS_0000025> ;
-                                                         owl:someValuesFrom <http://www.w3.org/ns/mls#MLS_0000008>
-                                                       ] .
-
-
-
-###  http://www.w3.org/ns/mls#MLS_0000010
-
-<http://www.w3.org/ns/mls#MLS_0000010> rdf:type owl:Class ;
-                                       
-                                       rdfs:label "modelSpecification"@en ;
-                                       
-                                       rdfs:subClassOf <http://www.w3.org/ns/mls#MLS_0000022> .
+:Implementation rdf:type owl:Class ;
+                
+                rdfs:label "implementation"@en ;
+                
+                rdfs:subClassOf :InformationEntity ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :implements ;
+                                  owl:someValuesFrom :Algorithm
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :hasHyperParameter ;
+                                  owl:someValuesFrom :HyperParameter
+                                ] .
 
 
 
-###  http://www.w3.org/ns/mls#MLS_0000011
+###  http://www.w3.org/ns/mls#InformationEntity
 
-<http://www.w3.org/ns/mls#MLS_0000011> rdf:type owl:Class ;
-                                       
-                                       rdfs:label "modelRepresentation"@en ;
-                                       
-                                       rdfs:subClassOf <http://www.w3.org/ns/mls#MLS_0000022> ,
-                                                       [ rdf:type owl:Restriction ;
-                                                         owl:onProperty <http://www.w3.org/ns/mls#MLS_0000021> ;
-                                                         owl:someValuesFrom <http://www.w3.org/ns/mls#MLS_0000010>
-                                                       ] .
+:InformationEntity rdf:type owl:Class ;
+                   
+                   rdfs:label "informationEntity"@en .
 
 
 
-###  http://www.w3.org/ns/mls#MLS_0000012
+###  http://www.w3.org/ns/mls#Investigation
 
-<http://www.w3.org/ns/mls#MLS_0000012> rdf:type owl:Class ;
-                                       
-                                       rdfs:label "data"@en ;
-                                       
-                                       rdfs:subClassOf <http://www.w3.org/ns/mls#MLS_0000022> .
-
-
-
-###  http://www.w3.org/ns/mls#MLS_0000022
-
-<http://www.w3.org/ns/mls#MLS_0000022> rdf:type owl:Class ;
-                                       
-                                       rdfs:label "informationEntity"@en .
+:Investigation rdf:type owl:Class ;
+               
+               rdfs:label "investigation"@en ;
+               
+               rdfs:subClassOf :Process ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasPart ;
+                                 owl:someValuesFrom :Study
+                               ] .
 
 
 
-###  http://www.w3.org/ns/mls#MLS_0000023
+###  http://www.w3.org/ns/mls#ModelRepresentation
 
-<http://www.w3.org/ns/mls#MLS_0000023> rdf:type owl:Class ;
-                                       
-                                       rdfs:label "Process"@en .
+:ModelRepresentation rdf:type owl:Class ;
+                     
+                     rdfs:label "modelRepresentation"@en ;
+                     
+                     rdfs:subClassOf :InformationEntity ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasSpecification ;
+                                       owl:someValuesFrom :ModelSpecification
+                                     ] .
+
+
+
+###  http://www.w3.org/ns/mls#ModelSpecification
+
+:ModelSpecification rdf:type owl:Class ;
+                    
+                    rdfs:label "modelSpecification"@en ;
+                    
+                    rdfs:subClassOf :InformationEntity .
+
+
+
+###  http://www.w3.org/ns/mls#Process
+
+:Process rdf:type owl:Class ;
+         
+         rdfs:label "Process"@en .
+
+
+
+###  http://www.w3.org/ns/mls#Run
+
+:Run rdf:type owl:Class ;
+     
+     rdfs:label "run"@en ;
+     
+     rdfs:subClassOf :Process ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :executedOn ;
+                       owl:someValuesFrom :Task
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :evaluatedUsing ;
+                       owl:someValuesFrom :EvaluationMeasure
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :produces ;
+                       owl:someValuesFrom :ModelRepresentation
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :hasInput ;
+                       owl:someValuesFrom :Data
+                     ] .
+
+
+
+###  http://www.w3.org/ns/mls#Study
+
+:Study rdf:type owl:Class ;
+       
+       rdfs:label "study"@en ;
+       
+       rdfs:subClassOf :Process ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasPart ;
+                         owl:someValuesFrom :Experiment
+                       ] .
+
+
+
+###  http://www.w3.org/ns/mls#Task
+
+:Task rdf:type owl:Class ;
+      
+      rdfs:label "task"@en ;
+      
+      rdfs:subClassOf :InformationEntity ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :definedOn ;
+                        owl:someValuesFrom :Data
+                      ] .
 
 
 
