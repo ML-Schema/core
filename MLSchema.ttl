@@ -4,759 +4,539 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://www.w3.org/ns/mls#> .
 
-<http://www.w3.org/ns/mls#> rdf:type owl:Ontology ;
-                            
-                            rdfs:label "MLS" ;
-                            
-                            <http://purl.org/dc/terms/description> "ML-Schema is a collaborative, community effort with a mission to develop, maintain, and promote standard schemas for data mining and machine learning algorithms, datasets, and experiment" ;
-                            
-                            <http://purl.org/dc/terms/title> "Machine Learning Schema" ;
-                            
-                            <http://protege.stanford.edu/plugins/owl/protege#defaultLanguage> "EN" ;
-                            
-                            owl:versionIRI <http://www.w3.org/2016/03/mls#> .
-
-
-#################################################################
-#
-#    Annotation properties
-#
-#################################################################
-
-
-###  http://purl.org/dc/terms/description
-
-<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
-
-
-
-###  http://purl.org/dc/terms/hasVersion
-
-<http://purl.org/dc/terms/hasVersion> rdf:type owl:AnnotationProperty .
-
-
-
-###  http://purl.org/dc/terms/issued
-
-<http://purl.org/dc/terms/issued> rdf:type owl:AnnotationProperty .
-
-
-
-###  http://purl.org/dc/terms/modified
-
-<http://purl.org/dc/terms/modified> rdf:type owl:AnnotationProperty .
-
-
-
-###  http://purl.org/dc/terms/publisher
-
-<http://purl.org/dc/terms/publisher> rdf:type owl:AnnotationProperty .
-
-
-
-###  http://purl.org/dc/terms/title
-
-<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
-
-
-
-###  http://www.w3.org/2004/02/skos/core#note
-
-<http://www.w3.org/2004/02/skos/core#note> rdf:type owl:AnnotationProperty .
-
-
-
-
-
-#################################################################
-#
-#    Datatypes
-#
-#################################################################
-
-
-###  http://www.w3.org/2001/XMLSchema#date
-
-xsd:date rdf:type rdfs:Datatype .
-
-
-
-
-
-#################################################################
-#
-#    Object Properties
-#
-#################################################################
-
-
-###  http://www.w3.org/ns/mls#definedOn
-
-:definedOn rdf:type owl:ObjectProperty ;
-           
-           rdfs:label "definedOn"@en ;
-           
-           rdfs:subPropertyOf owl:topObjectProperty .
-
-
-
-###  http://www.w3.org/ns/mls#executes
-
-:executes rdf:type owl:ObjectProperty ;
-          
-          rdfs:subPropertyOf owl:topObjectProperty .
-
-
-
-###  http://www.w3.org/ns/mls#hasHyperParameter
-
-:hasHyperParameter rdf:type owl:ObjectProperty ;
-                   
-                   rdfs:label "hasHyperParameter"@en ;
-                   
-                   rdfs:subPropertyOf owl:topObjectProperty .
-
-
-
-###  http://www.w3.org/ns/mls#hasInput
-
-:hasInput rdf:type owl:ObjectProperty ;
-          
-          rdfs:label "hasInput"@en ;
-          
-          rdfs:subPropertyOf owl:topObjectProperty .
-
-
-
-###  http://www.w3.org/ns/mls#hasOutput
-
-:hasOutput rdf:type owl:ObjectProperty .
-
-
-
-###  http://www.w3.org/ns/mls#hasPart
-
-:hasPart rdf:type owl:ObjectProperty ;
-         
-         rdfs:label "hasPart"@en .
-
-
-
-###  http://www.w3.org/ns/mls#hasQuality
-
-:hasQuality rdf:type owl:ObjectProperty .
-
-
-
-###  http://www.w3.org/ns/mls#implements
-
-:implements rdf:type owl:ObjectProperty ;
-            
-            rdfs:label "implements"@en .
-
-
-
-###  http://www.w3.org/ns/mls#realizes
-
-:realizes rdf:type owl:ObjectProperty ;
-          
-          rdfs:subPropertyOf owl:topObjectProperty .
-
-
-
-###  http://www.w3.org/ns/mls#specifiedBy
-
-:specifiedBy rdf:type owl:ObjectProperty .
-
-
-
-
-
-#################################################################
-#
-#    Data properties
-#
-#################################################################
-
-
-###  http://www.w3.org/ns/mls#hasValue
-
-:hasValue rdf:type owl:DatatypeProperty .
-
-
-
-
-
-#################################################################
-#
-#    Classes
-#
-#################################################################
-
-
-###  http://www.w3.org/ns/mls#Algorithm
-
-:Algorithm rdf:type owl:Class ;
-           
-           rdfs:subClassOf :InformationEntity .
-
-
-
-###  http://www.w3.org/ns/mls#Data
-
-:Data rdf:type owl:Class ;
-      
-      rdfs:subClassOf :InformationEntity ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty :hasQuality ;
-                        owl:someValuesFrom :DataCharacteristic
-                      ] .
-
-
-
-###  http://www.w3.org/ns/mls#DataCharacteristic
-
-:DataCharacteristic rdf:type owl:Class ;
-                    
-                    rdfs:subClassOf :InformationEntity .
-
-
-
-###  http://www.w3.org/ns/mls#Dataset
-
-:Dataset rdf:type owl:Class ;
-         
-         rdfs:subClassOf :Data .
-
-
-
-###  http://www.w3.org/ns/mls#DatasetCharacteristic
-
-:DatasetCharacteristic rdf:type owl:Class ;
-                       
-                       rdfs:subClassOf :DataCharacteristic .
-
-
-
-###  http://www.w3.org/ns/mls#EvaluationMeasure
-
-:EvaluationMeasure rdf:type owl:Class ;
-                   
-                   rdfs:subClassOf :InformationEntity .
-
-
-
-###  http://www.w3.org/ns/mls#EvaluationProcedure
-
-:EvaluationProcedure rdf:type owl:Class ;
-                     
-                     rdfs:subClassOf :InformationEntity .
-
-
-
-###  http://www.w3.org/ns/mls#EvaluationSpecification
-
-:EvaluationSpecification rdf:type owl:Class ;
-                         
-                         rdfs:subClassOf :InformationEntity ,
-                                         [ rdf:type owl:Restriction ;
-                                           owl:onProperty :hasPart ;
-                                           owl:someValuesFrom :EvaluationMeasure
-                                         ] ,
-                                         [ rdf:type owl:Restriction ;
-                                           owl:onProperty :hasPart ;
-                                           owl:someValuesFrom :EvaluationProcedure
-                                         ] .
-
-
-
-###  http://www.w3.org/ns/mls#Experiment
-
-:Experiment rdf:type owl:Class ;
-            
-            rdfs:subClassOf :Process ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty :hasPart ;
-                              owl:someValuesFrom :Run
-                            ] .
-
-
-
-###  http://www.w3.org/ns/mls#Feature
-
-:Feature rdf:type owl:Class ;
-         
-         rdfs:subClassOf :Data .
-
-
-
-###  http://www.w3.org/ns/mls#FeatureCharacteristic
-
-:FeatureCharacteristic rdf:type owl:Class ;
-                       
-                       rdfs:subClassOf :DataCharacteristic .
-
-
-
-###  http://www.w3.org/ns/mls#HyperParameter
-
-:HyperParameter rdf:type owl:Class ;
-                
-                rdfs:subClassOf :InformationEntity .
-
-
-
-###  http://www.w3.org/ns/mls#HyperParameterSetting
-
-:HyperParameterSetting rdf:type owl:Class ;
-                       
-                       rdfs:subClassOf :InformationEntity ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty :hasValue ;
-                                         owl:someValuesFrom rdfs:Literal
-                                       ] ,
-                                       [ rdf:type owl:Restriction ;
-                                         owl:onProperty :specifiedBy ;
-                                         owl:someValuesFrom :HyperParameter
-                                       ] .
-
-
-
-###  http://www.w3.org/ns/mls#Implementation
-
-:Implementation rdf:type owl:Class ;
-                
-                rdfs:subClassOf :InformationEntity ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty :implements ;
-                                  owl:someValuesFrom :Algorithm
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty :hasQuality ;
-                                  owl:someValuesFrom :ImplementationCharacteristic
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty :hasHyperParameter ;
-                                  owl:someValuesFrom :HyperParameter
-                                ] .
-
-
-
-###  http://www.w3.org/ns/mls#ImplementationCharacteristic
-
-:ImplementationCharacteristic rdf:type owl:Class ;
-                              
-                              rdfs:subClassOf :InformationEntity .
-
-
-
-###  http://www.w3.org/ns/mls#InformationEntity
-
-:InformationEntity rdf:type owl:Class .
-
-
-
-###  http://www.w3.org/ns/mls#Investigation
-
-:Investigation rdf:type owl:Class ;
-               
-               rdfs:subClassOf :Process ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :hasPart ;
-                                 owl:someValuesFrom :Study
-                               ] .
-
-
-
-###  http://www.w3.org/ns/mls#Model
-
-:Model rdf:type owl:Class ;
-       
-       rdfs:subClassOf :InformationEntity ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :hasQuality ;
-                         owl:someValuesFrom :ModelCharacteristic
-                       ] .
-
-
-
-###  http://www.w3.org/ns/mls#ModelCharacteristic
-
-:ModelCharacteristic rdf:type owl:Class ;
-                     
-                     rdfs:subClassOf :InformationEntity .
-
-
-
-###  http://www.w3.org/ns/mls#ModelEvaluation
-
-:ModelEvaluation rdf:type owl:Class ;
-                 
-                 rdfs:subClassOf :InformationEntity ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :hasValue ;
-                                   owl:someValuesFrom rdfs:Literal
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :specifiedBy ;
-                                   owl:someValuesFrom :EvaluationMeasure
-                                 ] .
-
-
-
-###  http://www.w3.org/ns/mls#Process
-
-:Process rdf:type owl:Class ;
-         
-         rdfs:label "Process"@en .
-
-
-
-###  http://www.w3.org/ns/mls#Run
-
-:Run rdf:type owl:Class ;
-     
-     rdfs:subClassOf :Process ,
-                     [ rdf:type owl:Restriction ;
-                       owl:onProperty :hasOutput ;
-                       owl:someValuesFrom :Model
-                     ] ,
-                     [ rdf:type owl:Restriction ;
-                       owl:onProperty :hasInput ;
-                       owl:someValuesFrom :Data
-                     ] ,
-                     [ rdf:type owl:Restriction ;
-                       owl:onProperty :hasOutput ;
-                       owl:someValuesFrom :ModelEvaluation
-                     ] ,
-                     [ rdf:type owl:Restriction ;
-                       owl:onProperty :realizes ;
-                       owl:someValuesFrom :Task
-                     ] ,
-                     [ rdf:type owl:Restriction ;
-                       owl:onProperty :executes ;
-                       owl:someValuesFrom :Implementation
-                     ] .
-
-
-
-###  http://www.w3.org/ns/mls#Study
-
-:Study rdf:type owl:Class ;
-       
-       rdfs:subClassOf :Process ,
-                       [ rdf:type owl:Restriction ;
-                         owl:onProperty :hasPart ;
-                         owl:someValuesFrom :Experiment
-                       ] .
-
-
-
-###  http://www.w3.org/ns/mls#Task
-
-:Task rdf:type owl:Class ;
-      
-      rdfs:subClassOf :InformationEntity ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty :definedOn ;
-                        owl:someValuesFrom :EvaluationSpecification
-                      ] ,
-                      [ rdf:type owl:Restriction ;
-                        owl:onProperty :definedOn ;
-                        owl:someValuesFrom :Data
-                      ] .
-
-
-
-
-
-#################################################################
-#
-#    Annotations
-#
-#################################################################
-
+<http://www.w3.org/ns/mls#> a owl:Ontology ;
+	owl:versionIRI <http://www.w3.org/2016/03/mls#> ;
+	<http://protege.stanford.edu/plugins/owl/protege#defaultLanguage> "EN" ;
+	<http://purl.org/dc/terms/description> "ML-Schema is a collaborative, community effort with a mission to develop, maintain, and promote standard schemas for data mining and machine learning algorithms, datasets, and experiments" ;
+	<http://purl.org/dc/terms/hasVersion> "1.0"^^xsd:decimal ;
+	<http://purl.org/dc/terms/title> "Machine Learning Schema" .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/terms/description
+
+<http://purl.org/dc/terms/description> a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/hasVersion
+
+<http://purl.org/dc/terms/hasVersion> a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/issued
+
+<http://purl.org/dc/terms/issued> a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/modified
+
+<http://purl.org/dc/terms/modified> a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/publisher
+
+<http://purl.org/dc/terms/publisher> a owl:AnnotationProperty .
+# 
+# http://purl.org/dc/terms/title
+
+<http://purl.org/dc/terms/title> a owl:AnnotationProperty .
+# 
+# http://www.w3.org/2004/02/skos/core#note
+
+<http://www.w3.org/2004/02/skos/core#note> a owl:AnnotationProperty .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Datatypes
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/2001/XMLSchema#date
+
+xsd:date a rdfs:Datatype .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/ns/mls#definedOn
+
+:definedOn a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:label "definedOn"@en .
+# 
+# http://www.w3.org/ns/mls#executes
+
+:executes a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty .
+# 
+# http://www.w3.org/ns/mls#hasHyperParameter
+
+:hasHyperParameter a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:label "hasHyperParameter"@en .
+# 
+# http://www.w3.org/ns/mls#hasInput
+
+:hasInput a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty ;
+	rdfs:label "hasInput"@en .
+# 
+# http://www.w3.org/ns/mls#hasOutput
+
+:hasOutput a owl:ObjectProperty .
+# 
+# http://www.w3.org/ns/mls#hasPart
+
+:hasPart a owl:ObjectProperty ;
+	rdfs:label "hasPart"@en .
+# 
+# http://www.w3.org/ns/mls#hasQuality
+
+:hasQuality a owl:ObjectProperty .
+# 
+# http://www.w3.org/ns/mls#implements
+
+:implements a owl:ObjectProperty ;
+	rdfs:label "implements"@en .
+# 
+# http://www.w3.org/ns/mls#realizes
+
+:realizes a owl:ObjectProperty ;
+	rdfs:subPropertyOf owl:topObjectProperty .
+# 
+# http://www.w3.org/ns/mls#specifiedBy
+
+:specifiedBy a owl:ObjectProperty .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/ns/mls#hasValue
+
+:hasValue a owl:DatatypeProperty .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/ns/mls#Algorithm
+
+:Algorithm a owl:Class ;
+	rdfs:subClassOf :InformationEntity ;
+	<http://purl.org/dc/terms/description> "The algorithm regardless software implementation." .
+# 
+# http://www.w3.org/ns/mls#Data
+
+:Data a owl:Class ;
+	rdfs:subClassOf :InformationEntity , _:genid1 .
+
+_:genid1 a owl:Restriction ;
+	owl:onProperty :hasQuality ;
+	owl:someValuesFrom :DataCharacteristic .
+# 
+# http://www.w3.org/ns/mls#DataCharacteristic
+
+:DataCharacteristic a owl:Class ;
+	rdfs:subClassOf :InformationEntity .
+# 
+# http://www.w3.org/ns/mls#Dataset
+
+:Dataset a owl:Class ;
+	rdfs:subClassOf :Data .
+# 
+# http://www.w3.org/ns/mls#DatasetCharacteristic
+
+:DatasetCharacteristic a owl:Class ;
+	rdfs:subClassOf :DataCharacteristic .
+# 
+# http://www.w3.org/ns/mls#EvaluationMeasure
+
+:EvaluationMeasure a owl:Class ;
+	rdfs:subClassOf :InformationEntity .
+# 
+# http://www.w3.org/ns/mls#EvaluationProcedure
+
+:EvaluationProcedure a owl:Class ;
+	rdfs:subClassOf :InformationEntity .
+# 
+# http://www.w3.org/ns/mls#EvaluationSpecification
+
+:EvaluationSpecification a owl:Class ;
+	rdfs:subClassOf :InformationEntity , _:genid2 .
+
+_:genid2 a owl:Restriction ;
+	owl:onProperty :hasPart ;
+	owl:someValuesFrom :EvaluationMeasure .
+
+:EvaluationSpecification rdfs:subClassOf _:genid3 .
+
+_:genid3 a owl:Restriction ;
+	owl:onProperty :hasPart ;
+	owl:someValuesFrom :EvaluationProcedure .
+# 
+# http://www.w3.org/ns/mls#Experiment
+
+:Experiment a owl:Class ;
+	rdfs:subClassOf :Process , _:genid4 .
+
+_:genid4 a owl:Restriction ;
+	owl:onProperty :hasPart ;
+	owl:someValuesFrom :Run .
+# 
+# http://www.w3.org/ns/mls#Feature
+
+:Feature a owl:Class ;
+	rdfs:subClassOf :Data .
+# 
+# http://www.w3.org/ns/mls#FeatureCharacteristic
+
+:FeatureCharacteristic a owl:Class ;
+	rdfs:subClassOf :DataCharacteristic .
+# 
+# http://www.w3.org/ns/mls#HyperParameter
+
+:HyperParameter a owl:Class ;
+	rdfs:subClassOf :InformationEntity ;
+	<http://purl.org/dc/terms/description> "A prior parameter of an implementation (e.g. C, the complexity parameter, in weka.SMO)." .
+# 
+# http://www.w3.org/ns/mls#HyperParameterSetting
+
+:HyperParameterSetting a owl:Class ;
+	rdfs:subClassOf :InformationEntity , _:genid5 .
+
+_:genid5 a owl:Restriction ;
+	owl:onProperty :specifiedBy ;
+	owl:someValuesFrom :HyperParameter .
+
+:HyperParameterSetting rdfs:subClassOf _:genid6 .
+
+_:genid6 a owl:Restriction ;
+	owl:onProperty :hasValue ;
+	owl:someValuesFrom rdfs:Literal .
+# 
+# http://www.w3.org/ns/mls#Implementation
+
+:Implementation a owl:Class ;
+	rdfs:subClassOf :InformationEntity , _:genid7 .
+
+_:genid7 a owl:Restriction ;
+	owl:onProperty :hasHyperParameter ;
+	owl:someValuesFrom :HyperParameter .
+
+:Implementation rdfs:subClassOf _:genid8 .
+
+_:genid8 a owl:Restriction ;
+	owl:onProperty :hasQuality ;
+	owl:someValuesFrom :ImplementationCharacteristic .
+
+:Implementation rdfs:subClassOf _:genid9 .
+
+_:genid9 a owl:Restriction ;
+	owl:onProperty :implements ;
+	owl:someValuesFrom :Algorithm .
+
+:Implementation <http://purl.org/dc/terms/description> "An executable implementation of a machine learning algorithm, a script, or a workflow. It is versioned, and sometimes belongs to a library (e.g. WEKA)." .
+# 
+# http://www.w3.org/ns/mls#ImplementationCharacteristic
+
+:ImplementationCharacteristic a owl:Class ;
+	rdfs:subClassOf :InformationEntity .
+# 
+# http://www.w3.org/ns/mls#InformationEntity
+
+:InformationEntity a owl:Class .
+# 
+# http://www.w3.org/ns/mls#Investigation
+
+:Investigation a owl:Class ;
+	rdfs:subClassOf :Process , _:genid10 .
+
+_:genid10 a owl:Restriction ;
+	owl:onProperty :hasPart ;
+	owl:someValuesFrom :Study .
+# 
+# http://www.w3.org/ns/mls#Model
+
+:Model a owl:Class ;
+	rdfs:subClassOf :InformationEntity , _:genid11 .
+
+_:genid11 a owl:Restriction ;
+	owl:onProperty :hasQuality ;
+	owl:someValuesFrom :ModelCharacteristic .
+# 
+# http://www.w3.org/ns/mls#ModelCharacteristic
+
+:ModelCharacteristic a owl:Class ;
+	rdfs:subClassOf :InformationEntity .
+# 
+# http://www.w3.org/ns/mls#ModelEvaluation
+
+:ModelEvaluation a owl:Class ;
+	rdfs:subClassOf :InformationEntity , _:genid12 .
+
+_:genid12 a owl:Restriction ;
+	owl:onProperty :specifiedBy ;
+	owl:someValuesFrom :EvaluationMeasure .
+
+:ModelEvaluation rdfs:subClassOf _:genid13 .
+
+_:genid13 a owl:Restriction ;
+	owl:onProperty :hasValue ;
+	owl:someValuesFrom rdfs:Literal .
+# 
+# http://www.w3.org/ns/mls#Process
+
+:Process a owl:Class ;
+	rdfs:label "Process"@en .
+# 
+# http://www.w3.org/ns/mls#Run
+
+:Run a owl:Class ;
+	rdfs:subClassOf :Process , _:genid14 .
+
+_:genid14 a owl:Restriction ;
+	owl:onProperty :executes ;
+	owl:someValuesFrom :Implementation .
+
+:Run rdfs:subClassOf _:genid15 .
+
+_:genid15 a owl:Restriction ;
+	owl:onProperty :hasInput ;
+	owl:someValuesFrom :Data .
+
+:Run rdfs:subClassOf _:genid16 .
+
+_:genid16 a owl:Restriction ;
+	owl:onProperty :hasOutput ;
+	owl:someValuesFrom :Model .
+
+:Run rdfs:subClassOf _:genid17 .
+
+_:genid17 a owl:Restriction ;
+	owl:onProperty :hasOutput ;
+	owl:someValuesFrom :ModelEvaluation .
+
+:Run rdfs:subClassOf _:genid18 .
+
+_:genid18 a owl:Restriction ;
+	owl:onProperty :realizes ;
+	owl:someValuesFrom :Task .
+
+:Run <http://purl.org/dc/terms/description> "An execution of an implementation on a machine (computer). It is limited in time (has a start and end point), can be successful or failed." .
+# 
+# http://www.w3.org/ns/mls#Study
+
+:Study a owl:Class ;
+	rdfs:subClassOf :Process , _:genid19 .
+
+_:genid19 a owl:Restriction ;
+	owl:onProperty :hasPart ;
+	owl:someValuesFrom :Experiment .
+
+:Study <http://purl.org/dc/terms/description> "A collection of runs that belong together to do some kind of analysis on its results. This analysis can be general or very specific (e.g. an hypothesis test). Can be linked to files, data, that belong to it." .
+# 
+# http://www.w3.org/ns/mls#Task
+
+:Task a owl:Class ;
+	rdfs:subClassOf :InformationEntity , _:genid20 .
+
+_:genid20 a owl:Restriction ;
+	owl:onProperty :definedOn ;
+	owl:someValuesFrom :Data .
+
+:Task rdfs:subClassOf _:genid21 .
+
+_:genid21 a owl:Restriction ;
+	owl:onProperty :definedOn ;
+	owl:someValuesFrom :EvaluationSpecification .
+
+:Task <http://purl.org/dc/terms/description> "A formal description of a process that needs to be completed (e.g. based on inputs and outputs). A Task is any piece of work that needs to be addressed in the data mining process. In ML Schema, it is defined based on data and on the evaluation specification." .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Annotations
+# #
+# #################################################################
+# 
+# 
+
+<http://purl.org/dc/elements/1.1/> <http://purl.org/dc/terms/publisher> <http://purl.org/dc/aboutdcmi#DCMI> ;
+	<http://purl.org/dc/terms/title> "Dublin Core Metadata Element Set, Version 1.1"@en ;
+	<http://purl.org/dc/terms/modified> "2012-06-14"^^xsd:date .
+# 
 
 <http://purl.org/dc/elements/1.1/contributor> rdfs:label "Contributor"@en ;
-                                              
-                                              <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
-                                              
-                                              <http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
-                                              
-                                              <http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
-                                              
-                                              rdfs:comment "An entity responsible for making contributions to the resource."@en ;
-                                              
-                                              <http://purl.org/dc/terms/description> "Examples of a Contributor include a person, an organization, or a service. Typically, the name of a Contributor should be used to indicate the entity."@en ;
-                                              
-                                              <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#contributor-006> ;
-                                              
-                                              rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> .
+	<http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#contributor-006> ;
+	<http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
+	rdfs:comment "An entity responsible for making contributions to the resource."@en ;
+	<http://purl.org/dc/terms/description> "Examples of a Contributor include a person, an organization, or a service. Typically, the name of a Contributor should be used to indicate the entity."@en ;
+	<http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
+	<http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+	rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> .
+# 
 
+<http://purl.org/dc/elements/1.1/coverage> <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#coverage-006> ;
+	rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+	<http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
+	rdfs:comment "The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant."@en ;
+	<http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
+	<http://purl.org/dc/terms/description> "Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended best practice is to use a controlled vocabulary such as the Thesaurus of Geographic Names [TGN]. Where appropriate, named places or time periods can be used in preference to numeric identifiers such as sets of coordinates or date ranges."@en ;
+	<http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+	rdfs:label "Coverage"@en .
+# 
 
+<http://purl.org/dc/elements/1.1/creator> <http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
+	rdfs:label "Creator"@en ;
+	rdfs:comment "An entity primarily responsible for making the resource."@en ;
+	<http://purl.org/dc/terms/description> "Examples of a Creator include a person, an organization, or a service. Typically, the name of a Creator should be used to indicate the entity."@en ;
+	rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+	<http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#creator-006> ;
+	<http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
+	<http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date .
+# 
 
-<http://purl.org/dc/elements/1.1/publisher> rdfs:label "Publisher"@en ;
-                                            
-                                            <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
-                                            
-                                            <http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
-                                            
-                                            <http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
-                                            
-                                            rdfs:comment "An entity responsible for making the resource available."@en ;
-                                            
-                                            <http://purl.org/dc/terms/description> "Examples of a Publisher include a person, an organization, or a service. Typically, the name of a Publisher should be used to indicate the entity."@en ;
-                                            
-                                            <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#publisher-006> ;
-                                            
-                                            rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> .
+<http://purl.org/dc/elements/1.1/date> <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+	<http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
+	<http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
+	rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+	<http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#date-006> ;
+	rdfs:comment "A point or period of time associated with an event in the lifecycle of the resource."@en ;
+	<http://purl.org/dc/terms/description> "Date may be used to express temporal information at any level of granularity.  Recommended best practice is to use an encoding scheme, such as the W3CDTF profile of ISO 8601 [W3CDTF]."@en ;
+	rdfs:label "Date"@en .
+# 
 
+<http://purl.org/dc/elements/1.1/description> <http://purl.org/dc/terms/description> "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."@en ;
+	rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+	<http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+	<http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
+	rdfs:comment "An account of the resource."@en ;
+	<http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
+	rdfs:label "Description"@en ;
+	<http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#description-006> .
+# 
 
+<http://purl.org/dc/elements/1.1/format> <http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
+	<http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+	<http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
+	rdfs:label "Format"@en ;
+	rdfs:comment "The file format, physical medium, or dimensions of the resource."@en ;
+	rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+	<http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#format-007> ;
+	<http://purl.org/dc/terms/description> "Examples of dimensions include size and duration. Recommended best practice is to use a controlled vocabulary such as the list of Internet Media Types [MIME]."@en .
+# 
 
-<http://purl.org/dc/elements/1.1/relation> rdfs:label "Relation"@en ;
-                                           
-                                           <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
-                                           
-                                           <http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
-                                           
-                                           rdfs:comment "A related resource."@en ;
-                                           
-                                           <http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
-                                           
-                                           <http://purl.org/dc/terms/description> "Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system. "@en ;
-                                           
-                                           <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#relation-006> ;
-                                           
-                                           rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> .
+<http://purl.org/dc/elements/1.1/identifier> <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#identifier-006> ;
+	rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+	<http://purl.org/dc/terms/description> "Recommended best practice is to identify the resource by means of a string conforming to a formal identification system. "@en ;
+	rdfs:comment "An unambiguous reference to the resource within a given context."@en ;
+	<http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+	<http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
+	rdfs:label "Identifier"@en ;
+	<http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en .
+# 
 
+<http://purl.org/dc/elements/1.1/language> <http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
+	<http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
+	<http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+	<http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#language-007> ;
+	rdfs:label "Language"@en ;
+	<http://purl.org/dc/terms/description> "Recommended best practice is to use a controlled vocabulary such as RFC 4646 [RFC4646]."@en ;
+	rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+	rdfs:comment "A language of the resource."@en ;
+	rdfs:seeAlso <http://www.ietf.org/rfc/rfc4646.txt> .
+# 
 
+<http://purl.org/dc/elements/1.1/publisher> <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#publisher-006> ;
+	<http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
+	<http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+	<http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
+	rdfs:label "Publisher"@en ;
+	<http://purl.org/dc/terms/description> "Examples of a Publisher include a person, an organization, or a service. Typically, the name of a Publisher should be used to indicate the entity."@en ;
+	rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+	rdfs:comment "An entity responsible for making the resource available."@en .
+# 
 
-<http://purl.org/dc/elements/1.1/title> rdfs:label "Title"@en ;
-                                        
-                                        <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
-                                        
-                                        <http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
-                                        
-                                        rdfs:comment "A name given to the resource."@en ;
-                                        
-                                        <http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
-                                        
-                                        <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#title-006> ;
-                                        
-                                        rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> .
+<http://purl.org/dc/elements/1.1/relation> <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#relation-006> ;
+	<http://purl.org/dc/terms/description> "Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system. "@en ;
+	rdfs:label "Relation"@en ;
+	<http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
+	<http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
+	<http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+	rdfs:comment "A related resource."@en ;
+	rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> .
+# 
 
+<http://purl.org/dc/elements/1.1/rights> <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#rights-006> ;
+	rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+	<http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
+	<http://purl.org/dc/terms/description> "Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights."@en ;
+	<http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+	rdfs:label "Rights"@en ;
+	<http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
+	rdfs:comment "Information about rights held in and over the resource."@en .
+# 
 
+<http://purl.org/dc/elements/1.1/source> <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#source-006> ;
+	<http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
+	rdfs:comment "A related resource from which the described resource is derived."@en ;
+	rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+	<http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
+	<http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+	<http://purl.org/dc/terms/description> "The described resource may be derived from the related resource in whole or in part. Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system."@en ;
+	rdfs:label "Source"@en .
+# 
 
-<http://purl.org/dc/elements/1.1/source> rdfs:label "Source"@en ;
-                                         
-                                         <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
-                                         
-                                         <http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
-                                         
-                                         rdfs:comment "A related resource from which the described resource is derived."@en ;
-                                         
-                                         <http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
-                                         
-                                         <http://purl.org/dc/terms/description> "The described resource may be derived from the related resource in whole or in part. Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system."@en ;
-                                         
-                                         <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#source-006> ;
-                                         
-                                         rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> .
+<http://purl.org/dc/elements/1.1/subject> <http://purl.org/dc/terms/description> "Typically, the subject will be represented using keywords, key phrases, or classification codes. Recommended best practice is to use a controlled vocabulary."@en ;
+	<http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
+	<http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+	rdfs:label "Subject"@en ;
+	rdfs:comment "The topic of the resource."@en ;
+	rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+	<http://purl.org/dc/terms/modified> "2012-06-14"^^xsd:date ;
+	<http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#subject-007> .
+# 
 
+<http://purl.org/dc/elements/1.1/title> <http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
+	rdfs:comment "A name given to the resource."@en ;
+	<http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
+	<http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+	rdfs:label "Title"@en ;
+	<http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#title-006> ;
+	rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> .
+# 
 
-
-<http://purl.org/dc/elements/1.1/language> rdfs:label "Language"@en ;
-                                           
-                                           <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
-                                           
-                                           <http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
-                                           
-                                           rdfs:comment "A language of the resource."@en ;
-                                           
-                                           <http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
-                                           
-                                           <http://purl.org/dc/terms/description> "Recommended best practice is to use a controlled vocabulary such as RFC 4646 [RFC4646]."@en ;
-                                           
-                                           <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#language-007> ;
-                                           
-                                           rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
-                                           
-                                           rdfs:seeAlso <http://www.ietf.org/rfc/rfc4646.txt> .
-
-
-
-<http://purl.org/dc/elements/1.1/> <http://purl.org/dc/terms/modified> "2012-06-14"^^xsd:date ;
-                                   
-                                   <http://purl.org/dc/terms/title> "Dublin Core Metadata Element Set, Version 1.1"@en ;
-                                   
-                                   <http://purl.org/dc/terms/publisher> <http://purl.org/dc/aboutdcmi#DCMI> .
-
-
-
-<http://purl.org/dc/elements/1.1/coverage> rdfs:label "Coverage"@en ;
-                                           
-                                           <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
-                                           
-                                           <http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
-                                           
-                                           <http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
-                                           
-                                           <http://purl.org/dc/terms/description> "Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended best practice is to use a controlled vocabulary such as the Thesaurus of Geographic Names [TGN]. Where appropriate, named places or time periods can be used in preference to numeric identifiers such as sets of coordinates or date ranges."@en ;
-                                           
-                                           rdfs:comment "The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant."@en ;
-                                           
-                                           <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#coverage-006> ;
-                                           
-                                           rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> .
-
-
-
-<http://purl.org/dc/elements/1.1/date> rdfs:label "Date"@en ;
-                                       
-                                       <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
-                                       
-                                       <http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
-                                       
-                                       rdfs:comment "A point or period of time associated with an event in the lifecycle of the resource."@en ;
-                                       
-                                       <http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
-                                       
-                                       <http://purl.org/dc/terms/description> "Date may be used to express temporal information at any level of granularity.  Recommended best practice is to use an encoding scheme, such as the W3CDTF profile of ISO 8601 [W3CDTF]."@en ;
-                                       
-                                       <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#date-006> ;
-                                       
-                                       rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> .
-
-
-
-<http://purl.org/dc/elements/1.1/subject> rdfs:label "Subject"@en ;
-                                          
-                                          <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
-                                          
-                                          <http://purl.org/dc/terms/modified> "2012-06-14"^^xsd:date ;
-                                          
-                                          <http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
-                                          
-                                          rdfs:comment "The topic of the resource."@en ;
-                                          
-                                          <http://purl.org/dc/terms/description> "Typically, the subject will be represented using keywords, key phrases, or classification codes. Recommended best practice is to use a controlled vocabulary."@en ;
-                                          
-                                          <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#subject-007> ;
-                                          
-                                          rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> .
-
-
-
-<http://purl.org/dc/elements/1.1/type> rdfs:label "Type"@en ;
-                                       
-                                       <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
-                                       
-                                       <http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
-                                       
-                                       <http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
-                                       
-                                       <http://purl.org/dc/terms/description> "Recommended best practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [DCMITYPE]. To describe the file format, physical medium, or dimensions of the resource, use the Format element."@en ;
-                                       
-                                       rdfs:comment "The nature or genre of the resource."@en ;
-                                       
-                                       <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#type-006> ;
-                                       
-                                       rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> .
-
-
-
-<http://purl.org/dc/elements/1.1/identifier> rdfs:label "Identifier"@en ;
-                                             
-                                             <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
-                                             
-                                             <http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
-                                             
-                                             <http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
-                                             
-                                             rdfs:comment "An unambiguous reference to the resource within a given context."@en ;
-                                             
-                                             <http://purl.org/dc/terms/description> "Recommended best practice is to identify the resource by means of a string conforming to a formal identification system. "@en ;
-                                             
-                                             <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#identifier-006> ;
-                                             
-                                             rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> .
-
-
-
-<http://purl.org/dc/elements/1.1/description> rdfs:label "Description"@en ;
-                                              
-                                              <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
-                                              
-                                              <http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
-                                              
-                                              <http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
-                                              
-                                              rdfs:comment "An account of the resource."@en ;
-                                              
-                                              <http://purl.org/dc/terms/description> "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."@en ;
-                                              
-                                              <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#description-006> ;
-                                              
-                                              rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> .
-
-
-
-<http://purl.org/dc/elements/1.1/format> rdfs:label "Format"@en ;
-                                         
-                                         <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
-                                         
-                                         <http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
-                                         
-                                         <http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
-                                         
-                                         <http://purl.org/dc/terms/description> "Examples of dimensions include size and duration. Recommended best practice is to use a controlled vocabulary such as the list of Internet Media Types [MIME]."@en ;
-                                         
-                                         rdfs:comment "The file format, physical medium, or dimensions of the resource."@en ;
-                                         
-                                         <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#format-007> ;
-                                         
-                                         rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> .
-
-
-
-<http://purl.org/dc/elements/1.1/rights> rdfs:label "Rights"@en ;
-                                         
-                                         <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
-                                         
-                                         <http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
-                                         
-                                         <http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
-                                         
-                                         rdfs:comment "Information about rights held in and over the resource."@en ;
-                                         
-                                         <http://purl.org/dc/terms/description> "Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights."@en ;
-                                         
-                                         <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#rights-006> ;
-                                         
-                                         rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> .
-
-
-
-<http://purl.org/dc/elements/1.1/creator> rdfs:label "Creator"@en ;
-                                          
-                                          <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
-                                          
-                                          <http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
-                                          
-                                          <http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
-                                          
-                                          rdfs:comment "An entity primarily responsible for making the resource."@en ;
-                                          
-                                          <http://purl.org/dc/terms/description> "Examples of a Creator include a person, an organization, or a service. Typically, the name of a Creator should be used to indicate the entity."@en ;
-                                          
-                                          <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#creator-006> ;
-                                          
-                                          rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> .
-
-
-
-
-###  Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net
-
+<http://purl.org/dc/elements/1.1/type> <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#type-006> ;
+	rdfs:comment "The nature or genre of the resource."@en ;
+	rdfs:label "Type"@en ;
+	rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> ;
+	<http://purl.org/dc/terms/description> "Recommended best practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [DCMITYPE]. To describe the file format, physical medium, or dimensions of the resource, use the Format element."@en ;
+	<http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+	<http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
+	<http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en .
+# 
+# Generated by the OWL API (version 4.1.3.20151118-2017) https://github.com/owlcs/owlapi
