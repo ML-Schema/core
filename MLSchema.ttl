@@ -16,8 +16,6 @@
                             
                             <http://protege.stanford.edu/plugins/owl/protege#defaultLanguage> "EN" ;
                             
-                            owl:imports <http://purl.obolibrary.org/obo/iao/2015-02-23/ontology-metadata.owl> ;
-                            
                             owl:versionIRI <http://www.w3.org/2016/03/mls#> .
 
 
@@ -94,16 +92,6 @@ xsd:date rdf:type rdfs:Datatype .
 #################################################################
 
 
-###  http://www.w3.org/ns/mls#definedFor
-
-:definedFor rdf:type owl:ObjectProperty ;
-            
-            rdfs:label "definedFor"@en ;
-            
-            rdfs:subPropertyOf owl:topObjectProperty .
-
-
-
 ###  http://www.w3.org/ns/mls#definedOn
 
 :definedOn rdf:type owl:ObjectProperty ;
@@ -114,31 +102,11 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 
-###  http://www.w3.org/ns/mls#evaluatedUsing
+###  http://www.w3.org/ns/mls#executes
 
-:evaluatedUsing rdf:type owl:ObjectProperty ;
-                
-                rdfs:label "evaluatedUsing"@en ;
-                
-                rdfs:subPropertyOf owl:topObjectProperty .
-
-
-
-###  http://www.w3.org/ns/mls#executedOn
-
-:executedOn rdf:type owl:ObjectProperty ;
-            
-            rdfs:label "executedOn"@en ;
-            
-            rdfs:subPropertyOf owl:topObjectProperty .
-
-
-
-###  http://www.w3.org/ns/mls#executedUsing
-
-:executedUsing rdf:type owl:ObjectProperty ;
-               
-               rdfs:label "executedUsing"@en .
+:executes rdf:type owl:ObjectProperty ;
+          
+          rdfs:subPropertyOf owl:topObjectProperty .
 
 
 
@@ -162,6 +130,12 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 
+###  http://www.w3.org/ns/mls#hasOutput
+
+:hasOutput rdf:type owl:ObjectProperty .
+
+
+
 ###  http://www.w3.org/ns/mls#hasPart
 
 :hasPart rdf:type owl:ObjectProperty ;
@@ -170,11 +144,9 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 
-###  http://www.w3.org/ns/mls#hasSpecification
+###  http://www.w3.org/ns/mls#hasQuality
 
-:hasSpecification rdf:type owl:ObjectProperty ;
-                  
-                  rdfs:label "hasSpecification"@en .
+:hasQuality rdf:type owl:ObjectProperty .
 
 
 
@@ -186,11 +158,32 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 
-###  http://www.w3.org/ns/mls#produces
+###  http://www.w3.org/ns/mls#realizes
 
-:produces rdf:type owl:ObjectProperty ;
+:realizes rdf:type owl:ObjectProperty ;
           
-          rdfs:label "produces"@en .
+          rdfs:subPropertyOf owl:topObjectProperty .
+
+
+
+###  http://www.w3.org/ns/mls#specifiedBy
+
+:specifiedBy rdf:type owl:ObjectProperty .
+
+
+
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+###  http://www.w3.org/ns/mls#hasValue
+
+:hasValue rdf:type owl:DatatypeProperty .
 
 
 
@@ -207,8 +200,6 @@ xsd:date rdf:type rdfs:Datatype .
 
 :Algorithm rdf:type owl:Class ;
            
-           rdfs:label "algorithm"@en ;
-           
            rdfs:subClassOf :InformationEntity .
 
 
@@ -217,9 +208,35 @@ xsd:date rdf:type rdfs:Datatype .
 
 :Data rdf:type owl:Class ;
       
-      rdfs:label "data"@en ;
-      
-      rdfs:subClassOf :InformationEntity .
+      rdfs:subClassOf :InformationEntity ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasQuality ;
+                        owl:someValuesFrom :DataCharacteristic
+                      ] .
+
+
+
+###  http://www.w3.org/ns/mls#DataCharacteristic
+
+:DataCharacteristic rdf:type owl:Class ;
+                    
+                    rdfs:subClassOf :InformationEntity .
+
+
+
+###  http://www.w3.org/ns/mls#Dataset
+
+:Dataset rdf:type owl:Class ;
+         
+         rdfs:subClassOf :Data .
+
+
+
+###  http://www.w3.org/ns/mls#DatasetCharacteristic
+
+:DatasetCharacteristic rdf:type owl:Class ;
+                       
+                       rdfs:subClassOf :DataCharacteristic .
 
 
 
@@ -227,21 +244,37 @@ xsd:date rdf:type rdfs:Datatype .
 
 :EvaluationMeasure rdf:type owl:Class ;
                    
-                   rdfs:label "evaluationMeasure"@en ;
-                   
-                   rdfs:subClassOf :InformationEntity ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty :definedFor ;
-                                     owl:someValuesFrom :Task
-                                   ] .
+                   rdfs:subClassOf :InformationEntity .
+
+
+
+###  http://www.w3.org/ns/mls#EvaluationProcedure
+
+:EvaluationProcedure rdf:type owl:Class ;
+                     
+                     rdfs:subClassOf :InformationEntity .
+
+
+
+###  http://www.w3.org/ns/mls#EvaluationSpecification
+
+:EvaluationSpecification rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf :InformationEntity ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :hasPart ;
+                                           owl:someValuesFrom :EvaluationMeasure
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :hasPart ;
+                                           owl:someValuesFrom :EvaluationProcedure
+                                         ] .
 
 
 
 ###  http://www.w3.org/ns/mls#Experiment
 
 :Experiment rdf:type owl:Class ;
-            
-            rdfs:label "experiment"@en ;
             
             rdfs:subClassOf :Process ,
                             [ rdf:type owl:Restriction ;
@@ -251,13 +284,43 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 
+###  http://www.w3.org/ns/mls#Feature
+
+:Feature rdf:type owl:Class ;
+         
+         rdfs:subClassOf :Data .
+
+
+
+###  http://www.w3.org/ns/mls#FeatureCharacteristic
+
+:FeatureCharacteristic rdf:type owl:Class ;
+                       
+                       rdfs:subClassOf :DataCharacteristic .
+
+
+
 ###  http://www.w3.org/ns/mls#HyperParameter
 
 :HyperParameter rdf:type owl:Class ;
                 
-                rdfs:label "hyper-parameter"@en ;
-                
                 rdfs:subClassOf :InformationEntity .
+
+
+
+###  http://www.w3.org/ns/mls#HyperParameterSetting
+
+:HyperParameterSetting rdf:type owl:Class ;
+                       
+                       rdfs:subClassOf :InformationEntity ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :hasValue ;
+                                         owl:someValuesFrom rdfs:Literal
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :specifiedBy ;
+                                         owl:someValuesFrom :HyperParameter
+                                       ] .
 
 
 
@@ -265,12 +328,14 @@ xsd:date rdf:type rdfs:Datatype .
 
 :Implementation rdf:type owl:Class ;
                 
-                rdfs:label "implementation"@en ;
-                
                 rdfs:subClassOf :InformationEntity ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty :implements ;
                                   owl:someValuesFrom :Algorithm
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :hasQuality ;
+                                  owl:someValuesFrom :ImplementationCharacteristic
                                 ] ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty :hasHyperParameter ;
@@ -279,19 +344,23 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 
+###  http://www.w3.org/ns/mls#ImplementationCharacteristic
+
+:ImplementationCharacteristic rdf:type owl:Class ;
+                              
+                              rdfs:subClassOf :InformationEntity .
+
+
+
 ###  http://www.w3.org/ns/mls#InformationEntity
 
-:InformationEntity rdf:type owl:Class ;
-                   
-                   rdfs:label "informationEntity"@en .
+:InformationEntity rdf:type owl:Class .
 
 
 
 ###  http://www.w3.org/ns/mls#Investigation
 
 :Investigation rdf:type owl:Class ;
-               
-               rdfs:label "investigation"@en ;
                
                rdfs:subClassOf :Process ,
                                [ rdf:type owl:Restriction ;
@@ -301,27 +370,39 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 
-###  http://www.w3.org/ns/mls#ModelRepresentation
+###  http://www.w3.org/ns/mls#Model
 
-:ModelRepresentation rdf:type owl:Class ;
+:Model rdf:type owl:Class ;
+       
+       rdfs:subClassOf :InformationEntity ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasQuality ;
+                         owl:someValuesFrom :ModelCharacteristic
+                       ] .
+
+
+
+###  http://www.w3.org/ns/mls#ModelCharacteristic
+
+:ModelCharacteristic rdf:type owl:Class ;
                      
-                     rdfs:label "modelRepresentation"@en ;
-                     
-                     rdfs:subClassOf :InformationEntity ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :hasSpecification ;
-                                       owl:someValuesFrom :ModelSpecification
-                                     ] .
+                     rdfs:subClassOf :InformationEntity .
 
 
 
-###  http://www.w3.org/ns/mls#ModelSpecification
+###  http://www.w3.org/ns/mls#ModelEvaluation
 
-:ModelSpecification rdf:type owl:Class ;
-                    
-                    rdfs:label "modelSpecification"@en ;
-                    
-                    rdfs:subClassOf :InformationEntity .
+:ModelEvaluation rdf:type owl:Class ;
+                 
+                 rdfs:subClassOf :InformationEntity ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasValue ;
+                                   owl:someValuesFrom rdfs:Literal
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :specifiedBy ;
+                                   owl:someValuesFrom :EvaluationMeasure
+                                 ] .
 
 
 
@@ -337,24 +418,26 @@ xsd:date rdf:type rdfs:Datatype .
 
 :Run rdf:type owl:Class ;
      
-     rdfs:label "run"@en ;
-     
      rdfs:subClassOf :Process ,
                      [ rdf:type owl:Restriction ;
-                       owl:onProperty :executedOn ;
-                       owl:someValuesFrom :Task
-                     ] ,
-                     [ rdf:type owl:Restriction ;
-                       owl:onProperty :evaluatedUsing ;
-                       owl:someValuesFrom :EvaluationMeasure
-                     ] ,
-                     [ rdf:type owl:Restriction ;
-                       owl:onProperty :produces ;
-                       owl:someValuesFrom :ModelRepresentation
+                       owl:onProperty :hasOutput ;
+                       owl:someValuesFrom :Model
                      ] ,
                      [ rdf:type owl:Restriction ;
                        owl:onProperty :hasInput ;
                        owl:someValuesFrom :Data
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :hasOutput ;
+                       owl:someValuesFrom :ModelEvaluation
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :realizes ;
+                       owl:someValuesFrom :Task
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :executes ;
+                       owl:someValuesFrom :Implementation
                      ] .
 
 
@@ -362,8 +445,6 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://www.w3.org/ns/mls#Study
 
 :Study rdf:type owl:Class ;
-       
-       rdfs:label "study"@en ;
        
        rdfs:subClassOf :Process ,
                        [ rdf:type owl:Restriction ;
@@ -377,9 +458,11 @@ xsd:date rdf:type rdfs:Datatype .
 
 :Task rdf:type owl:Class ;
       
-      rdfs:label "task"@en ;
-      
       rdfs:subClassOf :InformationEntity ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :definedOn ;
+                        owl:someValuesFrom :EvaluationSpecification
+                      ] ,
                       [ rdf:type owl:Restriction ;
                         owl:onProperty :definedOn ;
                         owl:someValuesFrom :Data
@@ -504,6 +587,14 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 
+<http://purl.org/dc/elements/1.1/> <http://purl.org/dc/terms/modified> "2012-06-14"^^xsd:date ;
+                                   
+                                   <http://purl.org/dc/terms/title> "Dublin Core Metadata Element Set, Version 1.1"@en ;
+                                   
+                                   <http://purl.org/dc/terms/publisher> <http://purl.org/dc/aboutdcmi#DCMI> .
+
+
+
 <http://purl.org/dc/elements/1.1/coverage> rdfs:label "Coverage"@en ;
                                            
                                            <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
@@ -537,14 +628,6 @@ xsd:date rdf:type rdfs:Datatype .
                                        <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#date-006> ;
                                        
                                        rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> .
-
-
-
-<http://purl.org/dc/elements/1.1/> <http://purl.org/dc/terms/modified> "2012-06-14"^^xsd:date ;
-                                   
-                                   <http://purl.org/dc/terms/title> "Dublin Core Metadata Element Set, Version 1.1"@en ;
-                                   
-                                   <http://purl.org/dc/terms/publisher> <http://purl.org/dc/aboutdcmi#DCMI> .
 
 
 
@@ -584,24 +667,6 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 
-<http://purl.org/dc/elements/1.1/description> rdfs:label "Description"@en ;
-                                              
-                                              <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
-                                              
-                                              <http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
-                                              
-                                              <http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
-                                              
-                                              rdfs:comment "An account of the resource."@en ;
-                                              
-                                              <http://purl.org/dc/terms/description> "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."@en ;
-                                              
-                                              <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#description-006> ;
-                                              
-                                              rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> .
-
-
-
 <http://purl.org/dc/elements/1.1/identifier> rdfs:label "Identifier"@en ;
                                              
                                              <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
@@ -620,21 +685,21 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 
-<http://purl.org/dc/elements/1.1/rights> rdfs:label "Rights"@en ;
-                                         
-                                         <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
-                                         
-                                         <http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
-                                         
-                                         <http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
-                                         
-                                         rdfs:comment "Information about rights held in and over the resource."@en ;
-                                         
-                                         <http://purl.org/dc/terms/description> "Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights."@en ;
-                                         
-                                         <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#rights-006> ;
-                                         
-                                         rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> .
+<http://purl.org/dc/elements/1.1/description> rdfs:label "Description"@en ;
+                                              
+                                              <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                              
+                                              <http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
+                                              
+                                              <http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
+                                              
+                                              rdfs:comment "An account of the resource."@en ;
+                                              
+                                              <http://purl.org/dc/terms/description> "Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource."@en ;
+                                              
+                                              <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#description-006> ;
+                                              
+                                              rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> .
 
 
 
@@ -651,6 +716,24 @@ xsd:date rdf:type rdfs:Datatype .
                                          rdfs:comment "The file format, physical medium, or dimensions of the resource."@en ;
                                          
                                          <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#format-007> ;
+                                         
+                                         rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> .
+
+
+
+<http://purl.org/dc/elements/1.1/rights> rdfs:label "Rights"@en ;
+                                         
+                                         <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                         
+                                         <http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
+                                         
+                                         <http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
+                                         
+                                         rdfs:comment "Information about rights held in and over the resource."@en ;
+                                         
+                                         <http://purl.org/dc/terms/description> "Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights."@en ;
+                                         
+                                         <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#rights-006> ;
                                          
                                          rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> .
 
@@ -675,5 +758,5 @@ xsd:date rdf:type rdfs:Datatype .
 
 
 
-###  Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net
+###  Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net
 
