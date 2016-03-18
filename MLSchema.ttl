@@ -146,7 +146,7 @@ xsd:date a rdfs:Datatype .
 
 :Algorithm a owl:Class ;
 	rdfs:subClassOf :InformationEntity ;
-	<http://purl.org/dc/terms/description> "Algorithm is a learning algorithm regardless software implementation." .
+	<http://purl.org/dc/terms/description> "The algorithm regardless software implementation." .
 # 
 # http://www.w3.org/ns/mls#Data
 
@@ -156,6 +156,10 @@ xsd:date a rdfs:Datatype .
 _:genid1 a owl:Restriction ;
 	owl:onProperty :hasQuality ;
 	owl:someValuesFrom :DataCharacteristic .
+
+:Data <http://purl.org/dc/terms/description> """Data is a data item composed of data examples and it may be of a various level of granularity and complexity. 
+With regard to granularity, it can be a whole dataset (for instance, one main table and possibly other tables), or only a single table, or only a feature (e.g., a column of a table), or only an instance (e.g., row of a table), or a single feature-value pair. 
+With regard to complexity, data examples are characterized by their datatype, which may be arbitrarily complex (e.g., instead of a table it can be an arbitrary graph).""" .
 # 
 # http://www.w3.org/ns/mls#DataCharacteristic
 
