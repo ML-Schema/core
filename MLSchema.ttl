@@ -268,7 +268,7 @@ _:genid9 a owl:Restriction ;
 	owl:onProperty :implements ;
 	owl:someValuesFrom :Algorithm .
 
-:Implementation <http://purl.org/dc/terms/description> "An executable implementation of a machine learning algorithm, a script, or a workflow. It is versioned, and sometimes belongs to a library (e.g. WEKA)." .
+:Implementation <http://purl.org/dc/terms/description> "Implementation is an executable implementation of a machine learning algorithm, a script, or a workflow. It is versioned, and sometimes belongs to a library (e.g. WEKA)." .
 # 
 # http://www.w3.org/ns/mls#ImplementationCharacteristic
 
