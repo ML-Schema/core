@@ -1,0 +1,237 @@
+@prefix : <http://example.org#> .
+@prefix mls: <http://www.w3.org/ns/mls#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix protege: <http://protege.stanford.edu/plugins/owl/protege#> .
+@base <http://example.org> .
+
+<http://example.org> rdf:type owl:Ontology ;
+                     
+                     owl:imports <http://www.w3.org/2016/03/mls#> .
+
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  http://example.org#TenFoldCrossValidation
+
+:TenFoldCrossValidation rdf:type owl:NamedIndividual ,
+                                 mls:EvaluationProcedure .
+
+
+
+###  http://example.org#classEntropy
+
+:classEntropy rdf:type owl:NamedIndividual ,
+                       mls:DatasetCharacteristic .
+
+
+
+###  http://example.org#credit-a
+
+:credit-a rdf:type owl:NamedIndividual ,
+                   mls:Dataset ;
+          
+          mls:hasQuality :classEntropy ,
+                         :decisionStumpAUC ,
+                         :defaultAccuracy ,
+                         :j48_001_Stump ,
+                         :numberOfClasses ,
+                         :numberOfFeatures ,
+                         :numberOfInstances ,
+                         :numberOfMissingValues .
+
+
+
+###  http://example.org#decisionStumpAUC
+
+:decisionStumpAUC rdf:type owl:NamedIndividual ,
+                           mls:DatasetCharacteristic .
+
+
+
+###  http://example.org#defaultAccuracy
+
+:defaultAccuracy rdf:type owl:NamedIndividual ,
+                          mls:DatasetCharacteristic .
+
+
+
+###  http://example.org#evaluationSpecification1
+
+:evaluationSpecification1 rdf:type owl:NamedIndividual ,
+                                   mls:EvaluationSpecification ;
+                          
+                          mls:hasPart :TenFoldCrossValidation ,
+                                      :predictiveAccuracy .
+
+
+
+###  http://example.org#j48_001_Stump
+
+:j48_001_Stump rdf:type owl:NamedIndividual ,
+                        mls:DatasetCharacteristic .
+
+
+
+###  http://example.org#logisticRegression
+
+:logisticRegression rdf:type owl:NamedIndividual ,
+                             mls:Algorithm .
+
+
+
+###  http://example.org#modelEvaluation100241
+
+:modelEvaluation100241 rdf:type owl:NamedIndividual ,
+                                mls:ModelEvaluation ;
+                       
+                       mls:specifiedBy :predictiveAccuracy ;
+                       
+                       mls:hasValue 0.8478 .
+
+
+
+###  http://example.org#numberOfClasses
+
+:numberOfClasses rdf:type owl:NamedIndividual ,
+                          mls:DatasetCharacteristic .
+
+
+
+###  http://example.org#numberOfFeatures
+
+:numberOfFeatures rdf:type owl:NamedIndividual ,
+                           mls:DatasetCharacteristic .
+
+
+
+###  http://example.org#numberOfInstances
+
+:numberOfInstances rdf:type owl:NamedIndividual ,
+                            mls:DatasetCharacteristic .
+
+
+
+###  http://example.org#numberOfMissingValues
+
+:numberOfMissingValues rdf:type owl:NamedIndividual ,
+                                mls:DatasetCharacteristic .
+
+
+
+###  http://example.org#predictiveAccuracy
+
+:predictiveAccuracy rdf:type owl:NamedIndividual ,
+                             mls:EvaluationMeasure .
+
+
+
+###  http://example.org#run100241
+
+:run100241 rdf:type owl:NamedIndividual ,
+                    mls:Run .
+
+
+
+###  http://example.org#task29
+
+:task29 rdf:type owl:NamedIndividual ,
+                 mls:Task ;
+        
+        mls:definedOn :credit-a ,
+                      :evaluationSpecification1 .
+
+
+
+###  http://example.org#wekaLogistic
+
+:wekaLogistic rdf:type owl:NamedIndividual ,
+                       mls:Implementation ;
+              
+              mls:hasHyperParameter :wekaLogisticC ,
+                                    :wekaLogisticDoNotCheckCapabilities ,
+                                    :wekaLogisticM ,
+                                    :wekaLogisticOutputDebugInfo ,
+                                    :wekaLogisticR ;
+              
+              mls:implements :logisticRegression .
+
+
+
+###  http://example.org#wekaLogisticC
+
+:wekaLogisticC rdf:type owl:NamedIndividual ,
+                        mls:HyperParameter .
+
+
+
+###  http://example.org#wekaLogisticDoNotCheckCapabilities
+
+:wekaLogisticDoNotCheckCapabilities rdf:type owl:NamedIndividual ,
+                                             mls:HyperParameter .
+
+
+
+###  http://example.org#wekaLogisticM
+
+:wekaLogisticM rdf:type owl:NamedIndividual ,
+                        mls:HyperParameter .
+
+
+
+###  http://example.org#wekaLogisticMSetting29
+
+:wekaLogisticMSetting29 rdf:type owl:NamedIndividual ,
+                                 mls:HyperParameterSetting ;
+                        
+                        mls:specifiedBy :wekaLogisticM ;
+                        
+                        mls:hasValue -1 .
+
+
+
+###  http://example.org#wekaLogisticModel100241
+
+:wekaLogisticModel100241 rdf:type owl:NamedIndividual ,
+                                  mls:Model .
+
+
+
+###  http://example.org#wekaLogisticOutputDebugInfo
+
+:wekaLogisticOutputDebugInfo rdf:type owl:NamedIndividual ,
+                                      mls:HyperParameter .
+
+
+
+###  http://example.org#wekaLogisticR
+
+:wekaLogisticR rdf:type owl:NamedIndividual ,
+                        mls:HyperParameter .
+
+
+
+###  http://example.org#wekaLogisticRSetting29
+
+:wekaLogisticRSetting29 rdf:type owl:NamedIndividual ,
+                                 mls:HyperParameterSetting ;
+                        
+                        mls:specifiedBy :wekaLogisticR ;
+                        
+                        mls:hasValue "1.0E-8"^^xsd:float .
+
+
+
+
+###  Generated by the OWL API (version 4.1.3.20151118-2017) https://github.com/owlcs/owlapi
+
