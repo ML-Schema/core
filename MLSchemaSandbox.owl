@@ -27,6 +27,71 @@
     
 
 
+    <!-- http://example.org#ClassEntropy -->
+
+    <owl:NamedIndividual rdf:about="http://example.org#ClassEntropy">
+        <rdf:type rdf:resource="http://www.w3.org/ns/mls#DatasetCharacteristic"/>
+        <mls:hasQuality rdf:resource="http://example.org#NumberOfClasses"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org#DecisionStumpAUC -->
+
+    <owl:NamedIndividual rdf:about="http://example.org#DecisionStumpAUC">
+        <rdf:type rdf:resource="http://www.w3.org/ns/mls#DatasetCharacteristic"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org#DefaultAccuracy -->
+
+    <owl:NamedIndividual rdf:about="http://example.org#DefaultAccuracy">
+        <rdf:type rdf:resource="http://www.w3.org/ns/mls#DatasetCharacteristic"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org#J48_001_Stump -->
+
+    <owl:NamedIndividual rdf:about="http://example.org#J48_001_Stump">
+        <rdf:type rdf:resource="http://www.w3.org/ns/mls#DatasetCharacteristic"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org#NumberOfClasses -->
+
+    <owl:NamedIndividual rdf:about="http://example.org#NumberOfClasses">
+        <rdf:type rdf:resource="http://www.w3.org/ns/mls#DatasetCharacteristic"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org#NumberOfFeatures -->
+
+    <owl:NamedIndividual rdf:about="http://example.org#NumberOfFeatures">
+        <rdf:type rdf:resource="http://www.w3.org/ns/mls#DatasetCharacteristic"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org#NumberOfInstances -->
+
+    <owl:NamedIndividual rdf:about="http://example.org#NumberOfInstances">
+        <rdf:type rdf:resource="http://www.w3.org/ns/mls#DatasetCharacteristic"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org#NumberOfMissingValues -->
+
+    <owl:NamedIndividual rdf:about="http://example.org#NumberOfMissingValues">
+        <rdf:type rdf:resource="http://www.w3.org/ns/mls#DatasetCharacteristic"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://example.org#TenFoldCrossValidation -->
 
     <owl:NamedIndividual rdf:about="http://example.org#TenFoldCrossValidation">
@@ -39,6 +104,14 @@
 
     <owl:NamedIndividual rdf:about="http://example.org#credit-a">
         <rdf:type rdf:resource="http://www.w3.org/ns/mls#Dataset"/>
+        <mls:hasQuality rdf:resource="http://example.org#ClassEntropy"/>
+        <mls:hasQuality rdf:resource="http://example.org#DecisionStumpAUC"/>
+        <mls:hasQuality rdf:resource="http://example.org#DefaultAccuracy"/>
+        <mls:hasQuality rdf:resource="http://example.org#J48_001_Stump"/>
+        <mls:hasQuality rdf:resource="http://example.org#NumberOfClasses"/>
+        <mls:hasQuality rdf:resource="http://example.org#NumberOfFeatures"/>
+        <mls:hasQuality rdf:resource="http://example.org#NumberOfInstances"/>
+        <mls:hasQuality rdf:resource="http://example.org#NumberOfMissingValues"/>
     </owl:NamedIndividual>
     
 
@@ -57,6 +130,16 @@
 
     <owl:NamedIndividual rdf:about="http://example.org#logisticRegression">
         <rdf:type rdf:resource="http://www.w3.org/ns/mls#Algorithm"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://example.org#modelEvaluation100241 -->
+
+    <owl:NamedIndividual rdf:about="http://example.org#modelEvaluation100241">
+        <rdf:type rdf:resource="http://www.w3.org/ns/mls#ModelEvaluation"/>
+        <mls:specifiedBy rdf:resource="http://example.org#predictiveAccuracy"/>
+        <mls:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.8478</mls:hasValue>
     </owl:NamedIndividual>
     
 
