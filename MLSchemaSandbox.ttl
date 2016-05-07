@@ -139,7 +139,16 @@
 ###  http://example.org#run100241
 
 :run100241 rdf:type owl:NamedIndividual ,
-                    mls:Run .
+                    mls:Run ;
+           
+           mls:executes :wekaLogistic ;
+           
+           mls:hasInput :credit-a ;
+           
+           mls:hasOutput :modelEvaluation100241 ,
+                         :wekaLogisticModel100241 ;
+           
+           mls:realizes :task29 .
 
 
 
