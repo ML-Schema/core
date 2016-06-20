@@ -280,7 +280,7 @@ With regard to complexity, data examples are characterized by their datatype, wh
 
 :DataCharacteristic rdf:type owl:Class ;
                     
-                    rdfs:subClassOf :InformationEntity ;
+                    rdfs:subClassOf :Quality ;
                     
                     <http://purl.org/dc/terms/description> """DataCharacteristic is a distinguishing quality or property that distinguish one data from another.
 Such characteristics are often statistical ones (e.g., the number of instances
@@ -342,12 +342,12 @@ or the number of features of a data set). They may be also informationtheoretic 
                                            owl:someValuesFrom :EvaluationProcedure
                                          ] ,
                                          [ rdf:type owl:Restriction ;
-                                           owl:onProperty :hasPart ;
-                                           owl:someValuesFrom :EvaluationMeasure
-                                         ] ,
-                                         [ rdf:type owl:Restriction ;
                                            owl:onProperty :defines ;
                                            owl:someValuesFrom :Task
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :hasPart ;
+                                           owl:someValuesFrom :EvaluationMeasure
                                          ] ;
                          
                          <http://purl.org/dc/terms/description> "EvaluationSpecification is a specification of an evaluation measure and an evaluation procedure to assess the performance of the process that realizes the task." ;
@@ -426,16 +426,16 @@ or the number of features of a data set). They may be also informationtheoretic 
                 
                 rdfs:subClassOf :InformationEntity ,
                                 [ rdf:type owl:Restriction ;
+                                  owl:onProperty :implements ;
+                                  owl:someValuesFrom :Algorithm
+                                ] ,
+                                [ rdf:type owl:Restriction ;
                                   owl:onProperty :hasQuality ;
                                   owl:someValuesFrom :ImplementationCharacteristic
                                 ] ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty :hasHyperParameter ;
                                   owl:someValuesFrom :HyperParameter
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty :implements ;
-                                  owl:someValuesFrom :Algorithm
                                 ] ;
                 
                 <http://purl.org/dc/terms/description> "Implementation is an executable implementation of a machine learning algorithm, a script, or a workflow. It is versioned, and sometimes belongs to a library (e.g. WEKA)." ;
@@ -448,7 +448,7 @@ or the number of features of a data set). They may be also informationtheoretic 
 
 :ImplementationCharacteristic rdf:type owl:Class ;
                               
-                              rdfs:subClassOf :InformationEntity ;
+                              rdfs:subClassOf :Quality ;
                               
                               rdfs:comment "ImplementationCharacteristic is a distinguishing quality or property that distinguish one implementation from another." ;
                               
@@ -494,7 +494,7 @@ or the number of features of a data set). They may be also informationtheoretic 
 
 :ModelCharacteristic rdf:type owl:Class ;
                      
-                     rdfs:subClassOf :InformationEntity ;
+                     rdfs:subClassOf :Quality ;
                      
                      rdfs:comment "ModelCharacteristic is a distinguishing quality or property that distinguish one model from another. An example model characetristic may be interpretabilty or a complexity of the model." ;
                      
@@ -508,12 +508,12 @@ or the number of features of a data set). They may be also informationtheoretic 
                  
                  rdfs:subClassOf :InformationEntity ,
                                  [ rdf:type owl:Restriction ;
-                                   owl:onProperty :hasValue ;
-                                   owl:someValuesFrom rdfs:Literal
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
                                    owl:onProperty :specifiedBy ;
                                    owl:someValuesFrom :EvaluationMeasure
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasValue ;
+                                   owl:someValuesFrom rdfs:Literal
                                  ] ;
                  
                  rdfs:comment "ModelEvaluation is a setting of a value of the performance measure  specified by the evaluation specification. It connects a measure specification with its value." ;
@@ -530,22 +530,20 @@ or the number of features of a data set). They may be also informationtheoretic 
 
 
 
+###  http://www.w3.org/ns/mls#Quality
+
+:Quality rdf:type owl:Class .
+
+
+
 ###  http://www.w3.org/ns/mls#Run
 
 :Run rdf:type owl:Class ;
      
      rdfs:subClassOf :Process ,
                      [ rdf:type owl:Restriction ;
-                       owl:onProperty :hasInput ;
-                       owl:someValuesFrom :HyperParameterSetting
-                     ] ,
-                     [ rdf:type owl:Restriction ;
                        owl:onProperty :realizes ;
                        owl:someValuesFrom :Task
-                     ] ,
-                     [ rdf:type owl:Restriction ;
-                       owl:onProperty :hasOutput ;
-                       owl:someValuesFrom :ModelEvaluation
                      ] ,
                      [ rdf:type owl:Restriction ;
                        owl:onProperty :hasOutput ;
@@ -558,6 +556,14 @@ or the number of features of a data set). They may be also informationtheoretic 
                      [ rdf:type owl:Restriction ;
                        owl:onProperty :hasInput ;
                        owl:someValuesFrom :Data
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :hasInput ;
+                       owl:someValuesFrom :HyperParameterSetting
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :hasOutput ;
+                       owl:someValuesFrom :ModelEvaluation
                      ] ;
      
      rdfs:comment "Run is an execution of an implementation on a machine (computer). It is limited in time (has a start and end point), can be successful or failed." ;
@@ -574,7 +580,11 @@ or the number of features of a data set). They may be also informationtheoretic 
                           [ rdf:type owl:Restriction ;
                             owl:onProperty :hasPart ;
                             owl:someValuesFrom :Implementation
-                          ] .
+                          ] ;
+          
+          <http://purl.org/dc/terms/description> "Software is implemented computer programs, procedures, scripts or rules with associated documentation, possibly constituting an organized environment, stored in read/write memory for the purpose of being executed within a computer system." ;
+          
+          rdfs:comment "Software is implemented computer programs, procedures, scripts or rules with associated documentation, possibly constituting an organized environment, stored in read/write memory for the purpose of being executed within a computer system." .
 
 
 
@@ -604,9 +614,9 @@ or the number of features of a data set). They may be also informationtheoretic 
                         owl:someValuesFrom :Data
                       ] ;
       
-      <http://purl.org/dc/terms/description> "Task is a formal description of a process that needs to be completed (e.g. based on inputs and outputs). A Task is any piece of work that needs to be addressed in the data mining process. In ML Schema, it is defined based on data and on the evaluation specification." ;
+      <http://purl.org/dc/terms/description> "Task is a formal description of a process that needs to be completed (e.g. based on inputs and outputs). A Task is any piece of work that needs to be addressed in the data mining process. In ML Schema, it is defined based on data." ;
       
-      rdfs:comment "Task is a formal description of a process that needs to be completed (e.g. based on inputs and outputs). A Task is any piece of work that needs to be addressed in the data mining process. In ML Schema, it is defined based on data and on the evaluation specification." .
+      rdfs:comment "Task is a formal description of a process that needs to be completed (e.g. based on inputs and outputs). A Task is any piece of work that needs to be addressed in the data mining process. In ML Schema, it is defined based on data." .
 
 
 
@@ -727,32 +737,6 @@ or the number of features of a data set). They may be also informationtheoretic 
 
 
 
-<http://purl.org/dc/elements/1.1/coverage> rdfs:label "Coverage"@en ;
-                                           
-                                           <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
-                                           
-                                           <http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
-                                           
-                                           <http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
-                                           
-                                           <http://purl.org/dc/terms/description> "Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended best practice is to use a controlled vocabulary such as the Thesaurus of Geographic Names [TGN]. Where appropriate, named places or time periods can be used in preference to numeric identifiers such as sets of coordinates or date ranges."@en ;
-                                           
-                                           rdfs:comment "The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant."@en ;
-                                           
-                                           <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#coverage-006> ;
-                                           
-                                           rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> .
-
-
-
-<http://purl.org/dc/elements/1.1/> <http://purl.org/dc/terms/modified> "2012-06-14"^^xsd:date ;
-                                   
-                                   <http://purl.org/dc/terms/title> "Dublin Core Metadata Element Set, Version 1.1"@en ;
-                                   
-                                   <http://purl.org/dc/terms/publisher> <http://purl.org/dc/aboutdcmi#DCMI> .
-
-
-
 <http://purl.org/dc/elements/1.1/date> rdfs:label "Date"@en ;
                                        
                                        <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
@@ -768,6 +752,32 @@ or the number of features of a data set). They may be also informationtheoretic 
                                        <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#date-006> ;
                                        
                                        rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> .
+
+
+
+<http://purl.org/dc/elements/1.1/> <http://purl.org/dc/terms/modified> "2012-06-14"^^xsd:date ;
+                                   
+                                   <http://purl.org/dc/terms/title> "Dublin Core Metadata Element Set, Version 1.1"@en ;
+                                   
+                                   <http://purl.org/dc/terms/publisher> <http://purl.org/dc/aboutdcmi#DCMI> .
+
+
+
+<http://purl.org/dc/elements/1.1/coverage> rdfs:label "Coverage"@en ;
+                                           
+                                           <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                           
+                                           <http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
+                                           
+                                           <http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
+                                           
+                                           <http://purl.org/dc/terms/description> "Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended best practice is to use a controlled vocabulary such as the Thesaurus of Geographic Names [TGN]. Where appropriate, named places or time periods can be used in preference to numeric identifiers such as sets of coordinates or date ranges."@en ;
+                                           
+                                           rdfs:comment "The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant."@en ;
+                                           
+                                           <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#coverage-006> ;
+                                           
+                                           rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> .
 
 
 
@@ -807,24 +817,6 @@ or the number of features of a data set). They may be also informationtheoretic 
 
 
 
-<http://purl.org/dc/elements/1.1/identifier> rdfs:label "Identifier"@en ;
-                                             
-                                             <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
-                                             
-                                             <http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
-                                             
-                                             <http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
-                                             
-                                             rdfs:comment "An unambiguous reference to the resource within a given context."@en ;
-                                             
-                                             <http://purl.org/dc/terms/description> "Recommended best practice is to identify the resource by means of a string conforming to a formal identification system. "@en ;
-                                             
-                                             <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#identifier-006> ;
-                                             
-                                             rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> .
-
-
-
 <http://purl.org/dc/elements/1.1/description> rdfs:label "Description"@en ;
                                               
                                               <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
@@ -843,21 +835,21 @@ or the number of features of a data set). They may be also informationtheoretic 
 
 
 
-<http://purl.org/dc/elements/1.1/rights> rdfs:label "Rights"@en ;
-                                         
-                                         <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
-                                         
-                                         <http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
-                                         
-                                         <http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
-                                         
-                                         rdfs:comment "Information about rights held in and over the resource."@en ;
-                                         
-                                         <http://purl.org/dc/terms/description> "Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights."@en ;
-                                         
-                                         <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#rights-006> ;
-                                         
-                                         rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> .
+<http://purl.org/dc/elements/1.1/identifier> rdfs:label "Identifier"@en ;
+                                             
+                                             <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                             
+                                             <http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
+                                             
+                                             <http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
+                                             
+                                             rdfs:comment "An unambiguous reference to the resource within a given context."@en ;
+                                             
+                                             <http://purl.org/dc/terms/description> "Recommended best practice is to identify the resource by means of a string conforming to a formal identification system. "@en ;
+                                             
+                                             <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#identifier-006> ;
+                                             
+                                             rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> .
 
 
 
@@ -874,6 +866,24 @@ or the number of features of a data set). They may be also informationtheoretic 
                                          rdfs:comment "The file format, physical medium, or dimensions of the resource."@en ;
                                          
                                          <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#format-007> ;
+                                         
+                                         rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> .
+
+
+
+<http://purl.org/dc/elements/1.1/rights> rdfs:label "Rights"@en ;
+                                         
+                                         <http://purl.org/dc/terms/issued> "1999-07-02"^^xsd:date ;
+                                         
+                                         <http://purl.org/dc/terms/modified> "2008-01-14"^^xsd:date ;
+                                         
+                                         <http://www.w3.org/2004/02/skos/core#note> "A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document \"DCMI Metadata Terms\" (http://dublincore.org/documents/dcmi-terms/) for an explanation."@en ;
+                                         
+                                         rdfs:comment "Information about rights held in and over the resource."@en ;
+                                         
+                                         <http://purl.org/dc/terms/description> "Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights."@en ;
+                                         
+                                         <http://purl.org/dc/terms/hasVersion> <http://dublincore.org/usage/terms/history/#rights-006> ;
                                          
                                          rdfs:isDefinedBy <http://purl.org/dc/elements/1.1/> .
 
