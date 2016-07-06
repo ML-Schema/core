@@ -25,8 +25,8 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="http://www.w3.org/ns/mls/cp#">
         <terms:hasVersion rdf:datatype="&xsd;decimal">1.0</terms:hasVersion>
+        <terms:title>Algorithm-Implementation-Execution ontology design pattern</terms:title>
         <protege:defaultLanguage>EN</protege:defaultLanguage>
-        <terms:title>Machine Learning Schema</terms:title>
         <terms:description>ML-Schema is a collaborative, community effort with a mission to develop, maintain, and promote standard schemas for data mining and machine learning algorithms, datasets, and experiments</terms:description>
         <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl"/>
         <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl"/>
@@ -339,14 +339,8 @@ The Execution :run100241 has on Input the :credit-a dataset and the parameter se
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/mls/cp#Process"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/mls/cp#hasDuration"/>
-                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/mls/cp#hasInput"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/ns/mls/cp#Input"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/ns/mls/cp#ParameterSetting"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -363,8 +357,14 @@ The Execution :run100241 has on Input the :credit-a dataset and the parameter se
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/mls/cp#hasDuration"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.w3.org/ns/mls/cp#hasInput"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/ns/mls/cp#ParameterSetting"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/ns/mls/cp#Input"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -600,16 +600,6 @@ With regard to complexity, data examples are characterized by their datatype, wh
         <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#type-006"/>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
     </rdf:Description>
-    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/identifier">
-        <rdfs:label xml:lang="en">Identifier</rdfs:label>
-        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
-        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
-        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
-        <rdfs:comment xml:lang="en">An unambiguous reference to the resource within a given context.</rdfs:comment>
-        <terms:description xml:lang="en">Recommended best practice is to identify the resource by means of a string conforming to a formal identification system. </terms:description>
-        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#identifier-006"/>
-        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
-    </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/description">
         <rdfs:label xml:lang="en">Description</rdfs:label>
         <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
@@ -620,14 +610,14 @@ With regard to complexity, data examples are characterized by their datatype, wh
         <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#description-006"/>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
     </rdf:Description>
-    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/rights">
-        <rdfs:label xml:lang="en">Rights</rdfs:label>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/identifier">
+        <rdfs:label xml:lang="en">Identifier</rdfs:label>
         <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
         <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
         <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
-        <rdfs:comment xml:lang="en">Information about rights held in and over the resource.</rdfs:comment>
-        <terms:description xml:lang="en">Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.</terms:description>
-        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#rights-006"/>
+        <rdfs:comment xml:lang="en">An unambiguous reference to the resource within a given context.</rdfs:comment>
+        <terms:description xml:lang="en">Recommended best practice is to identify the resource by means of a string conforming to a formal identification system. </terms:description>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#identifier-006"/>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/format">
@@ -638,6 +628,16 @@ With regard to complexity, data examples are characterized by their datatype, wh
         <terms:description xml:lang="en">Examples of dimensions include size and duration. Recommended best practice is to use a controlled vocabulary such as the list of Internet Media Types [MIME].</terms:description>
         <rdfs:comment xml:lang="en">The file format, physical medium, or dimensions of the resource.</rdfs:comment>
         <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#format-007"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/rights">
+        <rdfs:label xml:lang="en">Rights</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <rdfs:comment xml:lang="en">Information about rights held in and over the resource.</rdfs:comment>
+        <terms:description xml:lang="en">Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.</terms:description>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#rights-006"/>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/creator">
@@ -655,4 +655,6 @@ With regard to complexity, data examples are characterized by their datatype, wh
 
 
 <!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+
+
 
