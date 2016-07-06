@@ -1,0 +1,658 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY terms "http://purl.org/dc/terms/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
+    <!ENTITY cpannotationschema "http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.w3.org/ns/mls#"
+     xml:base="http://www.w3.org/ns/mls"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.w3.org/ns/mls/cp#">
+        <terms:hasVersion rdf:datatype="&xsd;decimal">1.0</terms:hasVersion>
+        <protege:defaultLanguage>EN</protege:defaultLanguage>
+        <terms:title>Machine Learning Schema</terms:title>
+        <terms:description>ML-Schema is a collaborative, community effort with a mission to develop, maintain, and promote standard schemas for data mining and machine learning algorithms, datasets, and experiments</terms:description>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl"/>
+        <owl:versionIRI rdf:resource="http://www.w3.org/2016/03/mls#"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://protege.stanford.edu/plugins/owl/protege#defaultLanguage -->
+
+    <owl:AnnotationProperty rdf:about="&protege;defaultLanguage">
+        <protege:defaultLanguage>OWL 2</protege:defaultLanguage>
+        <rdfs:comment>OWL 2</rdfs:comment>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:AnnotationProperty rdf:about="&terms;description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/hasVersion -->
+
+    <owl:AnnotationProperty rdf:about="&terms;hasVersion">
+        <terms:hasVersion rdf:datatype="&xsd;decimal">1.0</terms:hasVersion>
+        <rdfs:comment rdf:datatype="&xsd;decimal">1.0</rdfs:comment>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/issued -->
+
+    <owl:AnnotationProperty rdf:about="&terms;issued"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/modified -->
+
+    <owl:AnnotationProperty rdf:about="&terms;modified"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/publisher -->
+
+    <owl:AnnotationProperty rdf:about="&terms;publisher"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:AnnotationProperty rdf:about="&terms;title"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#coversRequirements -->
+
+    <rdf:Description rdf:about="&cpannotationschema;coversRequirements">
+        <cpannotationschema:coversRequirements>Which algorithm is implemented by this implementation?
+What are the implementations of this algorithm?
+Which implementation is executed?
+What are the parameters of this implementation?
+What are the parameter settings of particular parameters in this execution?
+What is the input to this implementation execution?
+What is the output produced by the this implementation execution?
+What task this execution realizes?
+What is the duration of this execution?
+What is the input this task is defined on?</cpannotationschema:coversRequirements>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasComponent -->
+
+    <rdf:Description rdf:about="&cpannotationschema;hasComponent">
+        <cpannotationschema:hasComponent>http://ontologydesignpatterns.org/wiki/Submissions:TimeInterval</cpannotationschema:hasComponent>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#hasIntent -->
+
+    <rdf:Description rdf:about="&cpannotationschema;hasIntent">
+        <cpannotationschema:hasIntent>The intent of the design pattern  is to model algorithm specifications, their implementations and executions. This includes also parameters of implementations, settings of the parameters for the execution, and inputs the execution consumes (e.g., data) and outputs the execution produces (e.g., models, reports).</cpannotationschema:hasIntent>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#reengineeredFrom -->
+
+    <rdf:Description rdf:about="&cpannotationschema;reengineeredFrom">
+        <cpannotationschema:reengineeredFrom>ML Schema, see: https://www.w3.org/community/ml-schema/</cpannotationschema:reengineeredFrom>
+        <rdfs:comment>ML Schema, see: https://www.w3.org/community/ml-schema/</rdfs:comment>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#scenarios -->
+
+    <rdf:Description rdf:about="&cpannotationschema;scenarios">
+        <cpannotationschema:scenarios>Consider a scenario in machine learning (ML) domain. The scenario deals with a machine learning task realization and it is based on an example derived from the OpenML portal (http://www.openml.org). 
+There is an ML Task :task29 which is a supervised classification task defined on the dataset :credit-a.
+This task is realized by the Execution :run100241 which executes the Implementation :wekaLogistic of the Algorithm :logisticRegression. 
+The Implementation :wekaLogistic has five hyperparameters (Parameter): :wekaLogisticC, :wekaLogisticDoNotCheckCapabilities, :wekaLogisticM, :wekaLogisticOutputDebugInfo, :wekaLogisticR. The values of two of these hyperparameters are set. The hyperparameter :wekaLogisticM has value set to -1 (expressed via the ParameterSetting :wekaLogisticMSetting29), and the hyperparameter :wekaLogisticR that has its value set to &quot;1.0E-8&quot;^^xsd:float (expressed via the ParameterSetting :wekaLogisticRSetting29).
+The Execution :run100241 has on Input the :credit-a dataset and the parameter settings and its Output is the ML model :wekaLogisticModel100241.</cpannotationschema:scenarios>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#note -->
+
+    <owl:AnnotationProperty rdf:about="&skos;note"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="&xsd;date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/ns/mls/cp#definedOn -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/mls/cp#definedOn">
+        <rdfs:label xml:lang="en">definedOn</rdfs:label>
+        <terms:description>A relation between a task and either the data or an evaluation specification pertinent to this task.</terms:description>
+        <rdfs:comment>A relation between a task and either the data or an evaluation specification pertinent to this task.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.w3.org/ns/mls/cp#defines"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/mls/cp#defines -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/mls/cp#defines"/>
+    
+
+
+    <!-- http://www.w3.org/ns/mls/cp#executes -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/mls/cp#executes">
+        <rdfs:comment>A relation between a run and an implemantation that is being executed during the run.</rdfs:comment>
+        <terms:description>A relation between a run and an implemantation that is being executed during the run.</terms:description>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/mls/cp#hasDuration -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/mls/cp#hasDuration"/>
+    
+
+
+    <!-- http://www.w3.org/ns/mls/cp#hasInput -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/mls/cp#hasInput">
+        <rdfs:label xml:lang="en">hasInput</rdfs:label>
+        <rdfs:comment>A relation between a run and data that is taken as input to the run.</rdfs:comment>
+        <terms:description>A relation between a run and data that is taken as input to the run.</terms:description>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/mls/cp#hasOutput -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/mls/cp#hasOutput">
+        <rdfs:comment>A relation between a run and either a model or model evaluation that is produced on it’s output.</rdfs:comment>
+        <terms:description>A relation between a run and either a model or model evaluation that is produced on it’s output.</terms:description>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/mls/cp#hasParameter -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/mls/cp#hasParameter">
+        <rdfs:label xml:lang="en">hasHyperParameter</rdfs:label>
+        <terms:description>A relation between an implementation of a machine learning algorithm and its hyperparameter.</terms:description>
+        <rdfs:comment>A relation between an implementation of a machine learning algorithm and its hyperparameter.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/mls/cp#hasPart -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/mls/cp#hasPart">
+        <rdfs:label xml:lang="en">hasPart</rdfs:label>
+        <rdfs:comment>A relation which represents a part-whole relationship holding between an entity and its part.</rdfs:comment>
+        <terms:description>A relation which represents a part-whole relationship holding between an entity and its part.</terms:description>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/mls/cp#hasQuality -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/mls/cp#hasQuality">
+        <rdfs:comment>A relation between entities and their various characteristics.</rdfs:comment>
+        <terms:description>A relation between entities and their various characteristics.</terms:description>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/mls/cp#implements -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/mls/cp#implements">
+        <rdfs:label xml:lang="en">implements</rdfs:label>
+        <terms:description>A relation between an information entity and a specification that it conforms to.</terms:description>
+        <rdfs:comment>A relation between an information entity and a specification that it conforms to.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/mls/cp#realizes -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/mls/cp#realizes">
+        <rdfs:comment>A relation between a run and a task, where the run realizes specifications formulated by the task.</rdfs:comment>
+        <terms:description>A relation between a run and a task, where the run realizes specifications formulated by the task.</terms:description>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/mls/cp#specifiedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/mls/cp#specifiedBy">
+        <rdfs:comment>A relation between an entity and the information content entity that specifies it.</rdfs:comment>
+        <terms:description>A relation between an entity and the information content entity that specifies it.</terms:description>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/ns/mls/cp#hasValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/mls/cp#hasValue"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/ns/mls/cp#Algorithm -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/mls/cp#Algorithm">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/mls/cp#InformationEntity"/>
+        <rdfs:comment>The algorithm regardless software implementation.</rdfs:comment>
+        <terms:description>The algorithm regardless software implementation.</terms:description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/mls/cp#Execution -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/mls/cp#Execution">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/mls/cp#Process"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/mls/cp#hasDuration"/>
+                <owl:someValuesFrom rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/mls/cp#hasInput"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/ns/mls/cp#Input"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/mls/cp#realizes"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/ns/mls/cp#Task"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/mls/cp#hasOutput"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/ns/mls/cp#Output"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/mls/cp#hasInput"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/ns/mls/cp#ParameterSetting"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/mls/cp#executes"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/ns/mls/cp#Implementation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Run is an execution of an implementation on a machine (computer). It is limited in time (has a start and end point), can be successful or failed.</rdfs:comment>
+        <terms:description>Run is an execution of an implementation on a machine (computer). It is limited in time (has a start and end point), can be successful or failed.</terms:description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/mls/cp#Implementation -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/mls/cp#Implementation">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/mls/cp#InformationEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/mls/cp#hasParameter"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/ns/mls/cp#Parameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/mls/cp#implements"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/ns/mls/cp#Algorithm"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <terms:description>Implementation is an executable implementation of a machine learning algorithm, a script, or a workflow. It is versioned, and sometimes belongs to a library (e.g. WEKA).</terms:description>
+        <rdfs:comment>Implementation is an executable implementation of a machine learning algorithm, a script, or a workflow. It is versioned, and sometimes belongs to a library (e.g. WEKA).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/mls/cp#InformationEntity -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/mls/cp#InformationEntity"/>
+    
+
+
+    <!-- http://www.w3.org/ns/mls/cp#Input -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/mls/cp#Input">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/mls/cp#InformationEntity"/>
+        <terms:description>Data is a data item composed of data examples and it may be of a various level of granularity and complexity. 
+With regard to granularity, it can be a whole dataset (for instance, one main table and possibly other tables), or only a single table, or only a feature (e.g., a column of a table), or only an instance (e.g., row of a table), or a single feature-value pair. 
+With regard to complexity, data examples are characterized by their datatype, which may be arbitrarily complex (e.g., instead of a table it can be an arbitrary graph).</terms:description>
+        <rdfs:comment>Data is a data item composed of data examples and it may be of a various level of granularity and complexity. 
+With regard to granularity, it can be a whole dataset (for instance, one main table and possibly other tables), or only a single table, or only a feature (e.g., a column of a table), or only an instance (e.g., row of a table), or a single feature-value pair. 
+With regard to complexity, data examples are characterized by their datatype, which may be arbitrarily complex (e.g., instead of a table it can be an arbitrary graph).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/mls/cp#Output -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/mls/cp#Output">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/mls/cp#InformationEntity"/>
+        <rdfs:comment>Model is a generalization of a set of training data able to predict values for unseen instances. It is an output from an execution of a data mining algorithm implementation. Models have a dual nature. They can be treated as data structures and as such represented, stored and manipulated. On the other hand, they act as functions and are executed, taking as input data examples and giving as output the result of applying the function to a data example. Models can also be divided into global or local ones. A global model has global coverage of a data set, i.e., it generalizes the whole data set. A local model, such as a pattern set, is a set of local hypotheses, i.e. each applies to a limited region of the data set.</rdfs:comment>
+        <terms:description>Model is a generalization of a set of training data able to predict values for unseen instances. It is an output from an execution of a data mining algorithm implementation. Models have a dual nature. They can be treated as data structures and as such represented, stored and manipulated. On the other hand, they act as functions and are executed, taking as input data examples and giving as output the result of applying the function to a data example. Models can also be divided into global or local ones. A global model has global coverage of a data set, i.e., it generalizes the whole data set. A local model, such as a pattern set, is a set of local hypotheses, i.e. each applies to a limited region of the data set.</terms:description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/mls/cp#Parameter -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/mls/cp#Parameter">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/mls/cp#InformationEntity"/>
+        <rdfs:comment>Hyperparameter is a prior parameter of an implementation, i.e., a parameter which is set before its execution (e.g. C, the complexity parameter, in weka.SMO).</rdfs:comment>
+        <terms:description>Hyperparameter is a prior parameter of an implementation, i.e., a parameter which is set before its execution (e.g. C, the complexity parameter, in weka.SMO).</terms:description>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/mls/cp#ParameterSetting -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/mls/cp#ParameterSetting">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/mls/cp#InformationEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/mls/cp#hasValue"/>
+                <owl:someValuesFrom rdf:resource="&rdfs;Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/mls/cp#specifiedBy"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/ns/mls/cp#Parameter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <terms:description>HyperParameterSetting is an entity which connects a hyperparameter and its value that is being set before an implementation execution.</terms:description>
+        <rdfs:comment>HyperParameterSetting is an entity which connects a hyperparameter and its value that is being set before an implementation execution.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/mls/cp#Process -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/mls/cp#Process">
+        <rdfs:label xml:lang="en">Process</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/mls/cp#Task -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/mls/cp#Task">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/mls/cp#InformationEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/ns/mls/cp#definedOn"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/ns/mls/cp#Input"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Task is a formal description of a process that needs to be completed (e.g. based on inputs and outputs). A Task is any piece of work that needs to be addressed in the data mining process. In ML Schema, it is defined based on data and on the evaluation specification.</rdfs:comment>
+        <terms:description>Task is a formal description of a process that needs to be completed (e.g. based on inputs and outputs). A Task is any piece of work that needs to be addressed in the data mining process. In ML Schema, it is defined based on data and on the evaluation specification.</terms:description>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/contributor">
+        <rdfs:label xml:lang="en">Contributor</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <rdfs:comment xml:lang="en">An entity responsible for making contributions to the resource.</rdfs:comment>
+        <terms:description xml:lang="en">Examples of a Contributor include a person, an organization, or a service. Typically, the name of a Contributor should be used to indicate the entity.</terms:description>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#contributor-006"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/publisher">
+        <rdfs:label xml:lang="en">Publisher</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <rdfs:comment xml:lang="en">An entity responsible for making the resource available.</rdfs:comment>
+        <terms:description xml:lang="en">Examples of a Publisher include a person, an organization, or a service. Typically, the name of a Publisher should be used to indicate the entity.</terms:description>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#publisher-006"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/relation">
+        <rdfs:label xml:lang="en">Relation</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
+        <rdfs:comment xml:lang="en">A related resource.</rdfs:comment>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <terms:description xml:lang="en">Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system. </terms:description>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#relation-006"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/title">
+        <rdfs:label xml:lang="en">Title</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
+        <rdfs:comment xml:lang="en">A name given to the resource.</rdfs:comment>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#title-006"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/source">
+        <rdfs:label xml:lang="en">Source</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
+        <rdfs:comment xml:lang="en">A related resource from which the described resource is derived.</rdfs:comment>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <terms:description xml:lang="en">The described resource may be derived from the related resource in whole or in part. Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system.</terms:description>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#source-006"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/language">
+        <rdfs:label xml:lang="en">Language</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
+        <rdfs:comment xml:lang="en">A language of the resource.</rdfs:comment>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <terms:description xml:lang="en">Recommended best practice is to use a controlled vocabulary such as RFC 4646 [RFC4646].</terms:description>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#language-007"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+        <rdfs:seeAlso rdf:resource="http://www.ietf.org/rfc/rfc4646.txt"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/coverage">
+        <rdfs:label xml:lang="en">Coverage</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <terms:description xml:lang="en">Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended best practice is to use a controlled vocabulary such as the Thesaurus of Geographic Names [TGN]. Where appropriate, named places or time periods can be used in preference to numeric identifiers such as sets of coordinates or date ranges.</terms:description>
+        <rdfs:comment xml:lang="en">The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant.</rdfs:comment>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#coverage-006"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/date">
+        <rdfs:label xml:lang="en">Date</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
+        <rdfs:comment xml:lang="en">A point or period of time associated with an event in the lifecycle of the resource.</rdfs:comment>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <terms:description xml:lang="en">Date may be used to express temporal information at any level of granularity.  Recommended best practice is to use an encoding scheme, such as the W3CDTF profile of ISO 8601 [W3CDTF].</terms:description>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#date-006"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/">
+        <terms:modified rdf:datatype="&xsd;date">2012-06-14</terms:modified>
+        <terms:title xml:lang="en">Dublin Core Metadata Element Set, Version 1.1</terms:title>
+        <terms:publisher rdf:resource="http://purl.org/dc/aboutdcmi#DCMI"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/subject">
+        <rdfs:label xml:lang="en">Subject</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2012-06-14</terms:modified>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <rdfs:comment xml:lang="en">The topic of the resource.</rdfs:comment>
+        <terms:description xml:lang="en">Typically, the subject will be represented using keywords, key phrases, or classification codes. Recommended best practice is to use a controlled vocabulary.</terms:description>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#subject-007"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/type">
+        <rdfs:label xml:lang="en">Type</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <terms:description xml:lang="en">Recommended best practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [DCMITYPE]. To describe the file format, physical medium, or dimensions of the resource, use the Format element.</terms:description>
+        <rdfs:comment xml:lang="en">The nature or genre of the resource.</rdfs:comment>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#type-006"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/identifier">
+        <rdfs:label xml:lang="en">Identifier</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <rdfs:comment xml:lang="en">An unambiguous reference to the resource within a given context.</rdfs:comment>
+        <terms:description xml:lang="en">Recommended best practice is to identify the resource by means of a string conforming to a formal identification system. </terms:description>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#identifier-006"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/description">
+        <rdfs:label xml:lang="en">Description</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <rdfs:comment xml:lang="en">An account of the resource.</rdfs:comment>
+        <terms:description xml:lang="en">Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</terms:description>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#description-006"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/rights">
+        <rdfs:label xml:lang="en">Rights</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <rdfs:comment xml:lang="en">Information about rights held in and over the resource.</rdfs:comment>
+        <terms:description xml:lang="en">Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.</terms:description>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#rights-006"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/format">
+        <rdfs:label xml:lang="en">Format</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <terms:description xml:lang="en">Examples of dimensions include size and duration. Recommended best practice is to use a controlled vocabulary such as the list of Internet Media Types [MIME].</terms:description>
+        <rdfs:comment xml:lang="en">The file format, physical medium, or dimensions of the resource.</rdfs:comment>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#format-007"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/creator">
+        <rdfs:label xml:lang="en">Creator</rdfs:label>
+        <terms:issued rdf:datatype="&xsd;date">1999-07-02</terms:issued>
+        <terms:modified rdf:datatype="&xsd;date">2008-01-14</terms:modified>
+        <skos:note xml:lang="en">A second property with the same name as this property has been declared in the dcterms: namespace (http://purl.org/dc/terms/).  See the Introduction to the document &quot;DCMI Metadata Terms&quot; (http://dublincore.org/documents/dcmi-terms/) for an explanation.</skos:note>
+        <rdfs:comment xml:lang="en">An entity primarily responsible for making the resource.</rdfs:comment>
+        <terms:description xml:lang="en">Examples of a Creator include a person, an organization, or a service. Typically, the name of a Creator should be used to indicate the entity.</terms:description>
+        <terms:hasVersion rdf:resource="http://dublincore.org/usage/terms/history/#creator-006"/>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+
