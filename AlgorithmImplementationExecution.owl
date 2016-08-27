@@ -104,7 +104,8 @@ What are the parameters of this implementation?
 What are the parameter settings of particular parameters in this execution?
 What is the input to this implementation execution?
 What is the output produced by the this implementation execution?
-What task this execution realizes?
+What algorithm does this execution realize?
+What task does this execution achieves?
 What is the duration of this execution?
 What is the input this task is defined on?</cpannotationschema:coversRequirements>
     </rdf:Description>
@@ -139,9 +140,11 @@ What is the input this task is defined on?</cpannotationschema:coversRequirement
     <!-- http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#scenarios -->
 
     <rdf:Description rdf:about="&cpannotationschema;scenarios">
-        <cpannotationschema:scenarios>Consider a scenario in machine learning (ML) domain. The scenario deals with a machine learning task realization and it is based on an example derived from the OpenML portal (http://www.openml.org). 
+        <cpannotationschema:scenarios>Consider a scenario in machine learning (ML) domain. 
+        The scenario deals with a machine learning task realization and it is based on an example derived from the OpenML portal (http://www.openml.org). 
 There is an ML Task :task29 which is a supervised classification task defined on the dataset :credit-a.
-This task is realized by the Execution :run100241 which executes the Implementation :wekaLogistic of the Algorithm :logisticRegression. 
+This task is achieved by the Execution :run100241 which executes the Implementation :wekaLogistic of the Algorithm :logisticRegression which
+this execution realizes.
 The Implementation :wekaLogistic has five hyperparameters (Parameter): :wekaLogisticC, :wekaLogisticDoNotCheckCapabilities, :wekaLogisticM, :wekaLogisticOutputDebugInfo, :wekaLogisticR. The values of two of these hyperparameters are set. The hyperparameter :wekaLogisticM has value set to -1 (expressed via the ParameterSetting :wekaLogisticMSetting29), and the hyperparameter :wekaLogisticR that has its value set to &quot;1.0E-8&quot;^^xsd:float (expressed via the ParameterSetting :wekaLogisticRSetting29).
 The Execution :run100241 has on Input the :credit-a dataset and the parameter settings and its Output is the ML model :wekaLogisticModel100241.</cpannotationschema:scenarios>
     </rdf:Description>
