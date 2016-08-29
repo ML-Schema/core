@@ -92,6 +92,16 @@ xsd:date rdf:type rdfs:Datatype .
 #################################################################
 
 
+###  http://www.w3.org/ns/mls#achieves
+
+:achieves rdf:type owl:ObjectProperty ;
+          
+          <http://purl.org/dc/terms/description> "A relation between a run and a task, where the run achieves specifications formulated by the task." ;
+          
+          rdfs:comment "A relation between a run and a task, where the run achieves specifications formulated by the task." .
+
+
+
 ###  http://www.w3.org/ns/mls#definedOn
 
 :definedOn rdf:type owl:ObjectProperty ;
@@ -202,9 +212,9 @@ xsd:date rdf:type rdfs:Datatype .
 
 :realizes rdf:type owl:ObjectProperty ;
           
-          <http://purl.org/dc/terms/description> "A relation between a run and a task, where the run realizes specifications formulated by the task." ;
+          <http://purl.org/dc/terms/description> "A relation between a run and an algorithm, where the run realizes specifications formulated by the algorithm." ;
           
-          rdfs:comment "A relation between a run and a task, where the run realizes specifications formulated by the task." ;
+          rdfs:comment "A relation between a run and an algorithm, where the run realizes specifications formulated by the algorithm." ;
           
           rdfs:subPropertyOf owl:topObjectProperty .
 
@@ -426,16 +436,16 @@ or the number of features of a data set). They may be also informationtheoretic 
                 
                 rdfs:subClassOf :InformationEntity ,
                                 [ rdf:type owl:Restriction ;
-                                  owl:onProperty :implements ;
-                                  owl:someValuesFrom :Algorithm
-                                ] ,
-                                [ rdf:type owl:Restriction ;
                                   owl:onProperty :hasQuality ;
                                   owl:someValuesFrom :ImplementationCharacteristic
                                 ] ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty :hasHyperParameter ;
                                   owl:someValuesFrom :HyperParameter
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :implements ;
+                                  owl:someValuesFrom :Algorithm
                                 ] ;
                 
                 <http://purl.org/dc/terms/description> "Implementation is an executable implementation of a machine learning algorithm, a script, or a workflow. It is versioned, and sometimes belongs to a library (e.g. WEKA)." ;
@@ -542,20 +552,16 @@ or the number of features of a data set). They may be also informationtheoretic 
      
      rdfs:subClassOf :Process ,
                      [ rdf:type owl:Restriction ;
-                       owl:onProperty :realizes ;
-                       owl:someValuesFrom :Task
+                       owl:onProperty :hasInput ;
+                       owl:someValuesFrom :Data
                      ] ,
                      [ rdf:type owl:Restriction ;
                        owl:onProperty :hasOutput ;
                        owl:someValuesFrom :Model
                      ] ,
                      [ rdf:type owl:Restriction ;
-                       owl:onProperty :executes ;
-                       owl:someValuesFrom :Implementation
-                     ] ,
-                     [ rdf:type owl:Restriction ;
-                       owl:onProperty :hasInput ;
-                       owl:someValuesFrom :Data
+                       owl:onProperty :achieves ;
+                       owl:someValuesFrom :Task
                      ] ,
                      [ rdf:type owl:Restriction ;
                        owl:onProperty :hasInput ;
@@ -564,6 +570,14 @@ or the number of features of a data set). They may be also informationtheoretic 
                      [ rdf:type owl:Restriction ;
                        owl:onProperty :hasOutput ;
                        owl:someValuesFrom :ModelEvaluation
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :realizes ;
+                       owl:someValuesFrom :Algorithm
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :executes ;
+                       owl:someValuesFrom :Implementation
                      ] ;
      
      rdfs:comment "Run is an execution of an implementation on a machine (computer). It is limited in time (has a start and end point), can be successful or failed." ;
