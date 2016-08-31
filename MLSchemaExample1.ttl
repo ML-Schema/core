@@ -22,13 +22,6 @@
 #################################################################
 
 
-###  http://example.org#TenFoldCrossValidation
-
-:TenFoldCrossValidation rdf:type owl:NamedIndividual ,
-                                 mls:EvaluationProcedure .
-
-
-
 ###  http://example.org#Weka
 
 :Weka rdf:type owl:NamedIndividual ,
@@ -38,40 +31,23 @@
 
 
 
-###  http://example.org#classEntropy
-
-:classEntropy rdf:type owl:NamedIndividual ,
-                       mls:DatasetCharacteristic .
-
-
-
 ###  http://example.org#credit-a
 
 :credit-a rdf:type owl:NamedIndividual ,
                    mls:Dataset ;
           
-          mls:hasQuality :classEntropy ,
-                         :decisionStumpAUC ,
-                         :defaultAccuracy ,
-                         :j48_001_Stump ,
-                         :numberOfClasses ,
+          mls:hasQuality :defaultAccuracy ,
                          :numberOfFeatures ,
-                         :numberOfInstances ,
-                         :numberOfMissingValues .
-
-
-
-###  http://example.org#decisionStumpAUC
-
-:decisionStumpAUC rdf:type owl:NamedIndividual ,
-                           mls:DatasetCharacteristic .
+                         :numberOfInstances .
 
 
 
 ###  http://example.org#defaultAccuracy
 
 :defaultAccuracy rdf:type owl:NamedIndividual ,
-                          mls:DatasetCharacteristic .
+                          mls:DatasetCharacteristic ;
+                 
+                 mls:hasValue "0.56"^^xsd:float .
 
 
 
@@ -80,15 +56,11 @@
 :evaluationSpecification1 rdf:type owl:NamedIndividual ,
                                    mls:EvaluationSpecification ;
                           
-                          mls:hasPart :TenFoldCrossValidation ,
-                                      :predictiveAccuracy .
-
-
-
-###  http://example.org#j48_001_Stump
-
-:j48_001_Stump rdf:type owl:NamedIndividual ,
-                        mls:DatasetCharacteristic .
+                          mls:hasPart :predictiveAccuracy ;
+                          
+                          mls:defines :task29 ;
+                          
+                          mls:hasPart :tenFoldCrossValidation .
 
 
 
@@ -110,31 +82,21 @@
 
 
 
-###  http://example.org#numberOfClasses
-
-:numberOfClasses rdf:type owl:NamedIndividual ,
-                          mls:DatasetCharacteristic .
-
-
-
 ###  http://example.org#numberOfFeatures
 
 :numberOfFeatures rdf:type owl:NamedIndividual ,
-                           mls:DatasetCharacteristic .
+                           mls:DatasetCharacteristic ;
+                  
+                  mls:hasValue "16"^^xsd:long .
 
 
 
 ###  http://example.org#numberOfInstances
 
 :numberOfInstances rdf:type owl:NamedIndividual ,
-                            mls:DatasetCharacteristic .
-
-
-
-###  http://example.org#numberOfMissingValues
-
-:numberOfMissingValues rdf:type owl:NamedIndividual ,
-                                mls:DatasetCharacteristic .
+                            mls:DatasetCharacteristic ;
+                   
+                   mls:hasValue "690"^^xsd:long .
 
 
 
@@ -175,6 +137,13 @@
         
         mls:definedOn :credit-a ,
                       :evaluationSpecification1 .
+
+
+
+###  http://example.org#tenFoldCrossValidation
+
+:tenFoldCrossValidation rdf:type owl:NamedIndividual ,
+                                 mls:EvaluationProcedure .
 
 
 

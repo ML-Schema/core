@@ -349,7 +349,7 @@ or the number of features of a data set). They may be also informationtheoretic 
                          rdfs:subClassOf :InformationEntity ,
                                          [ rdf:type owl:Restriction ;
                                            owl:onProperty :hasPart ;
-                                           owl:someValuesFrom :EvaluationProcedure
+                                           owl:someValuesFrom :EvaluationMeasure
                                          ] ,
                                          [ rdf:type owl:Restriction ;
                                            owl:onProperty :defines ;
@@ -357,7 +357,7 @@ or the number of features of a data set). They may be also informationtheoretic 
                                          ] ,
                                          [ rdf:type owl:Restriction ;
                                            owl:onProperty :hasPart ;
-                                           owl:someValuesFrom :EvaluationMeasure
+                                           owl:someValuesFrom :EvaluationProcedure
                                          ] ;
                          
                          <http://purl.org/dc/terms/description> "EvaluationSpecification is a specification of an evaluation measure and an evaluation procedure to assess the performance of the process that realizes the task." ;
@@ -440,12 +440,12 @@ or the number of features of a data set). They may be also informationtheoretic 
                                   owl:someValuesFrom :ImplementationCharacteristic
                                 ] ,
                                 [ rdf:type owl:Restriction ;
-                                  owl:onProperty :hasHyperParameter ;
-                                  owl:someValuesFrom :HyperParameter
-                                ] ,
-                                [ rdf:type owl:Restriction ;
                                   owl:onProperty :implements ;
                                   owl:someValuesFrom :Algorithm
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :hasHyperParameter ;
+                                  owl:someValuesFrom :HyperParameter
                                 ] ;
                 
                 <http://purl.org/dc/terms/description> "Implementation is an executable implementation of a machine learning algorithm, a script, or a workflow. It is versioned, and sometimes belongs to a library (e.g. WEKA)." ;
@@ -518,12 +518,12 @@ or the number of features of a data set). They may be also informationtheoretic 
                  
                  rdfs:subClassOf :InformationEntity ,
                                  [ rdf:type owl:Restriction ;
-                                   owl:onProperty :specifiedBy ;
-                                   owl:someValuesFrom :EvaluationMeasure
-                                 ] ,
-                                 [ rdf:type owl:Restriction ;
                                    owl:onProperty :hasValue ;
                                    owl:someValuesFrom rdfs:Literal
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :specifiedBy ;
+                                   owl:someValuesFrom :EvaluationMeasure
                                  ] ;
                  
                  rdfs:comment "ModelEvaluation is a setting of a value of the performance measure  specified by the evaluation specification. It connects a measure specification with its value." ;
@@ -552,28 +552,28 @@ or the number of features of a data set). They may be also informationtheoretic 
      
      rdfs:subClassOf :Process ,
                      [ rdf:type owl:Restriction ;
+                       owl:onProperty :achieves ;
+                       owl:someValuesFrom :Task
+                     ] ,
+                     [ rdf:type owl:Restriction ;
                        owl:onProperty :hasInput ;
                        owl:someValuesFrom :Data
+                     ] ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :realizes ;
+                       owl:someValuesFrom :Algorithm
                      ] ,
                      [ rdf:type owl:Restriction ;
                        owl:onProperty :hasOutput ;
                        owl:someValuesFrom :Model
                      ] ,
                      [ rdf:type owl:Restriction ;
-                       owl:onProperty :achieves ;
-                       owl:someValuesFrom :Task
-                     ] ,
-                     [ rdf:type owl:Restriction ;
-                       owl:onProperty :hasInput ;
-                       owl:someValuesFrom :HyperParameterSetting
-                     ] ,
-                     [ rdf:type owl:Restriction ;
                        owl:onProperty :hasOutput ;
                        owl:someValuesFrom :ModelEvaluation
                      ] ,
                      [ rdf:type owl:Restriction ;
-                       owl:onProperty :realizes ;
-                       owl:someValuesFrom :Algorithm
+                       owl:onProperty :hasInput ;
+                       owl:someValuesFrom :HyperParameterSetting
                      ] ,
                      [ rdf:type owl:Restriction ;
                        owl:onProperty :executes ;
