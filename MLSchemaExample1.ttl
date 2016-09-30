@@ -8,11 +8,13 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix terms: <http://purl.org/dc/terms/> .
 @prefix protege: <http://protege.stanford.edu/plugins/owl/protege#> .
-@base <http://example.org> .
+@base <http://example.org/MLSchemaExample1> .
 
-<http://example.org> rdf:type owl:Ontology ;
-                     
-                     owl:imports <http://www.w3.org/2016/03/mls#> .
+<http://example.org/MLSchemaExample1> rdf:type owl:Ontology ;
+                                      
+                                      owl:versionIRI <http://example.org/MLSchemaExample1/1.0.0> ;
+                                      
+                                      owl:imports <http://www.w3.org/2016/03/mls#> .
 
 
 #################################################################
@@ -22,7 +24,7 @@
 #################################################################
 
 
-###  http://example.org#Weka
+###  http://example.org/MLSchemaExample1#Weka
 
 :Weka rdf:type owl:NamedIndividual ,
                mls:Software ;
@@ -31,7 +33,7 @@
 
 
 
-###  http://example.org#credit-a
+###  http://example.org/MLSchemaExample1#credit-a
 
 :credit-a rdf:type owl:NamedIndividual ,
                    mls:Dataset ;
@@ -42,7 +44,7 @@
 
 
 
-###  http://example.org#defaultAccuracy
+###  http://example.org/MLSchemaExample1#defaultAccuracy
 
 :defaultAccuracy rdf:type owl:NamedIndividual ,
                           mls:DatasetCharacteristic ;
@@ -51,7 +53,7 @@
 
 
 
-###  http://example.org#evaluationSpecification1
+###  http://example.org/MLSchemaExample1#evaluationSpecification1
 
 :evaluationSpecification1 rdf:type owl:NamedIndividual ,
                                    mls:EvaluationSpecification ;
@@ -64,14 +66,14 @@
 
 
 
-###  http://example.org#logisticRegression
+###  http://example.org/MLSchemaExample1#logisticRegression
 
 :logisticRegression rdf:type owl:NamedIndividual ,
                              mls:Algorithm .
 
 
 
-###  http://example.org#modelEvaluation100241
+###  http://example.org/MLSchemaExample1#modelEvaluation100241
 
 :modelEvaluation100241 rdf:type owl:NamedIndividual ,
                                 mls:ModelEvaluation ;
@@ -82,7 +84,7 @@
 
 
 
-###  http://example.org#numberOfFeatures
+###  http://example.org/MLSchemaExample1#numberOfFeatures
 
 :numberOfFeatures rdf:type owl:NamedIndividual ,
                            mls:DatasetCharacteristic ;
@@ -91,7 +93,7 @@
 
 
 
-###  http://example.org#numberOfInstances
+###  http://example.org/MLSchemaExample1#numberOfInstances
 
 :numberOfInstances rdf:type owl:NamedIndividual ,
                             mls:DatasetCharacteristic ;
@@ -100,14 +102,14 @@
 
 
 
-###  http://example.org#predictiveAccuracy
+###  http://example.org/MLSchemaExample1#predictiveAccuracy
 
 :predictiveAccuracy rdf:type owl:NamedIndividual ,
                              mls:EvaluationMeasure .
 
 
 
-###  http://example.org#run100241
+###  http://example.org/MLSchemaExample1#run100241
 
 :run100241 rdf:type owl:NamedIndividual ,
                     mls:Run ;
@@ -130,7 +132,7 @@
 
 
 
-###  http://example.org#task29
+###  http://example.org/MLSchemaExample1#task29
 
 :task29 rdf:type owl:NamedIndividual ,
                  mls:Task ;
@@ -140,14 +142,14 @@
 
 
 
-###  http://example.org#tenFoldCrossValidation
+###  http://example.org/MLSchemaExample1#tenFoldCrossValidation
 
 :tenFoldCrossValidation rdf:type owl:NamedIndividual ,
                                  mls:EvaluationProcedure .
 
 
 
-###  http://example.org#wekaLogistic
+###  http://example.org/MLSchemaExample1#wekaLogistic
 
 :wekaLogistic rdf:type owl:NamedIndividual ,
                        mls:Implementation ;
@@ -162,28 +164,28 @@
 
 
 
-###  http://example.org#wekaLogisticC
+###  http://example.org/MLSchemaExample1#wekaLogisticC
 
 :wekaLogisticC rdf:type owl:NamedIndividual ,
                         mls:HyperParameter .
 
 
 
-###  http://example.org#wekaLogisticDoNotCheckCapabilities
+###  http://example.org/MLSchemaExample1#wekaLogisticDoNotCheckCapabilities
 
 :wekaLogisticDoNotCheckCapabilities rdf:type owl:NamedIndividual ,
                                              mls:HyperParameter .
 
 
 
-###  http://example.org#wekaLogisticM
+###  http://example.org/MLSchemaExample1#wekaLogisticM
 
 :wekaLogisticM rdf:type owl:NamedIndividual ,
                         mls:HyperParameter .
 
 
 
-###  http://example.org#wekaLogisticMSetting29
+###  http://example.org/MLSchemaExample1#wekaLogisticMSetting29
 
 :wekaLogisticMSetting29 rdf:type owl:NamedIndividual ,
                                  mls:HyperParameterSetting ;
@@ -194,28 +196,28 @@
 
 
 
-###  http://example.org#wekaLogisticModel100241
+###  http://example.org/MLSchemaExample1#wekaLogisticModel100241
 
 :wekaLogisticModel100241 rdf:type owl:NamedIndividual ,
                                   mls:Model .
 
 
 
-###  http://example.org#wekaLogisticOutputDebugInfo
+###  http://example.org/MLSchemaExample1#wekaLogisticOutputDebugInfo
 
 :wekaLogisticOutputDebugInfo rdf:type owl:NamedIndividual ,
                                       mls:HyperParameter .
 
 
 
-###  http://example.org#wekaLogisticR
+###  http://example.org/MLSchemaExample1#wekaLogisticR
 
 :wekaLogisticR rdf:type owl:NamedIndividual ,
                         mls:HyperParameter .
 
 
 
-###  http://example.org#wekaLogisticRSetting29
+###  http://example.org/MLSchemaExample1#wekaLogisticRSetting29
 
 :wekaLogisticRSetting29 rdf:type owl:NamedIndividual ,
                                  mls:HyperParameterSetting ;
