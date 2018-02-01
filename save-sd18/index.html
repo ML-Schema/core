@@ -1,605 +1,1126 @@
 <!DOCTYPE HTML>
 <html prefix="
-        sd: https://w3id.org/scholarlydata/person/
-        fabio: http://purl.org/spar/fabio/
-        cito: http://purl.org/spar/cito/
-        pro: http://purl.org/spar/pro/
-        schema: http://schema.org/
-        prism: http://prismstandard.org/namespaces/basic/2.0/
-        frbr: http://purl.org/vocab/frbr/core#
-        dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
- <head>
-  <!-- Visualisation requirements (mandatory for optimal reading) -->
-  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <link href="css/bootstrap.min.css" rel="stylesheet"/>
-  <link href="css/rash.css" rel="stylesheet"/>
-  <!-- /END Visualisation requirements (mandatory for optimal reading) -->
-  <!-- Metadata -->
-  <title property="dcterms:title" typeof="fabio:ResearchPaper">
-   ML Schema: Exposing the Semantics of Machine Learning with Schemas and Ontologies
-  </title>
-  <!-- Author's data (one or more) -->
-  <meta content="Gustavo Correa Publio" name="dc.creator" property="schema:name" typeof="schema:Person"/>
-  <meta content="gustavo.publio@informatik.uni-leipzig.de" property="schema:email"/>
-  <link href="https://w3id.org/scholarlydata/organisation/aksw" property="schema:affiliation"/>
-  <meta content="Diego Esteves" name="dc.creator" property="schema:name" typeof="schema:Person"/>
-  <meta content="esteves@cs.uni-bonn.de" property="schema:email"/>
-  <link href="https://w3id.org/scholarlydata/organisation/university-of-bonn" property="schema:affiliation"/>
-  <meta content="Agnieszka Ławrynowicz" name="dc.creator" property="schema:name" typeof="schema:Person"/>
-  <meta content="agnieszka.lawrynowicz@cs.put.poznan.pl" property="schema:email"/>
-  <link href="https://w3id.org/scholarlydata/organisation/poznan-university-of-technology" property="schema:affiliation"/>
-  <meta content="Panče Panov" name="dc.creator" property="schema:name" typeof="schema:Person"/>
-  <meta content="pance.panov@ijs.si" property="schema:email"/>
-  <link href="https://w3id.org/scholarlydata/organisation/jozef-stefan-institute" property="schema:affiliation"/>
-  <meta content="Larisa Soldatova" name="dc.creator" property="schema:name" typeof="schema:Person"/>
-  <meta content="larisa.soldatova@brunel.ac.uk" property="schema:email"/>
-  <link href="https://w3id.org/scholarlydata/organisation/brunel-university" property="schema:affiliation"/>
-  <meta content="Tommaso Soru" name="dc.creator" property="schema:name" typeof="schema:Person"/>
-  <meta content="tsoru@informatik.uni-leipzig.de" property="schema:email"/>
-  <link href="https://w3id.org/scholarlydata/organisation/aksw" property="schema:affiliation"/>
-  <meta content="Joaquin Vanschoren" name="dc.creator" property="schema:name" typeof="schema:Person"/>
-  <meta content="j.vanschoren@tue.nl" property="schema:email"/>
-  <link href="https://w3id.org/scholarlydata/organisation/eindhoven-university-of-technology" property="schema:affiliation"/>
-  <!-- Affiliations -->
-  <meta content="Agile Knowledge Engineering and Semantic Web, Institute of Computer Science, University of Leipzig, Germany" property="schema:name" typeof="schema:Organization"/>
-  <meta content="Smart Data Analytics, University of Bonn, Germany" property="schema:name" typeof="schema:Organization"/>
-  <meta content="Faculty of Computing, Poznan University of Technology, Poland" property="schema:name" typeof="schema:Organization"/>
-  <meta content="Department of Knowledge Technologies, Jožef Stefan Institute, Ljubljana, Slovenia" property="schema:name" typeof="schema:Organization"/>
-  <meta content="Brunel University, London, United Kingdom" property="schema:name" typeof="schema:Organization"/>
-  <meta content="Eindhoven University of Technology, Netherlands" property="schema:name" typeof="schema:Organization"/>
-  <!-- Paper keywords (one or more) -->
-  <meta content="Machine Learning" property="prism:keyword"/>
-  <meta content="Machine Translation" property="prism:keyword"/>
-  <meta content="Linked Data" property="prism:keyword"/>
-  <!-- /END Metadata -->
- </head>
- <body>
-  <header class="page-header container cgen" data-rash-original-content="">
-   <h1 class="title">
-    ML Schema: Exposing the Semantics of Machine Learning with Schemas and Ontologies
-   </h1>
-   <address class="lead authors">
-    <strong class="author_name">
-     Gustavo Correa Publio
-    </strong>
-    <code class="email">
-     <a href="mailto:gustavo.publio@informatik.uni-leipzig.de">
-      gustavo.publio@informatik.uni-leipzig.de
-     </a>
-    </code>
-    <br/>
-    <span class="affiliation">
-     Agile Knowledge Engineering and Semantic Web, Institute of Computer Science, University of Leipzig, Germany
-    </span>
-   </address>
-   <address class="lead authors">
-    <strong class="author_name">
-     Diego Esteves
-    </strong>
-    <code class="email">
-     <a href="mailto:esteves@cs.uni-bonn.de">
-      esteves@cs.uni-bonn.de
-     </a>
-    </code>
-    <br/>
-    <span class="affiliation">
-     Smart Data Analytics, University of Bonn, Germany
-    </span>
-   </address>
-   <address class="lead authors">
-    <strong class="author_name">
-     Agnieszka &#321;awrynowicz
-    </strong>
-    <code class="email">
-     <a href="mailto:agnieszka.lawrynowicz@cs.put.poznan.pl">
-      agnieszka.lawrynowicz@cs.put.poznan.pl
-     </a>
-    </code>
-    <br/>
-    <span class="affiliation">
-     Faculty of Computing, Poznan University of Technology, Poland
-    </span>
-   </address>
-   <address class="lead authors">
-    <strong class="author_name">
-     Pan&#269;e Panov
-    </strong>
-    <code class="email">
-     <a href="mailto:pance.panov@ijs.si">
-      pance.panov@ijs.si
-     </a>
-    </code>
-    <br/>
-    <span class="affiliation">
-     Department of Knowledge Technologies, Jo&#382;ef Stefan Institute, Ljubljana, Slovenia
-    </span>
-   </address>
-   <address class="lead authors">
-    <strong class="author_name">
-     Larisa Soldatova
-    </strong>
-    <code class="email">
-     <a href="mailto:larisa.soldatova@brunel.ac.uk">
-      larisa.soldatova@brunel.ac.uk
-     </a>
-    </code>
-    <br/>
-    <span class="affiliation">
-     Brunel University, London, United Kingdom
-    </span>
-   </address>
-   <address class="lead authors">
-    <strong class="author_name">
-     Tommaso Soru
-    </strong>
-    <code class="email">
-     <a href="mailto:tsoru@informatik.uni-leipzig.de">
-      tsoru@informatik.uni-leipzig.de
-     </a>
-    </code>
-    <br/>
-    <span class="affiliation">
-     Agile Knowledge Engineering and Semantic Web, Institute of Computer Science, University of Leipzig, Germany
-    </span>
-   </address>
-   <address class="lead authors">
-    <strong class="author_name">
-     Joaquin Vanschoren
-    </strong>
-    <code class="email">
-     <a href="mailto:j.vanschoren@tue.nl">
-      j.vanschoren@tue.nl
-     </a>
-    </code>
-    <br/>
-    <span class="affiliation">
-     Eindhoven University of Technology, Netherlands
-    </span>
-   </address>
-   <p class="keywords">
-    <strong>
-     Keywords
-    </strong>
-    <ul class="list-inline">
-     <li>
-      <code>
-       Machine Learning
-      </code>
-     </li>
-     <li>
-      <code>
-       Machine Translation
-      </code>
-     </li>
-     <li>
-      <code>
-       Linked Data
-      </code>
-     </li>
-    </ul>
-  </header>
-  <!-- Abstract -->
-  <section class="doc-abstract">
-   <h1>
-    Abstract
-   </h1>
-   <p>
-The ML Schema, proposed by the W3C Machine Learning Schema Community Group, is a simple schema that provides a set of classes, properties, and restrictions for representing and interchanging information on machine learning algorithms, datasets, and experiments. It can be easily extended and specialized and it is also mapped to other more specific ontologies developed in the area of machine learning. In this paper, we present the ML Schema and argue that exposing semantics of machine learning algorithms, models, and experiments may pave the way to better interpretability.
-   </p>
-  </section>
-  <!-- Sections -->
-  <section id="sec_introduction">
-   <h1>
-    Introduction
-   </h1>
-   <p>
-     Complex machine learning models have recently achieved great successes in
-     many predictive tasks. Despite of their successes, a major problem is
-     that they are often hard to interpret, which may affect their safeness and
-     the level of trust of their users.
-   </p>
-   <p>
-      The problem of interpretability is one of the key research issues in the
-      area of knowledge engineering and the Semantic Web community, which deals
-      with making the semantics of various phenomena explicit. In this
-      community, the problem of dealing with trust and treacability has gained
-      a major interest last years, and resulted in proposal and uptake of
-      models such as the provenance ontology PROV-O
-    <a href="#lebo2013prov">
-     <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 6: Timothy Lebo, Satya Sahoo, Deborah McGuinness, Khalid Belhajjame, James Cheney, David Corsar, Daniel Garijo, Stian Soiland-Reyes, Stephan Zednik, and Jun Zhao. Prov-o: The prov ontology. W3C Recommendation, 30, 2013.">
-      [6]
-     </span>
-    </a>
-    .
-  </p>
-  <p>
-    In line with those efforts, in this extended abstract, we present the ML
-    Schema
-    <sup class="fn cgen" data-rash-original-content=" ">
-     <a href="#fn1" id="fn_pointer_fn1" title="Footnote 1: ML Schema: http://ml-schema.github.io/documentation/">
-      1
-     </a>
-    </sup>
-    ,
-    developed within the W3C Machine Learning Schema Community Group
-    <sup class="fn cgen" data-rash-original-content=" ">
-     <a href="#fn2" id="fn_pointer_fn2" title="Footnote 2: W3C ML Schema Community Group: https://www.w3.org/community/ml-schema/">
-      2
-     </a>
-    </sup>.
-It is a simple shared schema that provides a set of classes, properties, and
-restrictions that can be used to represent and interchange information on
-machine learning (ML) algorithms, datasets, and experiments. It can be easily
-specialized to create new classes and properties and it is also mapped to more
-complex, specific ontologies and vocabularies on machine learning
-\cite{DBLP:conf/i-semantics/EstevesMNSUAL15,DBLP:journals/ml/VanschorenBPH12,DBLP:journals/datamine/PanovSD14,DBLP:journals/ws/KeetLdKNPSH15}.
-These ontologies, in turn, contain terms for representing more detailed
-characteristics and properties of ML datasets, algorithms, models, and
-experiments.
-   </p>
-   <p>
-Ultimately, we believe that involving such a canonical and standardized model
-meta-data descriptors in design of interpretable methods for ML may lead to
-better insights into the data and the properties of ML algorithms.
-   </p>
+sd: https://w3id.org/scholarlydata/person/
+fabio: http://purl.org/spar/fabio/
+cito: http://purl.org/spar/cito/
+pro: http://purl.org/spar/pro/
+schema: http://schema.org/
+prism: http://prismstandard.org/namespaces/basic/2.0/
+frbr: http://purl.org/vocab/frbr/core#
+dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
 
-  </section>
-  <section id="sec_mlschema">
-   <h1>
-    The ML Schema
-   </h1>
-   <p>
-     In <a href="#fig_mlschema">
-     <span class="cgen" data-rash-original-content=" ">Figure 1</span></a>,
-     we depict the classes and the relationships
-     between the classes representing the ML Schema. The schema contains
-     classes for representing different aspects of machine learning. This
-     includes representations data, datasets and data/dataset characteristics.
-     Next, it includes representations of algorithms, implementations,
-     parameters of implementations and software. Furthermore, the schema
-     contains representations of models, model characteristics and model
-     evaluations. Finally, the schema has the ability to represent machine
-     learning experiments with different granularity. This includes
-     representations of runs of implementations of algorithms on the lowest
-     level and representation of studies at the highest level.
+<head>
+    <!-- Visualisation requirements (mandatory for optimal reading) -->
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/rash.css" rel="stylesheet" />
+    <!-- /END Visualisation requirements (mandatory for optimal reading) -->
+    <!-- Metadata -->
+    <title property="dcterms:title" typeof="fabio:ResearchPaper">
+        ML Schema: Exposing the Semantics of Machine Learning with Schemas and Ontologies
+    </title>
+    <!-- Author's data (one or more) -->
+    <meta content="Gustavo Correa Publio" name="dc.creator" property="schema:name" typeof="schema:Person" />
+    <meta content="gustavo.publio@informatik.uni-leipzig.de" property="schema:email" />
+    <link href="https://w3id.org/scholarlydata/organisation/aksw" property="schema:affiliation" />
+    <meta content="Diego Esteves" name="dc.creator" property="schema:name" typeof="schema:Person" />
+    <meta content="esteves@cs.uni-bonn.de" property="schema:email" />
+    <link href="https://w3id.org/scholarlydata/organisation/university-of-bonn" property="schema:affiliation" />
+    <meta content="Agnieszka Ławrynowicz" name="dc.creator" property="schema:name" typeof="schema:Person" />
+    <meta content="agnieszka.lawrynowicz@cs.put.poznan.pl" property="schema:email" />
+    <link href="https://w3id.org/scholarlydata/organisation/poznan-university-of-technology" property="schema:affiliation" />
+    <meta content="Panče Panov" name="dc.creator" property="schema:name" typeof="schema:Person" />
+    <meta content="pance.panov@ijs.si" property="schema:email" />
+    <link href="https://w3id.org/scholarlydata/organisation/jozef-stefan-institute" property="schema:affiliation" />
+    <meta content="Larisa Soldatova" name="dc.creator" property="schema:name" typeof="schema:Person" />
+    <meta content="larisa.soldatova@brunel.ac.uk" property="schema:email" />
+    <link href="https://w3id.org/scholarlydata/organisation/brunel-university" property="schema:affiliation" />
+    <meta content="Tommaso Soru" name="dc.creator" property="schema:name" typeof="schema:Person" />
+    <meta content="tsoru@informatik.uni-leipzig.de" property="schema:email" />
+    <link href="https://w3id.org/scholarlydata/organisation/aksw" property="schema:affiliation" />
+    <meta content="Joaquin Vanschoren" name="dc.creator" property="schema:name" typeof="schema:Person" />
+    <meta content="j.vanschoren@tue.nl" property="schema:email" />
+    <link href="https://w3id.org/scholarlydata/organisation/eindhoven-university-of-technology" property="schema:affiliation"
+    />
+    <!-- Affiliations -->
+    <meta content="Agile Knowledge Engineering and Semantic Web, Institute of Computer Science, University of Leipzig, Germany"
+        property="schema:name" typeof="schema:Organization" />
+    <meta content="Smart Data Analytics, University of Bonn, Germany" property="schema:name" typeof="schema:Organization" />
+    <meta content="Faculty of Computing, Poznan University of Technology, Poland" property="schema:name" typeof="schema:Organization"
+    />
+    <meta content="Department of Knowledge Technologies, Jožef Stefan Institute, Ljubljana, Slovenia" property="schema:name"
+        typeof="schema:Organization" />
+    <meta content="Brunel University, London, United Kingdom" property="schema:name" typeof="schema:Organization" />
+    <meta content="Eindhoven University of Technology, Netherlands" property="schema:name" typeof="schema:Organization" />
+    <!-- Paper keywords (one or more) -->
+    <meta content="Machine Learning" property="prism:keyword" />
+    <meta content="Machine Translation" property="prism:keyword" />
+    <meta content="Linked Data" property="prism:keyword" />
+    <!-- /END Metadata -->
+</head>
 
-   <figure id="fig_mlschema">
-    <p>
-     <img alt="ML Schema Core classes." src="img/ML-Schema.png"/>
-    </p>
-    <figcaption>
-     <strong class="cgen" data-rash-original-content="">
-      Figure 1.
-     </strong>
-     ML Schema Core classes. Boxes represent classes. Arrows without filled
-     heads represent properties, arrows with empty heads represent subclass
-     relations, and arrows with diamonds represent part-of relations.
-    </figcaption>
-   </figure>
-   <section id="sec_ontologies">
-     <h1>Machine Learning Ontologies</h1>
-    <p>
-      In this section, we present the relationship of the ML Schema to other
-      proposed ontologies, and vocabularies for the domain of machine learning.
-      The development of ML Schema was highly influenced from, initially
-      independent, research  of  several  groups  on  modeling the domain of
-      machine learning.
- Due to this the classes and relations present in the ML Schema re-appear in
- the current ML ontologies and vocabularies.
-</p>
-<p>
- In <a href="#tab_ontos">
- <span class="cgen" data-rash-original-content=" ">Table 1</span></a>,
- we present the mapping between the terms present
- in the ML Schema and the current ML ontologies and vocabularies. Below, we
- describe each of the mentioned ontology/vocabulary.
-    </p>
+<body>
+    <header class="page-header container cgen" data-rash-original-content="">
+        <h1 class="title">
+            ML Schema: Exposing the Semantics of Machine Learning with Schemas and Ontologies
+        </h1>
+        <address class="lead authors">
+            <strong class="author_name">
+                Gustavo Correa Publio
+            </strong>
+            <code class="email">
+                <a href="mailto:gustavo.publio@informatik.uni-leipzig.de">
+                    gustavo.publio@informatik.uni-leipzig.de
+                </a>
+            </code>
+            <br/>
+            <span class="affiliation">
+                Agile Knowledge Engineering and Semantic Web, Institute of Computer Science, University of Leipzig, Germany
+            </span>
+        </address>
+        <address class="lead authors">
+            <strong class="author_name">
+                Diego Esteves
+            </strong>
+            <code class="email">
+                <a href="mailto:esteves@cs.uni-bonn.de">
+                    esteves@cs.uni-bonn.de
+                </a>
+            </code>
+            <br/>
+            <span class="affiliation">
+                Smart Data Analytics, University of Bonn, Germany
+            </span>
+        </address>
+        <address class="lead authors">
+            <strong class="author_name">
+                Agnieszka &#321;awrynowicz
+            </strong>
+            <code class="email">
+                <a href="mailto:agnieszka.lawrynowicz@cs.put.poznan.pl">
+                    agnieszka.lawrynowicz@cs.put.poznan.pl
+                </a>
+            </code>
+            <br/>
+            <span class="affiliation">
+                Faculty of Computing, Poznan University of Technology, Poland
+            </span>
+        </address>
+        <address class="lead authors">
+            <strong class="author_name">
+                Pan&#269;e Panov
+            </strong>
+            <code class="email">
+                <a href="mailto:pance.panov@ijs.si">
+                    pance.panov@ijs.si
+                </a>
+            </code>
+            <br/>
+            <span class="affiliation">
+                Department of Knowledge Technologies, Jo&#382;ef Stefan Institute, Ljubljana, Slovenia
+            </span>
+        </address>
+        <address class="lead authors">
+            <strong class="author_name">
+                Larisa Soldatova
+            </strong>
+            <code class="email">
+                <a href="mailto:larisa.soldatova@brunel.ac.uk">
+                    larisa.soldatova@brunel.ac.uk
+                </a>
+            </code>
+            <br/>
+            <span class="affiliation">
+                Brunel University, London, United Kingdom
+            </span>
+        </address>
+        <address class="lead authors">
+            <strong class="author_name">
+                Tommaso Soru
+            </strong>
+            <code class="email">
+                <a href="mailto:tsoru@informatik.uni-leipzig.de">
+                    tsoru@informatik.uni-leipzig.de
+                </a>
+            </code>
+            <br/>
+            <span class="affiliation">
+                Agile Knowledge Engineering and Semantic Web, Institute of Computer Science, University of Leipzig, Germany
+            </span>
+        </address>
+        <address class="lead authors">
+            <strong class="author_name">
+                Joaquin Vanschoren
+            </strong>
+            <code class="email">
+                <a href="mailto:j.vanschoren@tue.nl">
+                    j.vanschoren@tue.nl
+                </a>
+            </code>
+            <br/>
+            <span class="affiliation">
+                Eindhoven University of Technology, Netherlands
+            </span>
+        </address>
+        <p class="keywords">
+            <strong>
+                Keywords
+            </strong>
+            <ul class="list-inline">
+                <li>
+                    <code>
+                        Machine Learning
+                    </code>
+                </li>
+                <li>
+                    <code>
+                        Machine Translation
+                    </code>
+                </li>
+                <li>
+                    <code>
+                        Linked Data
+                    </code>
+                </li>
+            </ul>
+    </header>
+    <!-- Abstract -->
+    <section class="doc-abstract">
+        <h1>
+            Abstract
+        </h1>
+        <p>
+            The ML Schema, proposed by the W3C Machine Learning Schema Community Group, is a simple schema that provides a set of classes,
+            properties, and restrictions for representing and interchanging information on machine learning algorithms, datasets,
+            and experiments. It can be easily extended and specialized and it is also mapped to other more specific ontologies
+            developed in the area of machine learning. In this paper, we present the ML Schema and argue that exposing semantics
+            of machine learning algorithms, models, and experiments may pave the way to better interpretability.
+        </p>
+    </section>
+    <!-- Sections -->
+    <section id="sec_introduction">
+        <h1>
+            Introduction
+        </h1>
+        <p>
+            Complex machine learning models have recently achieved great successes in many predictive tasks. Despite of their successes,
+            a major problem is that they are often hard to interpret, which may affect their safeness and the level of trust
+            of their users.
+        </p>
+        <p>
+            The problem of interpretability is one of the key research issues in the area of knowledge engineering and the Semantic Web
+            community, which deals with making the semantics of various phenomena explicit. In this community, the problem
+            of dealing with trust and treacability has gained a major interest last years, and resulted in proposal and uptake
+            of models such as the provenance ontology PROV-O
+            <a href="#lebo2013prov">
+                <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 6: Timothy Lebo, Satya Sahoo, Deborah McGuinness, Khalid Belhajjame, James Cheney, David Corsar, Daniel Garijo, Stian Soiland-Reyes, Stephan Zednik, and Jun Zhao. Prov-o: The prov ontology. W3C Recommendation, 30, 2013.">
+                    [6]
+                </span>
+            </a>
+            .
+        </p>
+        <p>
+            In line with those efforts, in this extended abstract, we present the ML Schema
+            <sup class="fn cgen" data-rash-original-content=" ">
+                <a href="#fn1" id="fn_pointer_fn1" title="Footnote 1: ML Schema: http://ml-schema.github.io/documentation/">
+                    1
+                </a>
+            </sup>
+            , developed within the W3C Machine Learning Schema Community Group
+            <sup class="fn cgen" data-rash-original-content=" ">
+                <a href="#fn2" id="fn_pointer_fn2" title="Footnote 2: W3C ML Schema Community Group: https://www.w3.org/community/ml-schema/">
+                    2
+                </a>
+            </sup>. It is a simple shared schema that provides a set of classes, properties, and restrictions that can be used
+            to represent and interchange information on machine learning (ML) algorithms, datasets, and experiments. It can
+            be easily specialized to create new classes and properties and it is also mapped to more complex, specific ontologies
+            and vocabularies on machine learning
 
-    <p>
-      <figure id="tab_ontos">
-    <table>
-        <tr>
-            <th>ML Schema</th>
-            <th>OntoDM-core</th>
-            <th>DMOP</th>
-            <th>Expose</th>
-            <th>MEX Vocabulary</th>
-        </tr>
-        <tr>
-            <td><p>Task </p></td><td><p>
-Data mining task </p></td><td><p>
-DM-Task </p></td><td><p>
-Task </p></td><td><p>
-mexcore:ExperimentConfiguration
-</p></td></tr><tr><td><p>
-Algorithm</p></td><td><p>
-Data mining algorithm</p></td><td><p>
-DM-Algorithm</p></td><td><p>
-Algorithm</p></td><td><p>
-mexalgo:Algorithm
-</p></td></tr><tr><td><p>
-Software</p></td><td><p>
-Data mining software</p></td><td><p>
-DM-Software</p></td><td><p>
-N/A</p></td><td><p>
-mexalgo:Tool
-</p></td></tr><tr><td><p>
-Implementation</p></td><td><p>
-Data mining algorithm implementation</p></td><td><p>
-DM-Operator</p></td><td><p>
-Algorithm implementation</p></td><td><p>
-N/A
-</p></td></tr><tr><td><p>
-HyperParameter</p></td><td><p>
-Parameter</p></td><td><p>
-Parameter</p></td><td><p>
-Parameter</p></td><td><p>
-mexalgo:HyperParameter
-</p></td></tr><tr><td><p>
-HyperParameterSetting</p></td><td><p>
-Parameter setting</p></td><td><p>
-OpParameterSetting</p></td><td><p>
-Parameter setting</p></td><td><p>
-N/A
-</p></td></tr><tr><td><p>
-Study</p></td><td><p>
-Investigation</p></td><td><p>
-N/A</p></td><td><p>
-N/A</p></td><td><p>
-mexcore:Experiment
-</p></td></tr><tr><td><p>
-Experiment</p></td><td><p>
-N/A</p></td><td><p>
-DM-Experiment</p></td><td><p>
-Experiment</p></td><td><p>
-N/A
-</p></td></tr><tr><td><p>
-Run</p></td><td><p>
-Data mining algorithm execution</p></td><td><p>
-DM-Operation</p></td><td><p>
-Algorithm execution</p></td><td><p>
-mexcore:Execution
-</p></td></tr><tr><td><p>
-Data</p></td><td><p>
-Data item</p></td><td><p>
-DM-Data</p></td><td><p>
-N/A</p></td><td><p>
-mexcore:Example
-</p></td></tr><tr><td><p>
-Dataset</p></td><td><p>
-DM dataset</p></td><td><p>
-DataSet</p></td><td><p>
-Dataset</p></td><td><p>
-mexcore:Dataset
-</p></td></tr><tr><td><p>
-Feature</p></td><td><p>
-N/A</p></td><td><p>
-Feature</p></td><td><p>
-N/A</p></td><td><p>
-mexcore:Feature
-</p></td></tr><tr><td><p>
-DataCharacteristic</p></td><td><p>
-Data specification</p></td><td><p>
-DataCharacteristic</p></td><td><p>
-Dataset specification</p></td><td><p>
-N/A
-</p></td></tr><tr><td><p>
-DatasetCharacteristic</p></td><td><p>
-Dataset specification</p></td><td><p>
-DataSetCharacteristic</p></td><td><p>
-Data quality</p></td><td><p>
-N/A
-</p></td></tr><tr><td><p>
-FeatureCharacteristic</p></td><td><p>
-Feature specification</p></td><td><p>
-FeatureCharacteristic</p></td><td><p>
-N/A</p></td><td><p>
-N/A
-</p></td></tr><tr><td><p>
-Model</p></td><td><p>
-Generalization</p></td><td><p>
-DM-Hypothesis </p></td><td><p>
-Model</p></td><td><p>
-mexcore:Model
-</p></td></tr><tr><td><p>
-ModelCharacteristic</p></td><td><p>
-Generalization quality</p></td><td><p>
-HypothesisCharacteristic</p></td><td><p>
-Model Structure, Parameter, ...</p></td><td><p>
-N/A
-</p></td></tr><tr><td><p>
-ModelEvaluation</p></td><td><p>
-Generalization evaluation</p></td><td><p>
-ModelPerformance</p></td><td><p>
-Evaluation</p></td><td><p>
-N/A
-</p></td></tr><tr><td><p>
-EvaluationMeasure</p></td><td><p>
-Evaluation datum</p></td><td><p>
-ModelEvaluationMeasure</p></td><td><p>
-Evaluation measure</p></td><td><p>
-mexperf:PerformanceMeasure
-</p></td></tr><tr><td><p>
-EvaluationSpecification</p></td><td><p>
-N/A</p></td><td><p>
-N/A</p></td><td><p>
-N/A</p></td><td><p>
-N/A
-</p></td></tr><tr><td><p>
-EvaluationProcedure</p></td><td><p>
-Evaluation algorithm</p></td><td><p>
-ModelEvaluationAlgorithm</p></td><td><p>
-Performance Estimation</p></td><td><p>
-N/A</p></td></tr>
-    </table>
-    <figcaption><strong class="cgen" data-rash-original-content="">
-     Table 1.
-   </strong>Mapping between    terms of ML Schema and the
-      different ML/DM ontologies and vocabularies.</figcaption>
-</figure>
-</p>
+            <a href="#DBLP:journals/ws/KeetLdKNPSH15">
+                <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 2: C. Maria Keet, Agnieszka Lawrynowicz, Claudia d'Amato, Alexandros Kalousis, Phong Nguyen, Raul Palma, Robert Stevens, Melanie Hilario (2015). The Data Mining OPtimization Ontology. J. Web Sem.">
+                    [2]
+                </span>
+            </a>
+            <a href="#DBLP:journals/datamine/PanovSD14">
+                <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 3: Pance Panov, Larisa N. Soldatova, Saso Dzeroski (2014). Ontology of core data mining entities. Data Min. Knowl. Discov.">
+                    [3]
+                </span>
+            </a>
+            <a href="#DBLP:journals/ml/VanschorenBPH12">
+                <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 4: Joaquin Vanschoren, Hendrik Blockeel, Bernhard Pfahringer, Geoffrey Holmes (2012). Experiment databases - A new way to share, organize and learn from
+          experiments. Machine Learning.">
+                    [4]
+                </span>
+            </a>
+            <a href="#DBLP:conf/i-semantics/EstevesMNSUAL15">
+                <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 5: Diego Esteves, Diego Moussallem, Ciro Baron Neto, Tommaso Soru, Ricardo Usbeck, Markus Ackermann, Jens Lehmann (2015). MEX vocabulary: a lightweight interchange format for machine learning">
+                    [5]
+                </span>
+            </a>
 
-<p>
-  <strong>The OntoDM-core ontology. </strong>
-  The OntoDM-core ontology has been designed to provide generic representations
-  of principle entities in the area of data mining~\cite{DBLP:journals/datamine/PanovSD14}.
-  In one of the preliminary versions of the ontology, the authors decided to
-  align the proposed ontology with the Ontology of Biomedical Investigations
-  (OBI) \cite{10.1371/journal.pone.0154556} and consequently with the Basic
-  Formal Ontology (BFO) \cite{Arp:2015:BOB:2846229} at the top level, in terms
-  of top-level classes and the set of relations. That was beneficial for
-  structuring the domain in a more elegant way and the basic differentiation
-  of information entities, implementation entities and processual entities.
-  In this context, the authors proposed a horizontal description structure
-  that includes three layers: a specification layer, an implementation layer,
-  and an application layer. The specification layer in general contains
-  information entities. In the domain of data mining, example classes are
-  data mining task and data mining algorithm. The implementation layer in
-  general contains qualities and entities that are realized in a process,
-  such as parameters and implementations of algorithms. The application layer
-  contains processual classes, such as the execution of the data mining
-  algorithm.
-</p>
+            These ontologies, in turn, contain terms for representing more detailed characteristics and properties of ML datasets, algorithms,
+            models, and experiments.
+        </p>
+        <p>
+            Ultimately, we believe that involving such a canonical and standardized model meta-data descriptors in design of interpretable
+            methods for ML may lead to better insights into the data and the properties of ML algorithms.
+        </p>
 
-<p>
-  <strong>The Exposé ontology.</strong>
-  The main goal of Exposé~\cite{DBLP:journals/ml/VanschorenBPH12} is to
-  describe (and reason about) machine learning experiments. It is built on
-  top of OntoDM, as well as top-level ontologies from bio-informatics. It is
-  currently used in OpenML
-  <sup class="fn cgen" data-rash-original-content=" ">
-   <a href="#fn3" id="fn_pointer_fn3" title="Footnote 3: OpenML: http://www.openml.org/">
-    3
-   </a>
-  </sup>, as
-  a way to structure data (e.g. database design) and share data (APIs).
-  MLSchema will be used to export all OpenML data as linked open data (in RDF).
-</p>
+    </section>
+    <section id="sec_mlschema">
+        <h1>
+            The ML Schema
+        </h1>
+        <p>
+            In
+            <a href="#fig_mlschema">
+                <span class="cgen" data-rash-original-content=" ">Figure 1</span>
+            </a>, we depict the classes and the relationships between the classes representing the ML Schema. The schema contains
+            classes for representing different aspects of machine learning. This includes representations data, datasets
+            and data/dataset characteristics. Next, it includes representations of algorithms, implementations, parameters
+            of implementations and software. Furthermore, the schema contains representations of models, model characteristics
+            and model evaluations. Finally, the schema has the ability to represent machine learning experiments with different
+            granularity. This includes representations of runs of implementations of algorithms on the lowest level and representation
+            of studies at the highest level.
 
-<p>
-  <strong>The DMOP ontology.</strong>
-  The Data Mining OPtimization Ontology (DMOP)~\cite{DBLP:journals/ws/KeetLdKNPSH15}
-  has been developed with a primary use case in meta-mining, that is
-  meta-learning extended to an analysis of full DM processes. At the level of
-  both single algorithms and more complex workflows, it follows a very similar
-  modeling pattern as described in the MLSchema. To support meta-mining, DMOP
-  contains a taxonomy of algorithms used in DM processes which are described
-  in detail in terms of their underlying assumptions, cost functions,
-  optimization strategies, generated models or pattern sets, and other
-  properties. Such a ''glass box'' approach which makes explicit internal
-  algorithm characteristics allows meta-learners using DMOP to generalize over
-  algorithms and their properties, including those algorithms which were not
-  used for training meta-learners.
-</p>
+            <figure id="fig_mlschema">
+                <p>
+                    <img alt="ML Schema Core classes." src="img/ML-Schema.png" />
+                </p>
+                <figcaption>
+                    <strong class="cgen" data-rash-original-content="">
+                        Figure 1.
+                    </strong>
+                    ML Schema Core classes. Boxes represent classes. Arrows without filled heads represent properties, arrows with empty heads
+                    represent subclass relations, and arrows with diamonds represent part-of relations.
+                </figcaption>
+            </figure>
+            <section id="sec_ontologies">
+                <h1>Machine Learning Ontologies</h1>
+                <p>
+                    In this section, we present the relationship of the ML Schema to other proposed ontologies, and vocabularies for the domain
+                    of machine learning. The development of ML Schema was highly influenced from, initially independent,
+                    research of several groups on modeling the domain of machine learning. Due to this the classes and relations
+                    present in the ML Schema re-appear in the current ML ontologies and vocabularies.
+                </p>
+                <p>
+                    In
+                    <a href="#tab_ontos">
+                        <span class="cgen" data-rash-original-content=" ">Table 1</span>
+                    </a>, we present the mapping between the terms present in the ML Schema and the current ML ontologies and
+                    vocabularies. Below, we describe each of the mentioned ontology/vocabulary.
+                </p>
 
-<p>
-  DMOP also contains sub-taxonomies of ML models and provides vocabulary to
-  describe their properties and characteristics, e.g. model structures, model
-  complexity measures, parameters.
-</p>
+                <p>
+                    <figure id="tab_ontos">
+                        <table>
+                            <tr>
+                                <th>ML Schema</th>
+                                <th>OntoDM-core</th>
+                                <th>DMOP</th>
+                                <th>Expose</th>
+                                <th>MEX Vocabulary</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        Task
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Data mining task
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        DM-Task
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Task
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        mexcore:ExperimentConfiguration
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        Algorithm
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Data mining algorithm
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        DM-Algorithm
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Algorithm
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        mexalgo:Algorithm
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        Software
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Data mining software
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        DM-Software
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        N/A
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        mexalgo:Tool
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        Implementation
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Data mining algorithm implementation
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        DM-Operator
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Algorithm implementation
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        N/A
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        HyperParameter
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Parameter
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Parameter
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Parameter
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        mexalgo:HyperParameter
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        HyperParameterSetting
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Parameter setting
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        OpParameterSetting
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Parameter setting
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        N/A
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        Study
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Investigation
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        N/A
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        N/A
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        mexcore:Experiment
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        Experiment
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        N/A
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        DM-Experiment
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Experiment
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        N/A
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        Run
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Data mining algorithm execution
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        DM-Operation
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Algorithm execution
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        mexcore:Execution
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        Data
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Data item
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        DM-Data
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        N/A
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        mexcore:Example
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        Dataset
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        DM dataset
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        DataSet
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Dataset
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        mexcore:Dataset
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        Feature
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        N/A
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Feature
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        N/A
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        mexcore:Feature
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        DataCharacteristic
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Data specification
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        DataCharacteristic
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Dataset specification
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        N/A
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        DatasetCharacteristic
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Dataset specification
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        DataSetCharacteristic
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Data quality
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        N/A
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        FeatureCharacteristic
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Feature specification
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        FeatureCharacteristic
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        N/A
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        N/A
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        Model
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Generalization
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        DM-Hypothesis
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Model</p>
+                                </td>
+                                <td>
+                                    <p>
+                                        mexcore:Model
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        ModelCharacteristic
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Generalization quality
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        HypothesisCharacteristic
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Model Structure, Parameter, ...
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        N/A
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        ModelEvaluation
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Generalization evaluation
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        ModelPerformance
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Evaluation
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        N/A
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        EvaluationMeasure
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Evaluation datum
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        ModelEvaluationMeasure
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Evaluation measure
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        mexperf:PerformanceMeasure
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        EvaluationSpecification
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        N/A
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        N/A
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        N/A
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        N/A
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>
+                                        EvaluationProcedure
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Evaluation algorithm
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        ModelEvaluationAlgorithm
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        Performance Estimation
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>
+                                        N/A
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                        <figcaption>
+                            <strong class="cgen" data-rash-original-content="">
+                                Table 1.
+                            </strong>Mapping between terms of ML Schema and the different ML/DM ontologies and vocabularies.</figcaption>
+                    </figure>
+                </p>
 
-<p>
-  <strong>The MEX Vocabulary.</strong>
-  The MEX vocabulary~\cite{DBLP:conf/i-semantics/EstevesMNSUAL15} has been
-  designed to reuse existing ontologies (i.e., PROV-O~\cite{lebo2013prov})
-  for representing basic machine learning information. The aim is not to
-  describe a complete data-mining process, which can be modeled by more
-  complex and semantically refined structures. Instead, MEX is designed to
-  provide a simple and lightweight vocabulary for exchanging machine learning
-  metadata in order to achieve a high level of interoperability as well as
-  supporting data management for ML outcomes.
-</p>
+                <p>
+                    <strong>The OntoDM-core ontology. </strong>
+                    The OntoDM-core ontology has been designed to provide generic representations of principle entities in the area of data mining
 
-  </section>
-  <section id="sec_conclusion">
-    <h1>
-      Conclusions
-    </h1>
-  <p>
-    In this extended abstract, we have presented ML Schema, a lightweight
-    schema for modeling ML domain.
-  </p>
+                    <a href="#DBLP:journals/datamine/PanovSD14">
+                        <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 3: Pance Panov, Larisa N. Soldatova, Saso Dzeroski (2014). Ontology of core data mining entities. Data Min. Knowl. Discov.">
+                            [3]
+                        </span>
+                    </a>. In one of the preliminary versions of the ontology, the authors decided to align the proposed ontology
+                    with the Ontology of Biomedical Investigations (OBI)
+                    <a href="#10.1371/journal.pone.0154556">
+                        <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 8: Bandrowski A. et. al. (2016). The Ontology for Biomedical Investigations. PLoS ONE. 11(4):1–19">
+                            [8]
+                        </span>
+                    </a>
+                     and consequently
+                    with the Basic Formal Ontology (BFO)
+                    <a href="#Arp:2015:BOB:2846229">
+                        <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 7: Arp R., Smith B., Spear A. (2015). Building Ontologies with Basic Formal Ontology. The MIT Press.">
+                            [7]
+                        </span>
+                    </a>
+                    at the top level, in terms of top-level
+                    classes and the set of relations. That was beneficial for structuring the domain in a more elegant way
+                    and the basic differentiation of information entities, implementation entities and processual entities.
+                    In this context, the authors proposed a horizontal description structure that includes three layers:
+                    a specification layer, an implementation layer, and an application layer. The specification layer in
+                    general contains information entities. In the domain of data mining, example classes are data mining
+                    task and data mining algorithm. The implementation layer in general contains qualities and entities that
+                    are realized in a process, such as parameters and implementations of algorithms. The application layer
+                    contains processual classes, such as the execution of the data mining algorithm.
+                </p>
 
-  <p>
-    The ML Schema aligns more fine-grained ontologies and vocabularies, some
-    of which contain detailed vocabulary for representing meta-data on ML
-    models.
-  </p>
+                <p>
+                    <strong>The Exposé ontology.</strong>
+                    The main goal of Exposé
+                    <a href="#DBLP:journals/ml/VanschorenBPH12">
+                        <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 4: Joaquin Vanschoren, Hendrik Blockeel, Bernhard Pfahringer, Geoffrey Holmes (2012). Experiment databases - A new way to share, organize and learn from experiments. Machine Learning.">
+                            [4]
+                        </span>
+                    </a>
+                    is to describe (and reason about) machine learning experiments.
+                    It is built on top of OntoDM, as well as top-level ontologies from bio-informatics. It is currently used
+                    in OpenML
+                    <sup class="fn cgen" data-rash-original-content=" ">
+                        <a href="#fn3" id="fn_pointer_fn3" title="Footnote 3: OpenML: http://www.openml.org/">
+                            3
+                        </a>
+                    </sup>, as a way to structure data (e.g. database design) and share data (APIs). MLSchema will be used to export
+                    all OpenML data as linked open data (in RDF).
+                </p>
 
-  <p>
-    The vocabulary and axiomatization included in those resources may be used
-    to make explicit the semantics of ML models, making them better
-    interpretable for human users.
-  </p>
-</section>
-<section class="doc-acknowledgements">
-  <p>
-    <strong>Acknowledgements.</strong>
-      Gustavo Correa Publio acknowledges the support the Smart Data Web BMWi
-      project (GA-01MD15010B) and CNPq foundation (scholarship 201808/2015-3).
+                <p>
+                    <strong>The DMOP ontology.</strong>
+                    The Data Mining OPtimization Ontology (DMOP)
+                    <a href="#DBLP:journals/ws/KeetLdKNPSH15">
+                        <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 2: C. Maria Keet, Agnieszka Lawrynowicz, Claudia d'Amato, Alexandros Kalousis, Phong Nguyen, Raul Palma, Robert Stevens, Melanie Hilario (2015). The Data Mining OPtimization Ontology. J. Web Sem.">
+                            [2]
+                        </span>
+                    </a>
+                    has been developed with a primary use
+                    case in meta-mining, that is meta-learning extended to an analysis of full DM processes. At the level
+                    of both single algorithms and more complex workflows, it follows a very similar modeling pattern as described
+                    in the MLSchema. To support meta-mining, DMOP contains a taxonomy of algorithms used in DM processes
+                    which are described in detail in terms of their underlying assumptions, cost functions, optimization
+                    strategies, generated models or pattern sets, and other properties. Such a ''glass box'' approach which
+                    makes explicit internal algorithm characteristics allows meta-learners using DMOP to generalize over
+                    algorithms and their properties, including those algorithms which were not used for training meta-learners.
+                </p>
 
-      Agnieszka &#321;awrynowicz acknowledges the support from the National
-      Science Centre, Poland, within the grant number 2014/13/D/ST6/02076.
-  </p>
-</section>
-  <!-- References -->
-  <section id="bibreflist" class="doc-bibliography" role="doc-bibliography">
-   <h1>
-    References
-   </h1>
-   <ul>
-    <li class="doc-biblioentry" id="lebo2013prov" property="frbr:realizationOf" resource="lebo2013prov-work" typeof="fabio:ResearchPaper">
-     <p property="dcterms:bibliographicCitation">
-      Lebo T., Sahoo S., McD., S. Belhajjame  KCheney S. J., D J., Garijo D., Soiland-Reyes S., Zednik S., and Zhao J. Prov-o: The prov ontology. W3C Recommendation, 30, 2013.
-     </p>
-    </li>
-   </ul>
-  </section>
-  <!-- Footnotes -->
-  <section class="doc-endnotes">
-   <h1>
-    Footnotes
-   </h1>
-   <section class="doc-endnote" id="fn1">
-    <p>
-      ML Schema:
-     <a href="http://ml-schema.github.io/documentation/">
-      http://ml-schema.github.io/documentation/
-     </a>
-     <sup class="hidden-print cgen" data-rash-original-content=" ">
-      <a href="#fn_pointer_fn1">
-       [back]
-      </a>
-     </sup>
-    </p>
-   </section>
-   <section class="doc-endnote" id="fn2">
-    <p>
-      W3C ML Schema Community Group:
-     <a href="https://www.w3.org/community/ml-schema/">
-      https://www.w3.org/community/ml-schema/
-     </a>
-     <sup class="hidden-print cgen" data-rash-original-content=" ">
-      <a href="#fn_pointer_fn2">
-       [back]
-      </a>
-     </sup>
-    </p>
-   </section>
-   <section class="doc-endnote" id="fn3">
-    <p>
-      OpenML:
-     <a href="http://www.openml.org/">
-      http://www.openml.org/
-     </a>
-     <sup class="hidden-print cgen" data-rash-original-content=" ">
-      <a href="#fn_pointer_fn3">
-       [back]
-      </a>
-     </sup>
-    </p>
-   </section>
-  </section>
- </body>
+                <p>
+                    DMOP also contains sub-taxonomies of ML models and provides vocabulary to describe their properties and characteristics,
+                    e.g. model structures, model complexity measures, parameters.
+                </p>
+
+                <p>
+                    <strong>The MEX Vocabulary.</strong>
+                    The MEX vocabulary
+                    <a href="#DBLP:conf/i-semantics/EstevesMNSUAL15">
+                        <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 5: Diego Esteves, Diego Moussallem, Ciro Baron Neto, Tommaso Soru, Ricardo Usbeck, Markus Ackermann, Jens Lehmann (2015). MEX vocabulary: a lightweight interchange format for machine experiments. Proceedings of the 11th International Conference on Semantic Systems, 2015, Vienna, Austria, September 15-17, 2015.">
+                            [5]
+                        </span>
+                    </a>
+                    has been designed to reuse existing ontologies (i.e., PROV-O
+                    <a href="#lebo2013prov">
+                        <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 6: Lebo T., Sahoo S., McGuinness D., Belhajjame K., Cheney J., Corsar D., Garijo D., Soiland-Reyes S., Zednik S., Zhao J. (2013). Prov-o: The prov ontology. W3C Recommendation.">
+                            [6]
+                        </span>
+                    </a>
+                    for representing basic machine learning information. The aim is not to describe a complete data-mining
+                    process, which can be modeled by more complex and semantically refined structures. Instead, MEX is designed
+                    to provide a simple and lightweight vocabulary for exchanging machine learning metadata in order to achieve
+                    a high level of interoperability as well as supporting data management for ML outcomes.
+                </p>
+
+            </section>
+            <section id="sec_conclusion">
+                <h1>
+                    Conclusions
+                </h1>
+                <p>
+                    In this extended abstract, we have presented ML Schema, a lightweight schema for modeling ML domain.
+                </p>
+
+                <p>
+                    The ML Schema aligns more fine-grained ontologies and vocabularies, some of which contain detailed vocabulary for representing
+                    meta-data on ML models.
+                </p>
+
+                <p>
+                    The vocabulary and axiomatization included in those resources may be used to make explicit the semantics of ML models, making
+                    them better interpretable for human users.
+                </p>
+            </section>
+            <section class="doc-acknowledgements">
+                <p>
+                    <strong>Acknowledgements.</strong>
+                    Gustavo Correa Publio acknowledges the support the Smart Data Web BMWi project (GA-01MD15010B) and CNPq foundation (scholarship
+                    201808/2015-3). Agnieszka &#321;awrynowicz acknowledges the support from the National Science Centre,
+                    Poland, within the grant number 2014/13/D/ST6/02076.
+                </p>
+            </section>
+            <!-- References -->
+            <section id="bibreflist" class="doc-bibliography" role="doc-bibliography">
+                <h1>
+                    References
+                </h1>
+                <ul>
+                    <!-- 1 -->
+                    <li id="mlschema:201610" about="mlschema:201610-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="mlschema:201610-work"
+                        role="doc-biblioentry">
+                        <p about="mlschema:201610-expression" property="dcterms:bibliographicCitation">Diego Esteves, Agnieszka Lawrynowicz, Pance Panov, Larisa N. Soldatova, Tommaso Soru, Joaquin Vanschoren
+                            (2016). ML Schema Core Specification.
+                            <a href="https://www.w3.org/community/ml-schema/">https://www.w3.org/community/ml-schema/</a> Last Accessed in February 1st 2018.</p>
+                    </li>
+                    <!-- 2 -->
+                    <li id="DBLP:journals/ws/KeetLdKNPSH15" about="DBLP:journals/ws/KeetLdKNPSH15-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf"
+                        resource="DBLP:journals/ws/KeetLdKNPSH15-work" role="doc-biblioentry">
+                        <p about="DBLP:journals/ws/KeetLdKNPSH15-expression" property="dcterms:bibliographicCitation">C. Maria Keet, Agnieszka Lawrynowicz, Claudia d'Amato, Alexandros Kalousis, Phong Nguyen, Raul Palma,
+                            Robert Stevens, Melanie Hilario (2015). The Data Mining OPtimization Ontology. J. Web Sem.</p>
+                    </li>
+                    <!-- 3 -->
+                    <li id="DBLP:journals/datamine/PanovSD14" about="DBLP:journals/datamine/PanovSD14-expression" typeof="fabio:ResearchPaper"
+                        property="frbr:realizationOf" resource="DBLP:journals/datamine/PanovSD14-work" role="doc-biblioentry">
+                        <p about="DBLP:journals/datamine/PanovSD14-expression" property="dcterms:bibliographicCitation">Pance Panov, Larisa N. Soldatova, Saso Dzeroski (2014). Ontology of core data mining entities. Data
+                            Min. Knowl. Discov.</p>
+                    </li>
+                    <!-- 4 -->
+                    <li id="DBLP:journals/ml/VanschorenBPH12" about="DBLP:journals/ml/VanschorenBPH12-expression" typeof="fabio:ResearchPaper"
+                        property="frbr:realizationOf" resource="DBLP:journals/ml/VanschorenBPH12-work" role="doc-biblioentry">
+                        <p about="DBLP:journals/ml/VanschorenBPH12-expression" property="dcterms:bibliographicCitation">Joaquin Vanschoren, Hendrik Blockeel, Bernhard Pfahringer, Geoffrey Holmes (2012). Experiment databases
+                            - A new way to share, organize and learn from experiments. Machine Learning.</p>
+                    </li>
+                    <!-- 5 -->
+                    <li id="DBLP:conf/i-semantics/EstevesMNSUAL15" about="DBLP:conf/i-semantics/EstevesMNSUAL15-expression" typeof="fabio:ResearchPaper"
+                        property="frbr:realizationOf" resource="DBLP:conf/i-semantics/EstevesMNSUAL15-work" role="doc-biblioentry">
+                        <p about="DBLP:conf/i-semantics/EstevesMNSUAL15-expression" property="dcterms:bibliographicCitation">Diego Esteves, Diego Moussallem, Ciro Baron Neto, Tommaso Soru, Ricardo Usbeck, Markus Ackermann,
+                            Jens Lehmann (2015). {MEX} vocabulary: a lightweight interchange format for machine learning
+                            experiments. Proceedings of the 11th International Conference on Semantic Systems, SEMANTiCS
+                            2015, Vienna, Austria, September 15-17, 2015.</p>
+                    </li>
+                    <!-- 6 -->
+                    <li id="lebo2013prov" about="lebo2013prov-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf" resource="lebo2013prov-work"
+                        role="doc-biblioentry">
+                        <p about="lebo2013prov-expression" property="dcterms:bibliographicCitation">Lebo T., Sahoo S., McGuinness D., Belhajjame K., Cheney J., Corsar D., Garijo D., Soiland-Reyes S.,
+                            Zednik S., Zhao J. (2013). Prov-o: The prov ontology. W3C Recommendation.</p>
+                    </li>
+                    <!-- 7 -->
+                    <li id="Arp:2015:BOB:2846229" about="Arp:2015:BOB:2846229-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf"
+                        resource="Arp:2015:BOB:2846229-work" role="doc-biblioentry">
+                        <p about="Arp:2015:BOB:2846229-expression" property="dcterms:bibliographicCitation">Arp R., Smith B., Spear A. (2015). Building Ontologies with Basic Formal Ontology. The MIT Press.</p>
+                    </li>
+                    <!-- 8 -->
+                    <li id="10.1371/journal.pone.0154556" about="10.1371/journal.pone.0154556-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf"
+                        resource="10.1371/journal.pone.0154556-work" role="doc-biblioentry">
+                        <p about="10.1371/journal.pone.0154556-expression" property="dcterms:bibliographicCitation">Bandrowski A. et. al. (2016). The Ontology for Biomedical Investigations. PLoS ONE. 11(4):1–19</p>
+                    </li>
+
+                </ul>
+            </section>
+            <!-- Footnotes -->
+            <section class="doc-endnotes">
+                <h1>
+                    Footnotes
+                </h1>
+                <section class="doc-endnote" id="fn1">
+                    <p>
+                        ML Schema:
+                        <a href="http://ml-schema.github.io/documentation/">
+                            http://ml-schema.github.io/documentation/
+                        </a>
+                        <sup class="hidden-print cgen" data-rash-original-content=" ">
+                            <a href="#fn_pointer_fn1">
+                                [back]
+                            </a>
+                        </sup>
+                    </p>
+                </section>
+                <section class="doc-endnote" id="fn2">
+                    <p>
+                        W3C ML Schema Community Group:
+                        <a href="https://www.w3.org/community/ml-schema/">
+                            https://www.w3.org/community/ml-schema/
+                        </a>
+                        <sup class="hidden-print cgen" data-rash-original-content=" ">
+                            <a href="#fn_pointer_fn2">
+                                [back]
+                            </a>
+                        </sup>
+                    </p>
+                </section>
+                <section class="doc-endnote" id="fn3">
+                    <p>
+                        OpenML:
+                        <a href="http://www.openml.org/">
+                            http://www.openml.org/
+                        </a>
+                        <sup class="hidden-print cgen" data-rash-original-content=" ">
+                            <a href="#fn_pointer_fn3">
+                                [back]
+                            </a>
+                        </sup>
+                    </p>
+                </section>
+            </section>
+</body>
+
 </html>
