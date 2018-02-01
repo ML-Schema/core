@@ -90,7 +90,7 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
             </code>
             <br/>
             <span class="affiliation">
-                Smart Data Analytics, University of Bonn, Germany
+                SDA Research, University of Bonn, Germany
             </span>
         </address>
         <address class="lead authors">
@@ -239,7 +239,7 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
                 </a>
             </sup>. It is a simple shared schema that provides a set of classes, properties, and restrictions that can be used
             to represent and interchange information on machine learning (ML) algorithms, datasets, and experiments. It can
-            be easily specialized to create new classes and properties and it is also mapped to more complex, specific ontologies
+            be easily specialized to create new classes and properties and it is also mapped to more specific ontologies
             and vocabularies on machine learning
 
             <a href="#DBLP:journals/ws/KeetLdKNPSH15">
@@ -264,12 +264,11 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
                 </span>
             </a>
 
-            These ontologies, in turn, contain terms for representing more detailed characteristics and properties of ML datasets, algorithms,
-            models, and experiments.
+            These ontologies, in turn, contain terms for representing experiment configurations (e.g., characteristics and properties of ML datasets, algorithms and models) either in a more detailed or more abstract level.
         </p>
         <p>
             Ultimately, we believe that involving such a canonical and standardized model meta-data descriptors in design of interpretable
-            methods for ML may lead to better insights into the data and the properties of ML algorithms.
+            methods for ML may lead to better insights into the data and the properties of ML algorithms. Moreover, such upper-level ontology will not only allow to achieve the "<b>horizontal interoperability</b>" (among tools and users) but also the "<b>vertical interoperability</b>" (among ML ontologies). Therefore, different groups of researchers could exchange SOTA metadata files in a transparent manner, as well as ML ecosystems (e.g.: OpenML) and ML Metadata Repositories (e.g.: WASOTA) which can rely on a more representative standard in their architectures.
         </p>
 
     </section>
@@ -990,10 +989,9 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
                             [6]
                         </span>
                     </a>
-                    for representing basic machine learning information. The aim is not to describe a complete data-mining
-                    process, which can be modeled by more complex and semantically refined structures. Instead, MEX is designed
-                    to provide a simple and lightweight vocabulary for exchanging machine learning metadata in order to achieve
-                    a high level of interoperability as well as supporting data management for ML outcomes.
+                    for representing basic machine learning experiment configuration and its outcomes. The aim is not to describe a complete data-mining process, which can be modeled by more complex and semantically refined structures. Instead, MEX is designed
+                    to provide a simple and lightweight vocabulary for exchanging basic machine learning metadata in order to achieve
+                    a high level of interoperability. Moreover, the schema aims to serve as a basis for data management of ML outcomes.
                 </p>
 
             </section>
@@ -1002,12 +1000,11 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
                     Conclusions
                 </h1>
                 <p>
-                    In this extended abstract, we have presented ML Schema, a lightweight schema for modeling ML domain.
+                    In this extended abstract, we have presented ML Schema, a comprehensive schema for modeling ML domain.
                 </p>
 
                 <p>
-                    The ML Schema aligns more fine-grained ontologies and vocabularies, some of which contain detailed vocabulary for representing
-                    meta-data on ML models.
+                    The ML Schema aligns more fine-grained ontologies and vocabularies, some of which contain detailed vocabulary for representing meta-data on ML models.
                 </p>
 
                 <p>
@@ -1018,8 +1015,8 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
             <section class="doc-acknowledgements">
                 <p>
                     <strong>Acknowledgements.</strong>
-                    Gustavo Correa Publio acknowledges the support the Smart Data Web BMWi project (GA-01MD15010B) and CNPq foundation (scholarship
-                    201808/2015-3). Agnieszka &#321;awrynowicz acknowledges the support from the National Science Centre,
+                    Gustavo Correa Publio acknowledges the support of the Smart Data Web BMWi project (GA-01MD15010B) and CNPq foundation (scholarship
+                    201808/2015-3). Diego Esteves acknowledges the support of CAPES foundation, Ministry of Education of Brazil (10179/13-5). Agnieszka &#321;awrynowicz acknowledges the support from the National Science Centre,
                     Poland, within the grant number 2014/13/D/ST6/02076.
                 </p>
             </section>
