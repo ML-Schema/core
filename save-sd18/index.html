@@ -244,7 +244,7 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
             Abstract
         </h1>
         <p>
-            The ML Schema, proposed by the W3C Machine Learning Schema Community Group, is top-level ontology that provides a set of classes,
+            The ML Schema, proposed by the W3C Machine Learning Schema Community Group, is a top-level ontology that provides a set of classes,
             properties, and restrictions for representing and interchanging information on machine learning algorithms, datasets,
             and experiments. It can be easily extended and specialized and it is also mapped to other more domain-specific ontologies
             developed in the area of machine learning and data mining. In this paper, we present the ML Schema and argue that exposing semantics
@@ -257,21 +257,18 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
             Introduction
         </h1>
         <p>
-            Complex machine learning models have recently achieved great successes in many predictive tasks. Despite of their successes,
+            Complex machine learning models have recently achieved great successes in many predictive tasks. Despite their successes,
             a major problem is that they are often hard to interpret, which may affect their safeness and the level of trust
             of their users.
         </p>
         <p>
             The problem of interpretability is one of the key research issues in the area of knowledge engineering and the Semantic Web
             community, which deals with making the semantics of various phenomena explicit. In this community, the problem
-            of dealing with trust and traceability has gained a major interest last years, and resulted in proposal and uptake
+            of dealing with trust and traceability has gained a major interest last years and resulted in proposals and uptake
             of models such as the provenance ontology PROV-O
             <a href="#lebo2013prov">
                 <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 6: Timothy Lebo, Satya Sahoo, Deborah McGuinness, Khalid Belhajjame, James Cheney, David Corsar, Daniel Garijo, Stian Soiland-Reyes, Stephan Zednik, and Jun Zhao. Prov-o: The prov ontology. W3C Recommendation, 30, 2013.">
-                    [6]
-                </span>
-            </a>
-            .
+                    [6]</span></a>.
         </p>
         <p>
             In line with those efforts, in this position paper, we present the ML Schema
@@ -282,16 +279,11 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
             </sup>
             <a href="#mlschema:201610">
                 <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 1: Diego Esteves, Agnieszka Lawrynowicz, Pance Panov, Larisa N. Soldatova, Tommaso Soru, Joaquin Vanschoren (2016). ML Schema Core Specification.">
-                    [1]
-                </span>
-            </a>
-            , developed within the W3C Machine Learning Schema Community Group
+                    [1]</span></a>, developed within the W3C Machine Learning Schema Community Group
             <sup class="fn cgen" data-rash-original-content=" ">
                 <a href="#fn2" id="fn_pointer_fn2" title="Footnote 2: W3C ML Schema Community Group: https://www.w3.org/community/ml-schema/">
-                    2
-                </a>
-            </sup>. It is a simple shared schema that provides a set of classes, properties, and restrictions that can be used
-            to represent and interchange information on machine learning (ML) algorithms, datasets, and experiments. It can
+                    2</a></sup>. It is a simply shared schema that provides a set of classes, properties, and restrictions that can be used
+            to represent and interchange information on Machine Learning (ML) algorithms, datasets, and experiments. It can
             be easily specialized to create new classes and properties and it is also mapped to more specific ontologies
             and vocabularies on machine learning
 
@@ -313,34 +305,38 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
             </a>
             <a href="#DBLP:conf/i-semantics/EstevesMNSUAL15">
                 <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 5: Diego Esteves, Diego Moussallem, Ciro Baron Neto, Tommaso Soru, Ricardo Usbeck, Markus Ackermann, Jens Lehmann (2015). MEX vocabulary: a lightweight interchange format for machine learning">
-                    [5]
-                </span>
-            </a>
-
-            These ontologies, in turn, contain terms for representing
+                    [5]</span></a>. These ontologies, in turn, contain terms for representing
             experiment configurations (e.g., characteristics and properties of
-            ML datasets, algorithms and models) either in a more detailed or
+            ML datasets, algorithms, and models) either in a more detailed or
             more abstract level.
         </p>
         <p>
-            Despite recent efforts to achieve a high level of interoperability of Machine Learning (ML) experiments <a href="#fig_metalevel">
-              <span class="cgen" data-rash-original-content=" ">Figure 1</span>
-              </a>we still run into problems created due to the existence of different ML platforms: each of those have a specific conceptualization or schema for representing data and metadata (Fig1 : itens 3 and 4: vertical interoperability). This scenario leads to an extra coding-effort (Fig1: item 2) to achieve both the desired interoperability and a better provenance level as well as a more automatized environment for obtaining the generated results. To reduce this gap, the aforementioned ML vocabularies and ontologies have been proposed [2][3][4][5] (Figure 1: item 5).
-            
-            The gap can be further significantly reduced by achieving interoperability among state-of-the-art (SOTA) schemata of those resources (Figure 1: item 5) i.e. achieving the horizontal interoperability (Figure 1: item 6). Therefore, different groups of researchers could exchange SOTA metadata files in a transparent manner via web services, e.g.: from OntoDM and MEX (MLSchema.Schema data = mlschema.convert('myfile.ttl', MLSchema.Ontology.OntoDM, MLSchema.Ontology.MEX)). Furthermore, the canonical format also directly benefits, such as ML ecosystems (e.g. OpenML
-              <a href="#vanschoren2014openml">
-                  <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 10: Vanschoren, J., Van Rijn, J. N., Bischl, B., and Torgo, L. (2014). OpenML: networked science in machine learning. ACM SIGKDD Explorations Newsletter, 15(2), 49-60.">
-                      [10])
-                  </span>
-              </a>
-            and ML Metadata Repositories (e.g.
-              WASOTA
-              <a href="#baron2016wasota">
-                  <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 9: Neto, C. B., Esteves, D., Soru, T., Moussallem, D., Valdestilhas, A., & Marx, E. (2016). WASOTA: What Are the States Of The Art?. In SEMANTiCS (Posters, Demos, SuCCESS).">
-                      [9]
-                  </span>
-              </a>
-              ) which can benefit on the mappings of a shared standard.
+            Despite recent efforts to achieve a high level of interoperability
+            of ML experiments we still run into problems
+            created due to the existence of different ML platforms: each of
+            those has a specific conceptualization or schema for representing
+            data and metadata (<a href="#fig_metalevel"><span class="cgen" data-rash-original-content=" ">Figure 1</span></a>, items 3 and 4: vertical
+            interoperability). This scenario leads to an extra coding-effort
+            (<a href="#fig_metalevel"><span class="cgen" data-rash-original-content=" ">Figure 1</span></a>: item 2)
+                to achieve both the desired interoperability and a
+            better provenance level as well as a more automatized environment
+            for obtaining the generated results. To reduce this gap, the
+            aforementioned ML vocabularies and ontologies have been proposed
+            (e.g., MEX and Expose) (<a href="#fig_metalevel"><span class="cgen" data-rash-original-content=" ">Figure 1</span></a>: item 5).
+
+            The gap can be further significantly reduced by achieving
+            interoperability among state-of-the-art (SOTA) schemata of those
+            resources (<a href="#fig_metalevel"><span class="cgen" data-rash-original-content=" ">Figure 1</span></a>: item 5),
+            i.e., achieving the horizontal interoperability (<a href="#fig_metalevel"><span class="cgen" data-rash-original-content=" ">Figure 1</span></a>: item 6).
+            Therefore, different groups of researchers could exchange SOTA
+            metadata files in a transparent manner via web services, e.g.:
+            from OntoDM and MEX (<code>MLSchema.Schema data = mlschema.convert('myfile.ttl', MLSchema.Ontology.OntoDM, MLSchema.Ontology.MEX)</code>).
+            Furthermore, the canonical format also directly benefits different environments, such as
+            ML ecosystems (e.g. OpenML
+              <a href="#vanschoren2014openml"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 10: Vanschoren, J., Van Rijn, J. N., Bischl, B., and Torgo, L. (2014). OpenML: networked science in machine learning. ACM SIGKDD Explorations Newsletter, 15(2), 49-60.">[10]</span></a>)
+              and ML Metadata Repositories (e.g. WASOTA
+              <a href="#baron2016wasota"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 9: Neto, C. B., Esteves, D., Soru, T., Moussallem, D., Valdestilhas, A., & Marx, E. (2016). WASOTA: What Are the States Of The Art?. In SEMANTiCS (Posters, Demos, SuCCESS).">[9]</span></a>)
+              which can benefit on the mappings of a shared standard.
         </p>
         <figure id="fig_metalevel">
             <p>
@@ -361,8 +357,7 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
         <p>
             In
             <a href="#fig_mlschema">
-                <span class="cgen" data-rash-original-content=" ">Figure 2</span>
-            </a>, we depict the classes and the relationships between the classes representing the ML Schema. The schema contains
+                <span class="cgen" data-rash-original-content=" ">Figure 2</span></a>, we depict the classes and the relationships between them, representing the ML Schema. The schema contains
             classes for representing different aspects of machine learning. This includes representations data, datasets
             and data/dataset characteristics. Next, it includes representations of algorithms, implementations, parameters
             of implementations and software. Furthermore, the schema contains representations of models, model characteristics
@@ -385,16 +380,16 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
             <section id="sec_ontologies">
                 <h1>Machine Learning Ontologies</h1>
                 <p>
-                    In this section, we present the relationship of the ML Schema to other proposed ontologies, and vocabularies for the domain
-                    of machine learning. The development of ML Schema was highly influenced from, initially independent,
+                    In this section, we present the relationship of the ML Schema to other proposed ontologies and vocabularies for the domain
+                    of machine learning. The development of ML Schema was highly influenced by, initially independent,
                     research of several groups on modeling the domain of machine learning. Due to this the classes and relations
                     present in the ML Schema re-appear in the current ML ontologies and vocabularies.
                 </p>
                 <p>
                     In
                     <a href="#tab_ontos">
-                        <span class="cgen" data-rash-original-content=" ">Table 1</span>
-                    </a>, we present the mapping between the terms present in the ML Schema and the current ML ontologies and
+                        <span class="cgen" data-rash-original-content=" ">Table 1</span></a>,
+                        we present the mapping between the terms present in the ML Schema and the current ML ontologies and
                     vocabularies. Below, we describe each of the mentioned ontology/vocabulary.
                 </p>
 
@@ -978,7 +973,7 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
                         <figcaption>
                             <strong class="cgen" data-rash-original-content="">
                                 Table 1.
-                            </strong>Mapping between terms of ML Schema and the different ML/DM ontologies and vocabularies.</figcaption>
+                            </strong>The mapping between terms of ML Schema and the different ML/DM ontologies and vocabularies.</figcaption>
                     </figure>
                 </p>
 
@@ -988,29 +983,17 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
 
                     <a href="#DBLP:journals/datamine/PanovSD14">
                         <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 3: Pance Panov, Larisa N. Soldatova, Saso Dzeroski (2014). Ontology of core data mining entities. Data Min. Knowl. Discov.">
-                            [3]
-                        </span>
-                    </a>. In one of the preliminary versions of the ontology, the authors decided to align the proposed ontology
+                            [3]</span></a>. In one of the preliminary versions of the ontology, the authors decided to align the proposed ontology
                     with the Ontology of Biomedical Investigations (OBI)
-                    <a href="#10.1371/journal.pone.0154556">
-                        <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 8: Bandrowski A. et. al. (2016). The Ontology for Biomedical Investigations. PLoS ONE. 11(4):1–19">
-                            [8]
-                        </span>
-                    </a>
-                     and consequently
-                    with the Basic Formal Ontology (BFO)
-                    <a href="#Arp:2015:BOB:2846229">
-                        <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 7: Arp R., Smith B., Spear A. (2015). Building Ontologies with Basic Formal Ontology. The MIT Press.">
-                            [7]
-                        </span>
-                    </a>
+                    <a href="#10.1371/journal.pone.0154556"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 8: Bandrowski A. et. al. (2016). The Ontology for Biomedical Investigations. PLoS ONE. 11(4):1–19">[8]</span></a> and consequently with the Basic Formal Ontology (BFO)
+                    <a href="#Arp:2015:BOB:2846229"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 7: Arp R., Smith B., Spear A. (2015). Building Ontologies with Basic Formal Ontology. The MIT Press.">[7]</span></a>
                     at the top level, in terms of top-level
                     classes and the set of relations. That was beneficial for structuring the domain in a more elegant way
-                    and the basic differentiation of information entities, implementation entities and processual entities.
+                    and the basic differentiation of information entities, implementation entities, and processual entities.
                     In this context, the authors proposed a horizontal description structure that includes three layers:
-                    a specification layer, an implementation layer, and an application layer. The specification layer in
-                    general contains information entities. In the domain of data mining, example classes are data mining
-                    task and data mining algorithm. The implementation layer in general contains qualities and entities that
+                    a specification layer, an implementation layer, and an application layer. The specification layer, in
+                    general, contains information entities. In the domain of data mining, example classes are data mining
+                    task and data mining algorithm. The implementation layer, in general, contains qualities and entities that
                     are realized in a process, such as parameters and implementations of algorithms. The application layer
                     contains processual classes, such as the execution of the data mining algorithm.
                 </p>
@@ -1018,24 +1001,12 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
                 <p>
                     <strong>The Exposé ontology.</strong>
                     The main goal of Exposé
-                    <a href="#DBLP:journals/ml/VanschorenBPH12">
-                        <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 4: Joaquin Vanschoren, Hendrik Blockeel, Bernhard Pfahringer, Geoffrey Holmes (2012). Experiment databases - A new way to share, organize and learn from experiments. Machine Learning.">
-                            [4]
-                        </span>
-                    </a>
-                    is to describe (and reason about) machine learning experiments.
+                    <a href="#DBLP:journals/ml/VanschorenBPH12"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 4: Joaquin Vanschoren, Hendrik Blockeel, Bernhard Pfahringer, Geoffrey Holmes (2012). Experiment databases - A new way to share, organize and learn from experiments. Machine Learning.">[4]</span></a> is to describe (and reason about) machine learning experiments.
                     It is built on top of OntoDM, as well as top-level ontologies from bio-informatics. It is currently used
                     in OpenML
-                    <sup class="fn cgen" data-rash-original-content=" ">
-                        <a href="#fn3" id="fn_pointer_fn3" title="Footnote 3: OpenML: http://www.openml.org/">
-                            3
-                        </a>
-                    </sup>
-                    <a href="#vanschoren2014openml">
-                        <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 10: Vanschoren, J., Van Rijn, J. N., Bischl, B., and Torgo, L. (2014). OpenML: networked science in machine learning. ACM SIGKDD Explorations Newsletter, 15(2), 49-60.">
-                            [10]
-                        </span>
-                    </a>, as a way to structure data (e.g. database design) and share data (APIs). MLSchema will be used to export
+                    <sup class="fn cgen" data-rash-original-content=" "><a href="#fn3" id="fn_pointer_fn3" title="Footnote 3: OpenML: http://www.openml.org/">3</a></sup>
+                    <a href="#vanschoren2014openml"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 10: Vanschoren, J., Van Rijn, J. N., Bischl, B., and Torgo, L. (2014). OpenML: networked science in machine learning. ACM SIGKDD Explorations Newsletter, 15(2), 49-60.">[10]</span></a>,
+                    as a way to structure data (e.g. database design) and share data (APIs). MLSchema will be used to export
                     all OpenML data as linked open data (in RDF).
                 </p>
 
@@ -1058,27 +1029,19 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
                 </p>
 
                 <p>
-                    DMOP also contains sub-taxonomies of ML models and provides vocabulary to describe their properties and characteristics,
-                    e.g. model structures, model complexity measures, parameters.
+                    DMOP also contains sub-taxonomies of ML models and provides a vocabulary to describe their properties and characteristics,
+                    e.g. model structures, model complexity measures, and parameters.
                 </p>
 
                 <p>
                     <strong>The MEX Vocabulary.</strong>
                     The MEX vocabulary
-                    <a href="#DBLP:conf/i-semantics/EstevesMNSUAL15">
-                        <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 5: Diego Esteves, Diego Moussallem, Ciro Baron Neto, Tommaso Soru, Ricardo Usbeck, Markus Ackermann, Jens Lehmann (2015). MEX vocabulary: a lightweight interchange format for machine experiments. Proceedings of the 11th International Conference on Semantic Systems, 2015, Vienna, Austria, September 15-17, 2015.">
-                            [5]
-                        </span>
-                    </a>
+                    <a href="#DBLP:conf/i-semantics/EstevesMNSUAL15"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 5: Diego Esteves, Diego Moussallem, Ciro Baron Neto, Tommaso Soru, Ricardo Usbeck, Markus Ackermann, Jens Lehmann (2015). MEX vocabulary: a lightweight interchange format for machine experiments. Proceedings of the 11th International Conference on Semantic Systems, 2015, Vienna, Austria, September 15-17, 2015.">[5]</span></a>
                     has been designed to reuse existing ontologies (i.e., PROV-O
-                    <a href="#lebo2013prov">
-                        <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 6: Lebo T., Sahoo S., McGuinness D., Belhajjame K., Cheney J., Corsar D., Garijo D., Soiland-Reyes S., Zednik S., Zhao J. (2013). Prov-o: The prov ontology. W3C Recommendation.">
-                            [6]
-                        </span>
-                    </a>
-                     for representing basic machine learning experiment configuration and its outcomes. The aim is not to describe a complete data-mining process, which can be modeled by more complex and semantically refined structures. Instead, MEX is designed
+                    <a href="#lebo2013prov"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 6: Lebo T., Sahoo S., McGuinness D., Belhajjame K., Cheney J., Corsar D., Garijo D., Soiland-Reyes S., Zednik S., Zhao J. (2013). Prov-o: The prov ontology. W3C Recommendation.">[6]</span></a>
+                     for representing basic machine learning experiment configuration and its outcomes). The aim is not to describe a complete data-mining process, which can be modeled by more complex and semantically refined structures. Instead, MEX is designed
                      to provide a simple and lightweight vocabulary for exchanging basic machine learning metadata in order to achieve
-                     a high level of interoperability. Moreover, the schema aims to serve as a basis for data management of ML outcomes.
+                     a high level of interoperability. Moreover, the schema aims to serve as a basis for data management of ML outcomes in the context of WASOTA <a href="#baron2016wasota"><span class="cgen" data-rash-original-content=" " title="Bibliographic reference 9: Neto, C. B., Esteves, D., Soru, T., Moussallem, D., Valdestilhas, A., & Marx, E. (2016). WASOTA: What Are the States Of The Art?. In SEMANTiCS (Posters, Demos, SuCCESS).">[9]</span></a>.
 
                 </p>
 
@@ -1104,9 +1067,9 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
                 <p>
                     <strong>Acknowledgements.</strong>
                     Gustavo Correa Publio acknowledges the support of the Smart
-                    Data Web BMWi project (GA-01MD15010B) and CNPq foundation
+                    Data Web BMWi project (GA-01MD15010B) and CNPq Foundation, Ministry of Education of Brazil
                     (scholarship 201808/2015-3). Diego Esteves acknowledges the
-                    support of CAPES foundation, Ministry of Education of
+                    support of CAPES Foundation, Ministry of Education of
                     Brazil (10179/2013-5). Agnieszka &#321;awrynowicz
                     acknowledges the support from the National Science Centre,
                     Poland, within the grant number 2014/13/D/ST6/02076.
