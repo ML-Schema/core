@@ -46,7 +46,7 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
     <!-- Affiliations -->
     <meta content="Agile Knowledge Engineering and Semantic Web, Institute of Computer Science, University of Leipzig, Germany"
         property="schema:name" typeof="schema:Organization" />
-    <meta content="Smart Data Analytics, University of Bonn, Germany" property="schema:name" typeof="schema:Organization" />
+    <meta content="SDA Research, University of Bonn, Germany" property="schema:name" typeof="schema:Organization" />
     <meta content="Faculty of Computing, Poznan University of Technology, Poland" property="schema:name" typeof="schema:Organization"
     />
     <meta content="Department of Knowledge Technologies, Jožef Stefan Institute, Ljubljana, Slovenia" property="schema:name"
@@ -90,7 +90,7 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
             </code>
             <br/>
             <span class="affiliation">
-                Smart Data Analytics, University of Bonn, Germany
+                SDA Research, University of Bonn, Germany
             </span>
         </address>
         <address class="lead authors">
@@ -221,7 +221,7 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
             .
         </p>
         <p>
-            In line with those efforts, in this extended abstract, we present the ML Schema
+            In line with those efforts, in this position paper, we present the ML Schema
             <sup class="fn cgen" data-rash-original-content=" ">
                 <a href="#fn1" id="fn_pointer_fn1" title="Footnote 1: ML Schema: http://ml-schema.github.io/documentation/">
                     1
@@ -239,7 +239,7 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
                 </a>
             </sup>. It is a simple shared schema that provides a set of classes, properties, and restrictions that can be used
             to represent and interchange information on machine learning (ML) algorithms, datasets, and experiments. It can
-            be easily specialized to create new classes and properties and it is also mapped to more complex, specific ontologies
+            be easily specialized to create new classes and properties and it is also mapped to more specific ontologies
             and vocabularies on machine learning
 
             <a href="#DBLP:journals/ws/KeetLdKNPSH15">
@@ -264,14 +264,51 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
                 </span>
             </a>
 
-            These ontologies, in turn, contain terms for representing more detailed characteristics and properties of ML datasets, algorithms,
-            models, and experiments.
+            These ontologies, in turn, contain terms for representing
+            experiment configurations (e.g., characteristics and properties of
+            ML datasets, algorithms and models) either in a more detailed or
+            more abstract level.
         </p>
         <p>
-            Ultimately, we believe that involving such a canonical and standardized model meta-data descriptors in design of interpretable
-            methods for ML may lead to better insights into the data and the properties of ML algorithms.
+            Ultimately, we believe that involving such a canonical and
+            standardized model meta-data descriptors in design of interpretable
+            methods for ML may lead to better insights into the data and the
+            properties of ML algorithms. Moreover, such upper-level ontology
+            will not only allow to achieve the "<strong>horizontal
+              interoperability</strong>" (among tools and users) but also the
+              "<strong>vertical interoperability</strong>" (among ML
+              ontologies), as described in
+              <a href="#fig_metalevel">
+                  <span class="cgen" data-rash-original-content=" ">Figure 1</span>
+              </a>. Therefore, different groups of researchers could
+              exchange SOTA metadata files in a transparent manner, as well as
+              ML ecosystems (e.g. OpenML
+              <a href="#vanschoren2014openml">
+                  <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 10: Vanschoren, J., Van Rijn, J. N., Bischl, B., and Torgo, L. (2014). OpenML: networked science in machine learning. ACM SIGKDD Explorations Newsletter, 15(2), 49-60.">
+                      [10]
+                  </span>
+              </a>
+              ) and ML Metadata Repositories (e.g.
+              WASOTA
+              <a href="#baron2016wasota">
+                  <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 9: Neto, C. B., Esteves, D., Soru, T., Moussallem, D., Valdestilhas, A., & Marx, E. (2016). WASOTA: What Are the States Of The Art?. In SEMANTiCS (Posters, Demos, SuCCESS).">
+                      [9]
+                  </span>
+              </a>
+              ) which can rely on a more representative standard in their
+              architectures.
         </p>
-
+        <figure id="fig_metalevel">
+            <p>
+                <img alt="ML Schema Core classes." src="img/metalevel.png" />
+            </p>
+            <figcaption>
+                <strong class="cgen" data-rash-original-content="">
+                    Figure 1.
+                </strong>
+                Vertical and Horizontal Interoperability across ML Environments.
+            </figcaption>
+        </figure>
     </section>
     <section id="sec_mlschema">
         <h1>
@@ -280,7 +317,7 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
         <p>
             In
             <a href="#fig_mlschema">
-                <span class="cgen" data-rash-original-content=" ">Figure 1</span>
+                <span class="cgen" data-rash-original-content=" ">Figure 2</span>
             </a>, we depict the classes and the relationships between the classes representing the ML Schema. The schema contains
             classes for representing different aspects of machine learning. This includes representations data, datasets
             and data/dataset characteristics. Next, it includes representations of algorithms, implementations, parameters
@@ -295,7 +332,7 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
                 </p>
                 <figcaption>
                     <strong class="cgen" data-rash-original-content="">
-                        Figure 1.
+                        Figure 2.
                     </strong>
                     ML Schema Core classes. Boxes represent classes. Arrows without filled heads represent properties, arrows with empty heads
                     represent subclass relations, and arrows with diamonds represent part-of relations.
@@ -949,7 +986,12 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
                         <a href="#fn3" id="fn_pointer_fn3" title="Footnote 3: OpenML: http://www.openml.org/">
                             3
                         </a>
-                    </sup>, as a way to structure data (e.g. database design) and share data (APIs). MLSchema will be used to export
+                    </sup>
+                    <a href="#vanschoren2014openml">
+                        <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 10: Vanschoren, J., Van Rijn, J. N., Bischl, B., and Torgo, L. (2014). OpenML: networked science in machine learning. ACM SIGKDD Explorations Newsletter, 15(2), 49-60.">
+                            [10]
+                        </span>
+                    </a>, as a way to structure data (e.g. database design) and share data (APIs). MLSchema will be used to export
                     all OpenML data as linked open data (in RDF).
                 </p>
 
@@ -990,10 +1032,10 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
                             [6]
                         </span>
                     </a>
-                    for representing basic machine learning information. The aim is not to describe a complete data-mining
-                    process, which can be modeled by more complex and semantically refined structures. Instead, MEX is designed
-                    to provide a simple and lightweight vocabulary for exchanging machine learning metadata in order to achieve
-                    a high level of interoperability as well as supporting data management for ML outcomes.
+                     for representing basic machine learning experiment configuration and its outcomes. The aim is not to describe a complete data-mining process, which can be modeled by more complex and semantically refined structures. Instead, MEX is designed
+                     to provide a simple and lightweight vocabulary for exchanging basic machine learning metadata in order to achieve
+                     a high level of interoperability. Moreover, the schema aims to serve as a basis for data management of ML outcomes.
+
                 </p>
 
             </section>
@@ -1002,12 +1044,11 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
                     Conclusions
                 </h1>
                 <p>
-                    In this extended abstract, we have presented ML Schema, a lightweight schema for modeling ML domain.
+                    In this position paper, we have presented ML Schema, a comprehensive schema for modeling ML domain.
                 </p>
 
                 <p>
-                    The ML Schema aligns more fine-grained ontologies and vocabularies, some of which contain detailed vocabulary for representing
-                    meta-data on ML models.
+                  The ML Schema aligns more fine-grained ontologies and vocabularies, some of which contain detailed vocabulary for representing meta-data on ML models.
                 </p>
 
                 <p>
@@ -1018,8 +1059,12 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
             <section class="doc-acknowledgements">
                 <p>
                     <strong>Acknowledgements.</strong>
-                    Gustavo Correa Publio acknowledges the support the Smart Data Web BMWi project (GA-01MD15010B) and CNPq foundation (scholarship
-                    201808/2015-3). Agnieszka &#321;awrynowicz acknowledges the support from the National Science Centre,
+                    Gustavo Correa Publio acknowledges the support of the Smart
+                    Data Web BMWi project (GA-01MD15010B) and CNPq foundation
+                    (scholarship 201808/2015-3). Diego Esteves acknowledges the
+                    support of CAPES foundation, Ministry of Education of
+                    Brazil (10179/2013-5). Agnieszka &#321;awrynowicz
+                    acknowledges the support from the National Science Centre,
                     Poland, within the grant number 2014/13/D/ST6/02076.
                 </p>
             </section>
@@ -1058,7 +1103,7 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
                     <li id="DBLP:conf/i-semantics/EstevesMNSUAL15" about="DBLP:conf/i-semantics/EstevesMNSUAL15-expression" typeof="fabio:ResearchPaper"
                         property="frbr:realizationOf" resource="DBLP:conf/i-semantics/EstevesMNSUAL15-work" role="doc-biblioentry">
                         <p about="DBLP:conf/i-semantics/EstevesMNSUAL15-expression" property="dcterms:bibliographicCitation">Diego Esteves, Diego Moussallem, Ciro Baron Neto, Tommaso Soru, Ricardo Usbeck, Markus Ackermann,
-                            Jens Lehmann (2015). {MEX} vocabulary: a lightweight interchange format for machine learning
+                            Jens Lehmann (2015). MEX vocabulary: a lightweight interchange format for machine learning
                             experiments. Proceedings of the 11th International Conference on Semantic Systems, SEMANTiCS
                             2015, Vienna, Austria, September 15-17, 2015.</p>
                     </li>
@@ -1077,6 +1122,16 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
                     <li id="10.1371/journal.pone.0154556" about="10.1371/journal.pone.0154556-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf"
                         resource="10.1371/journal.pone.0154556-work" role="doc-biblioentry">
                         <p about="10.1371/journal.pone.0154556-expression" property="dcterms:bibliographicCitation">Bandrowski A. et. al. (2016). The Ontology for Biomedical Investigations. PLoS ONE. 11(4):1–19</p>
+                    </li>
+                    <!-- 9 -->
+                    <li id="baron2016wasota" about="baron2016wasota-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf"
+                        resource="baron2016wasota-work" role="doc-biblioentry">
+                        <p about="baron2016wasota-expression" property="dcterms:bibliographicCitation">Neto, C. B., Esteves, D., Soru, T., Moussallem, D., Valdestilhas, A., &#38; Marx, E. (2016). WASOTA: What Are the States Of The Art?. In SEMANTiCS (Posters, Demos, SuCCESS).</p>
+                    </li>
+                    <!-- 10 -->
+                    <li id="vanschoren2014openml" about="vanschoren2014openml-expression" typeof="fabio:ResearchPaper" property="frbr:realizationOf"
+                        resource="vanschoren2014openml-work" role="doc-biblioentry">
+                        <p about="vanschoren2014openml-expression" property="dcterms:bibliographicCitation">Vanschoren, J., Van Rijn, J. N., Bischl, B., &#38; Torgo, L. (2014). OpenML: networked science in machine learning. ACM SIGKDD Explorations Newsletter, 15(2), 49-60.</p>
                     </li>
 
                 </ul>
