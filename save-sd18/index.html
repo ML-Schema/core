@@ -44,7 +44,7 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
     <link href="https://w3id.org/scholarlydata/organisation/eindhoven-university-of-technology" property="schema:affiliation"
     />
     <!-- Affiliations -->
-    <meta content="Agile Knowledge Engineering and Semantic Web, Institute of Computer Science, University of Leipzig, Germany"
+    <meta content="AKSW, Institute of Computer Science, University of Leipzig, Germany"
         property="schema:name" typeof="schema:Organization" />
     <meta content="SDA Research, University of Bonn, Germany" property="schema:name" typeof="schema:Organization" />
     <meta content="Faculty of Computing, Poznan University of Technology, Poland" property="schema:name" typeof="schema:Organization"
@@ -57,6 +57,14 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
     <meta content="Machine Learning" property="prism:keyword" />
     <meta content="Machine Translation" property="prism:keyword" />
     <meta content="Linked Data" property="prism:keyword" />
+    <meta content="ML-Schema" property="prism:keyword" />
+    <meta content="MEX" property="prism:keyword" />
+    <meta content="Expose" property="prism:keyword" />
+    <meta content="OntoDM" property="prism:keyword" />
+    <meta content="DMOP" property="prism:keyword" />
+    <meta content="OpemML" property="prism:keyword" />
+    <meta content="WASOTA" property="prism:keyword" />
+    <meta content="METArchive" property="prism:keyword" />
     <!-- /END Metadata -->
 </head>
 
@@ -76,7 +84,7 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
             </code>
             <br/>
             <span class="affiliation">
-                Agile Knowledge Engineering and Semantic Web, Institute of Computer Science, University of Leipzig, Germany
+                AKSW, Institute of Computer Science, University of Leipzig, Germany
             </span>
         </address>
         <address class="lead authors">
@@ -146,7 +154,7 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
             </code>
             <br/>
             <span class="affiliation">
-                Agile Knowledge Engineering and Semantic Web, Institute of Computer Science, University of Leipzig, Germany
+                AKSW, Institute of Computer Science, University of Leipzig, Germany
             </span>
         </address>
         <address class="lead authors">
@@ -175,12 +183,57 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
                 </li>
                 <li>
                     <code>
-                        Machine Translation
+                        Interoperability
                     </code>
                 </li>
                 <li>
                     <code>
-                        Linked Data
+                        Provenance
+                    </code>
+                </li>
+                <li>
+                    <code>
+                        Metadata
+                    </code>
+                </li>
+                <li>
+                    <code>
+                        ML-Schema
+                    </code>
+                </li>
+                <li>
+                    <code>
+                        MEX
+                    </code>
+                </li>
+                <li>
+                    <code>
+                        Expose
+                    </code>
+                </li>
+                <li>
+                    <code>
+                        OntoDM
+                    </code>
+                </li>
+                <li>
+                    <code>
+                        DMOP
+                    </code>
+                </li>
+                <li>
+                    <code>
+                        OpenML
+                    </code>
+                </li>
+                <li>
+                    <code>
+                        WASOTA
+                    </code>
+                </li>
+                <li>
+                    <code>
+                        METArchive
                     </code>
                 </li>
             </ul>
@@ -191,11 +244,11 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
             Abstract
         </h1>
         <p>
-            The ML Schema, proposed by the W3C Machine Learning Schema Community Group, is a simple schema that provides a set of classes,
+            The ML Schema, proposed by the W3C Machine Learning Schema Community Group, is top-level ontology that provides a set of classes,
             properties, and restrictions for representing and interchanging information on machine learning algorithms, datasets,
-            and experiments. It can be easily extended and specialized and it is also mapped to other more specific ontologies
-            developed in the area of machine learning. In this paper, we present the ML Schema and argue that exposing semantics
-            of machine learning algorithms, models, and experiments may pave the way to better interpretability.
+            and experiments. It can be easily extended and specialized and it is also mapped to other more domain-specific ontologies
+            developed in the area of machine learning and data mining. In this paper, we present the ML Schema and argue that exposing semantics
+            of machine learning algorithms, models, and experiments may pave the way to better interpretability and to achieve the full interoperability of experiments.
         </p>
     </section>
     <!-- Sections -->
@@ -270,30 +323,24 @@ dcterms: http://purl.org/dc/terms/" xmlns="http://www.w3.org/1999/xhtml">
             more abstract level.
         </p>
         <p>
-            Moreover, a canonical and standardized schema
-            will not only allow to achieve the "<strong>horizontal
-              interoperability</strong>" (among tools and users) but also the
-              "<strong>vertical interoperability</strong>" (among ML
-              ontologies), as described in
-              <a href="#fig_metalevel">
-                  <span class="cgen" data-rash-original-content=" ">Figure 1</span>
-              </a>. Therefore, different groups of researchers could
-              exchange SOTA metadata files in a transparent manner, as well as
-              ML ecosystems (e.g. OpenML
+            Despite recent efforts to achieve a high level of interoperability of Machine Learning (ML) experiments <a href="#fig_metalevel">
+              <span class="cgen" data-rash-original-content=" ">Figure 1</span>
+              </a>we still run into problems created due to the existence of different ML platforms: each of those have a specific conceptualization or schema for representing data and metadata (Fig1 : itens 3 and 4: vertical interoperability). This scenario leads to an extra coding-effort (Fig1: item 2) to achieve both the desired interoperability and a better provenance level as well as a more automatized environment for obtaining the generated results. To reduce this gap, the aforementioned ML vocabularies and ontologies have been proposed [2][3][4][5] (Figure 1: item 5).
+            
+            The gap can be further significantly reduced by achieving interoperability among state-of-the-art (SOTA) schemata of those resources (Figure 1: item 5) i.e. achieving the horizontal interoperability (Figure 1: item 6). Therefore, different groups of researchers could exchange SOTA metadata files in a transparent manner via web services, e.g.: from OntoDM and MEX (MLSchema.Schema data = mlschema.convert('myfile.ttl', MLSchema.Ontology.OntoDM, MLSchema.Ontology.MEX)). Furthermore, the canonical format also directly benefits, such as ML ecosystems (e.g. OpenML
               <a href="#vanschoren2014openml">
                   <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 10: Vanschoren, J., Van Rijn, J. N., Bischl, B., and Torgo, L. (2014). OpenML: networked science in machine learning. ACM SIGKDD Explorations Newsletter, 15(2), 49-60.">
-                      [10]
+                      [10])
                   </span>
               </a>
-              ) and ML Metadata Repositories (e.g.
+            and ML Metadata Repositories (e.g.
               WASOTA
               <a href="#baron2016wasota">
                   <span class="cgen" data-rash-original-content=" " title="Bibliographic reference 9: Neto, C. B., Esteves, D., Soru, T., Moussallem, D., Valdestilhas, A., & Marx, E. (2016). WASOTA: What Are the States Of The Art?. In SEMANTiCS (Posters, Demos, SuCCESS).">
                       [9]
                   </span>
               </a>
-              ) which can rely on a more representative standard in their
-              architectures.
+              ) which can benefit on the mappings of a shared standard.
         </p>
         <figure id="fig_metalevel">
             <p>
