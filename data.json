@@ -1,0 +1,791 @@
+{
+  "main": {
+    "name":"Joaquin Vanschoren",
+    "occupation":"Assistant Professor",
+    "description":"",
+    "image":"profilepic.jpg",
+    "email": "j.vanschoren@tue.nl",
+    "phone": "+31 (0)40 247 8638",
+    "website": "http://joaquinvanschoren.github.io",
+    "resumedownload":"cv.pdf",
+    "social":[
+      {
+        "name":"twitter",
+        "url":"http://twitter.com/joavanschoren",
+        "className":"fab fa-twitter"
+      },
+      {
+        "name":"github",
+        "url":"http://github.com/joaquinvanschoren",
+        "className":"fab fa-github"
+      },
+      {
+        "name":"openml",
+        "url":"https://openml.org/u/2",
+        "className":"fas fa-circle-notch"
+      }
+    ]
+  },
+  "news":{
+    "news":[
+      {
+        "title":"Amazon Research Award",
+        "link":"https://ara.amazon-ml.com/recipients/#2018",
+        "time":"January 2019",
+        "description":"We're building the AutoML Gym, an online environment for training and testing Automatic Machine Learning systems"
+      },
+      {
+        "title":"Tutorial Speaker @ NeurIPS 2018",
+        "link":"https://nips.cc/%22",
+        "time":"December 2018",
+        "description":"Amazing experience giving a NeurIPS tutorial on AutoML and Meta-learning in front of 2000+ people! Together with Frank Hutter. Video and slides below!"
+      },
+      {
+        "title":"OpenML mentioned in Science Magazine",
+        "link":"http://www.sciencemag.org/news/2018/02/missing-data-hinder-replication-artificial-intelligence-studies",
+        "time":"February 2018",
+        "description":"Nice article about the difficulty of reproducibility and how OpenAI Gym and OpenML are taking steps in the right direction."
+      },
+      {
+        "title":"Dutch Science Foundation Grant",
+        "link":"#",
+        "time":"September 2017",
+        "description":"We will explore Dynamic Data Analytics through automatically Constructed Machine Learning Pipelines. Bilge Celik is taking on the challenge."
+      },
+      {
+        "title":"DARPA Grant",
+        "link":"https://www.darpa.mil/program/data-driven-discovery-of-models",
+        "time":"September 2017",
+        "description":"The (civilian) Data-Driven Discovery of Models project develops open-source tools to automate machine learning on any type of data. Pieter Gijsbers is starting his PhD on this topic."
+      },
+      {
+        "title":"OpenML won the Dutch Data Prize",
+        "link":"http://www.researchdata.nl/en/news-and-agenda/news/news-item/artikel/boschdoc-ahcoda-db-and-openml-winners-of-the-data-prize-2016/",
+        "time":"November 2016",
+        "description":"Thanks so much to the organizers for stimulating open science through this award, and thanks to the fantastic OpenML team for making it all happen!"
+      },
+      {
+        "title":"HARVEST Grant from the PASCAL 2 Network",
+        "link":"",
+        "time":"October 2012",
+        "description":"The funding received will support work on OpenML, a new system to automatically share and reuse reproducible machine learning experiments."
+      },
+      {
+        "title":"Free Competition Research Grant (NWO)",
+        "link":"#",
+        "time":"June 2012",
+        "description":"The funding received will support work on Massively Collaborative Data Mining. Jan N. van Rijn will start his PhD on this topic."
+      },
+      {
+        "title":"Best Demo Award @ ECMLPKDD 2009",
+        "link":"http://www.ecmlpkdd2009.net/",
+        "time":"September 2009",
+        "description":"For a demonstration of Experiment Databases for machine learning. Together with Hendrik Blockeel."
+      }
+    ],
+    "invited":[
+      {
+        "title":"NeurIPS 2018 Open-source Machine Learning Workshop",
+        "link":"https://2018.mloss.org/%22",
+        "time":"December 2018",
+        "description":"On OpenML and building open source communities for machine learning. Thanks to Sergey, Victor, Cheng, Heiko, Ryan, and Antti!",
+        "slides":"https://www.slideshare.net/JoaquinVanschoren/openml-neurips2018"
+      },
+      {
+        "title":"PRICAI 2018 AutoML Workshop",
+        "link":"http://cse.seu.edu.cn/pricai18/workshops.html%22",
+        "time":"August 2018",
+        "description":"On how to do automatic machine learning with OpenML. Thanks to Isabelle Guyon, Hugo, Wei-wei, Zhanxing, and Yang.",
+        "slides":""
+      },
+      {
+        "title":"SIGMOD 2018 DEEM Workshop",
+        "link":"http://deem-workshop.org/%22",
+        "time":"June 2018",
+        "description":"On the use of OpenML in Data Management for End-to-End Machine Learning. Special thanks to Sebastian Schelter.",
+        "slides":""
+      },
+      {
+        "title":"Dutch National eScience Symposium",
+        "link":"https://www.esciencecenter.nl/event/nlesc17",
+        "time":"October 2017",
+        "description":"I'm speaking in the 'Future of machine learning' track. Thanks to everyone at the eScience Center!",
+        "slides":""
+      },
+      {
+        "title":"ICML 2017 - Reproducibility in Machine Learning Workshop",
+        "link":"https://sites.google.com/view/icml-reproducibility-workshop/home",
+        "time":"August 2017",
+        "description":"Very lively workshop on reproducibility - a crucial aspect of machine learning research. Thanks so much to Sami Bengio, Anirudh Goyal, and the other organizers for the great discussions.",
+        "slides":""
+      },
+      {
+        "title":"NIPS 2016 - Challenges in Machine Learning Workshop",
+        "link":"http://ciml.chalearn.org/",
+        "time":"December 2016",
+        "description":"On using OpenML for running open, collaborative machine learning challenges. Thanks to Isabelle Guyon and the other organizers.",
+        "slides":""
+      },
+      {
+        "title":"Dutch Society for Pattern Recognition",
+        "link":"http://nvphbv.nl/site/",
+        "time":"November 2016",
+        "description":"On the use of OpenML for machine learning on medical data. Thanks to Veronika Cheplygina for inviting me!",
+        "slides":""
+      },
+      {
+        "title":"Data@Sheffield",
+        "link":"http://opendsi.cc/das2015/schedule.html",
+        "time":"December 2015",
+        "description":"A tutorial on OpenML targetted at scientists from many domains, at the Open Data Science @ Sheffield workshop and Data Hide event. Many, many thanks to Neil Lawrence and the Open Data Science Initiative for a splendid visit and engaging discussions.",
+        "slides":"http://www.slideshare.net/JoaquinVanschoren/openml-datasheffield"
+      },
+      {
+        "title":"IDA 2015 (Horizon Talk)",
+        "link":"https://ida2015.univ-st-etienne.fr/",
+        "time":"October 2015",
+        "description":"In this Horizon talk, I proposed the idea of a data science collaboratory, where scientists across domains can collaborate effortlessly using each other's data and code. Joint work with Bernd Bischl, Frank Hutter, Michele Sebag, Balazs Kegl, Matthias Schmid, Giulio Napolitano, Katy Wolstencroft, Alan R. Williams, and Neil Lawrence.",
+        "slides":"http://www.slideshare.net/JoaquinVanschoren/towards-a-data-science-collaboratory"
+      },
+      {
+        "title":"Statistical Computing 2015",
+        "link":"http://sysbio.uni-ulm.de/ocs/index.php/statcomp/statcomp2015",
+        "time":"July 2015",
+        "description":"On networked science, OpenML and using OpenML from statistical environments such as R. Followed by a hands-on tutorial by Giuseppe Casalicchio and Bernd Bischl. Thanks to Matthias Schmid.",
+        "slides":""
+      },
+      {
+        "title":"ICML 2015 AutoML Workshop",
+        "link":"https://sites.google.com/site/automlwsicml15/",
+        "time":"July 2015",
+        "description":"On OpenML and building systems that learn from machine learning experiments, to assist people while analyzing data, or automate the process altogether. Thanks to Balazs Kegl and Frank Hutter.",
+        "slides":"http://www.slideshare.net/JoaquinVanschoren/openml-towards-networked-and-automated-machine-learning"
+      },
+      {
+        "title":"ECDA 2014",
+        "link":"http://ecda2014.eu/",
+        "time":"July 2014",
+        "description":"On open science, machine learning, OpenML and the benefits it brings for machine learning research, individual scientists, as well as students and practitioners.",
+        "slides":"http://www.slideshare.net/JoaquinVanschoren/openml-tutorial-networked-science"
+      },
+      {
+        "title":"CLADAG 2013",
+        "link":"http://archivio.edunova.it/cladag2013/",
+        "time":"September 2013",
+        "description":"Presenting the first beta version of OpenML. Thanks to John Shawe-Taylor and the PASCAL 2 Network.",
+        "slides":""
+      }
+    ]
+  },
+  "talks": [
+      {
+        "type":"slideshare",
+        "title":"Learning how to learn",
+        "description":"On the state of the art and future of meta-learning (Berlin ML Meetup 2019)",
+        "image":"Meta-learning.jpeg",
+        "url":"//www.slideshare.net/slideshow/embed_code/key/D8jkSZ0IdZEpsi"
+      },
+      {
+        "type":"video",
+        "title":"Tutorial on Automatic Machine Learning",
+        "description":"Presented at NeurIPS 2018 by Frank Hutter and myself.",
+        "image":"#",
+        "url":"https://www.youtube.com/embed/0eBR8a4MQ30",
+        "slides":"https://www.automl.org/wp-content/uploads/2018/12/AutoML-Tutorial-NeurIPS2018-MetaLearning.pdf"
+      },
+      {
+        "type":"slideshare",
+        "title":"Introduction to OpenML",
+        "description":"How OpenML works, how to use it, and the people behind it all. (NeurIPS 2018)",
+        "image":"OpenML-NeurIPS2018.jpeg",
+        "url":"//www.slideshare.net/slideshow/embed_code/key/Hb65keBKvOx0UU"
+      },
+      {
+        "type":"slides",
+        "title":"Interview Open Science Radio (podcast)",
+        "description":"Open discussion on open science in machine learning. With Heidi Seibold.",
+        "image":"osr.png",
+        "url":"http://www.openscienceradio.de/2016/10/28/osr059-openml-en/"
+      },
+      {
+        "type":"video",
+        "title":"Collaborative Machine Learning",
+        "description":"On collaborative platforms for scientists and machine learning experts.",
+        "image":"OpenMLSheffield.jpeg",
+        "url":"https://www.youtube.com/embed/m3RzuezFXUE",
+        "slides":"https://www.slideshare.net/JoaquinVanschoren/openml-datasheffield"
+      },
+      {
+        "type":"video",
+        "title":"OpenML: Networked Science in Machine Learning",
+        "description":"On the open science principles underlying OpenML.",
+        "image":"OpenMLSheffield.jpeg",
+        "url":"https://www.youtube.com/embed/J84Eg-0RlCk",
+        "slides":"https://www.slideshare.net/JoaquinVanschoren/openml-tutorial-networked-science"
+      },
+      {
+        "type":"video",
+        "title":"Designed Serendipity",
+        "description":"Short talk on designed serendipity in science (inspired by M. Nielsen).",
+        "image":"OpenMLSheffield.jpeg",
+        "url":"https://www.youtube.com/embed/JX5ko6sZkm0",
+        "slides":"https://www.slideshare.net/JoaquinVanschoren/designed-serendipity"
+      },
+      {
+        "type":"video",
+        "title":"Exposé",
+        "description":"Explains the Exposé ontology for machine learning experiments",
+        "image":"OpenMLSheffield.jpeg",
+        "url":"https://www.youtube.com/embed/ZUL2R5SkGtE",
+        "slides":"https://www.slideshare.net/JoaquinVanschoren/expos-ontology"
+      }
+  ],
+  "books":[
+      {
+        "title":"Automatic Machine Learning",
+        "subtitle":"Methods, systems, challenges",
+        "description":"Tutorial-level overview of the methods underlying automatic machine learning, enabling readers to easily understand the key concepts behind AutoML. It contains extensive surveys of hyperparameter tuning, meta-learning, and neural architecture search, as well detailed descriptions of modern AutoML systems.",
+        "image":"https://images-na.ssl-images-amazon.com/images/I/41TmMmpdWvL.jpg",
+        "url":"https://www.springer.com/us/book/9783030053178",
+        "amazon":"https://www.amazon.de/dp/3030053172",
+        "source":"https://www.automl.org/book"
+      }
+  ],
+  "lab":{
+    "people":[
+      {
+        "name":"Pieter Gijsbers",
+        "role":"PhD student",
+        "topic":"A Genetic Automatic Machine learning Assistant (GAMA)",
+        "picture":"pieter.jpeg"
+      },
+      {
+        "name":"Bilge Celik",
+        "role":"PhD student",
+        "topic":"Automatic machine learning on evolving data",
+        "picture":"bilge.jpeg"
+      },
+      {
+        "name":"Chao Zhang",
+        "role":"PhD student",
+        "topic":"e-Coaching and habit formation (co-supervisor)",
+        "picture":"chao.jpeg"
+      },
+      {
+        "name":"Yandre Lozano",
+        "role":"PDEng student",
+        "topic":"Predictive maintenance in dynamic environments",
+        "picture":"yandre.jpg"
+      }
+    ],
+      "former":[
+        {
+          "name":"Jan van Rijn",
+          "topic":"Massively Collaborative Machine Learning. Currently Assistant Professor at the University of Leiden.",
+          "picture":"jan.png"
+        },
+        {
+          "name":"Rafael Mantovani",
+          "topic":"Meta-learning for hyperparameter optimization. Currently Assistant Professor at University of Londrina",
+          "picture":"Rafael.jpg"
+        },
+        {
+          "name":"Karthik Srinivasan",
+          "topic":"Burglary prediction from multiple data sources",
+          "picture":"karthik.png"
+        }
+      ],
+        "msc":[
+          {
+            "name":"Maurice Houben",
+            "topic":"Warm-starting differentiable architecture search",
+            "year":"2019"},
+          {
+            "name":"Jeroen van Hoof",
+            "topic":"Automated machine learning with gradient boosting and meta-learning",
+            "year":"2018"},
+          {
+            "name":"Jiawen Wang",
+            "topic":"Few-shot image recognition in data streams",
+            "year":"2018"},
+          {
+            "name":"Yesi Zhu",
+            "topic":"Deep Learning for Image-based Plant Growth Stage Detection",
+            "year":"2018"},
+          {
+            "name":"Tim Beishuizen",
+            "topic":"An automated data analysis tool to support biomedical engineers in their research",
+            "year":"2018"},
+          {
+            "name":"Irfan Nur Afif",
+            "topic":"Warm-starting deep learning model construction using meta-Learning",
+            "year":"2018"},
+          {
+            "name":"Tomas Sostak",
+            "topic":"Active Learning for Text Classification",
+            "year":"2018"},
+          {
+            "name":"Tomas Komar",
+            "topic":"Visual anomaly detection using deep learning",
+            "year":"2018"},
+          {
+            "name":"Vishal Chouksey",
+            "topic":"Automatic selection of outlier detection techniques",
+            "year":"2018"},
+          {
+            "name":"Lieuwe Stooker",
+            "topic":"Empirical profiling of scikit-learn classifiers",
+            "year":"2018"},
+          {
+            "name":"Joana Iljazi",
+            "topic":"Deep learning for image-based prediction of plant growth","year":"2017"},
+          {
+            "name":"Aditya Bhadoria",
+            "topic":"Machine learning strategies for forecasting plant growth based on time-series data","year":"2017"},
+          {
+            "name":"Shefali Chand",
+            "topic":"Anomaly Detection in Wireless Mesh Lighting Networks","year":"2017"},
+          {
+            "name":"Jun Lin",
+            "topic":"A comparative study of recommendation algorithms in educational service","year":"2017"},
+          {
+            "name":"Sjoerd van Bavel",
+            "topic":"Predicting Heat Capacity in Greenhouses","year":"2017"},
+          {
+            "name":"Roy Haanen",
+            "topic":"Predicting Aircraft Performance on Final Approach","year":"2016"},
+          {
+            "name":"Chung-Kit Lee",
+            "topic":"Burglary Prediction Model","year":"2016"},
+          {
+            "name":"Hilda F. Bernard",
+            "topic":"Enhanced Sleepiness Prediction with Improved Algorithm Selection and Hyperparameter optimization","year":"2016"},
+          {
+            "name":"Mikhail Evchenko",
+            "topic":"Frugal Learning: Applying Machine Learning with Minimal Resources","year":"2016"},
+          {
+            "name":"Kris van Tienhoven",
+            "topic":"Gamification for OpenML","year":"2016"},
+          {
+            "name":"Ruben Moonen",
+            "topic":"Object Recognition Framework using information retrieval and machine learning techniques","year":"2014"},
+          {
+            "name":"Anton den Hoed",
+            "topic":"MapReduce Algorithms for Time Series Data","year":"2012"},
+          {
+            "name":"Mohammed Alaeikhanehshir",
+            "topic":"Data mining to improve customer service","year":"2012"},
+          {
+            "name":"Thomas De Craemer",
+            "topic":"Algorithm for a Recommendation Engine","year":"2011"},
+          {
+            "name":"Wouter Deroey",
+            "topic":"Semi-automated Corpus-based Ontology Population","year":"2011"},
+          {
+            "name":"Xushuang Gao",
+            "topic":"Active meta-learning","year":"2009"},
+          {
+            "name":"Bo Gao",
+            "topic":"Advanced visualizations for learning behavior","year":"2009"},
+          {
+            "name":"Jeroen Peelaerts",
+            "topic":"Visualizing learning behavior","year":"2008"},
+          {
+            "name":"Jan Callewaert",
+            "topic":"Simulating Biologically Inspired Brood Sorting in Ant-Like Agents","year":"2006"},
+          {
+            "name":"Anton Dries",
+            "topic":"DM_square: Analysis of Data Mining Results Through Data Mining","year":"2006"}
+        ],
+      "open":[
+        {
+          "name":"PostDoc",
+          "topic":"The AutoML Gym: an online environment for training AutoML systems",
+          "picture":"faceholder.png"
+        },
+        {
+          "name":"Research Software Engineer",
+          "topic":"OpenML.org core development","year":"data analytics",
+          "picture":"faceholder.png"
+        },
+        {
+          "name":"PhD",
+          "topic":"Fast deep learning by slow meta-learning",
+          "picture":"faceholder.png"
+        },
+        {
+          "name":"PhD-TA",
+          "topic":"Topic to be determined",
+          "picture":"faceholder.png"
+        }
+      ],
+      "topics": {
+        "industry": [
+          {
+            "type":"MSc thesis",
+            "title":"Deep reinforcement learning for bin packing (Vanderlande)",
+            "description":"Bin packing is a challenging optimization problem that thus far has not yet been addressed by reinforcement learning. You need to set up a simulation environment in OpenAI Gym and develop new reinforcement learning algorithms to solve it.",
+            "url":"https://careers.vanderlande.com/vacancy/graduation-developing-a-reinforcement-learning-solution-for-a-bin-packing-problem-1016062"
+          },
+          {
+            "type":"MSc thesis",
+            "title":"Machine learning for vertical farming (Philips)",
+            "description":"In vertical farming, plants are grown under ideal controlled conditions. Machine learning is needed to track plant growth and define the optimal conditions. Possible techniques are reinforment learning, deep meta-learning, or recurrent neural nets.",
+            "url":""
+          },
+          {
+            "type":"Internship / MSc thesis",
+            "title":"Machine learning on temporal location data (Philips)",
+            "description":"Description will follow",
+            "url":""
+          },
+          {
+            "type":"Internship / MSc thesis",
+            "title":"Embedded deep learning (Philips)",
+            "description":"Deep learning models are often hard to embed into low-power devices because they consume too much memory of compute. Techniques such as low precision neural networks or sparse neural networks can be used to address this. Your challenge is to use these in specific applications.",
+            "url":""
+          }
+        ],
+        "academic": [
+          {
+            "type":"MSc thesis",
+            "title":"Automated data cleaning",
+            "description":"Datasets usually require a lot of manual cleaning before it can be used for machine learning. Your challenge is to develop tools that automate this process as much as possible. They will be tested on large amounts of structured and unstructured datasets. This problem can be subdivided into several subproblems, such as data parsing, cleansing, outlier detection,... depending on your own interests.",
+            "url":"#"
+          },
+          {
+            "type":"MSc thesis",
+            "title":"Meta-learning for automated data preprocessing",
+            "description":"Data preprocessing is a general term for all operations that have to be done before training a predictive model. Current techniques to automate this often focus on defining experimentally what's best for the given data. However, as humans we build an understanding of what generally works (or not) on certain types of data. Your challenge is to build meta-models or meta-learning systems that learn across tasks to more intelligently choose which preprocessing techniques to try on a given dataset.",
+            "url":"#"
+          },
+          {
+            "type":"MSc thesis",
+            "title":"Active Meta-learning",
+            "description":"In meta-learning, we build models about the behavior of learning algorithms, so that we can predict which algorithms (or neural architectures) to use for specific problems. It is often expensive to gather training data for these models (each data point requires fully training a new model). Your challenge is to use active learning to only experiment with those models that we can learn most from. This is a necessary step towards building efficient meta-learning systems.",
+            "url":"#"
+          },
+          {
+            "type":"MSc thesis",
+            "title":"Model-agnostic meta-learning for automated machine learning",
+            "description":"Model-agnostic meta-learning learns an optimal parameter initialization for a set of related tasks. We want to explore whether this also works for designing machine learning pipelines: how can we learn optimal initialized pipelines and how can we adapt them quickly to the data at hand.",
+            "url":"#"
+          },
+          {
+            "type":"MSc thesis",
+            "title":"Multi-fidelity meta-learning",
+            "description":"Multi-fidelity optimization techniques compute cheap estimates of the measure they want to optimize (e.g. train a model on a small subset of data to get an estimate of performance on the entire dataset). These estimates are then used to select a subset of options to be evaluated more in depth in the next iteration. Currently, these techniques don't use any machine learning. Your challenge is to see whether we can do meta-learning between iterations to more effectively decide which options to evaluate in the next iteration.",
+            "url":"#"
+          },
+          {
+            "type":"MSc thesis",
+            "title":"A Tensorflow binding for OpenML",
+            "description":"OpenML is a platform for sharing machine learning models, and already has bindings for many Python libraries, such as scikit-learn and Keras. Recent improvements in TensorFlow make it interesting to share TensorFlow pipelines on OpenML as well. This work combines engineering with deep knowledge of machine learning models and systems.",
+            "url":"#"
+          },
+          {
+            "type":"MSc thesis",
+            "title":"Defense against overfitting",
+            "description":"There exist many approaches to avoid overfitting, such as early stopping, variance reduction, and reusable holdouts. They all have their benefits and drawbacks but there doesn't exists a lot of work on choosing between them. It is often an art rather than a science. Your challenge is to study this problem in depth and to recommend the best approaches for different scenarios.",
+            "url":"#"
+          },
+          {
+            "type":"MSc thesis",
+            "title":"Frugal learning",
+            "description":"Imagine that you want to develop a smartwatch app that does machine learning for a privacy-sensitive application (e.g. health tracking). It is often impossible to collect large amounts of data, nor are there large related datasets, e.g. because of privacy concerns. This severely limits your options about which algorithms to use. Your goal is to develop intelligent metrics and methods for building models under these conditions. You can also test them in smart watches.",
+            "url":"#"
+          }
+        ]
+      }
+  },
+  "publications":{
+    	"journal papers": [
+    	{ "authors":"van Rijn, J.N., Holmes, G., Pfahringer, B., Vanschoren, J.",
+    	  "url":"https://link.springer.com/content/pdf/10.1007%2Fs10994-017-5686-9.pdf",
+    	  "title":"The online performance estimation framework: Heterogeneous Ensemble Learning for Data Streams.",
+    	  "reference":"Machine Learning, 107 (1), 149-176, 2018"},
+    	{ "authors":"Olier, I., Sadawi, N., Bickerton, G.R., Vanschoren, J., Grosan, C., Soldatova, L., King, R.D.",
+    	  "url":"https://link.springer.com/content/pdf/10.1007%2Fs10994-017-5685-x.pdf",
+    	  "title":"Meta-QSAR: learning how to learn QSARs.",
+    	  "reference":"Machine Learning, 107 (1), 285-311, 2018"},
+    	{ "authors":"Abdulrahman, S, Brazdil, P., van Rijn, J.N., Vanschoren, J.",
+    	  "url":"",
+        "title":"Speeding up Algorithm Selection via Meta-learning and Active Testing.",
+    	  "reference":"Machine Learning, 107 (1), 79-108, 2018"},
+    	{ "authors":"Casalicchio, G., Hofner, B., Lang, M., Kirchhoff, D., Kerschke, P., Seibold, H., Bossek, J.,  Vanschoren, J., Bischl, B.",
+    	  "url":"https://arxiv.org/abs/1701.01293",
+    	  "title":"OpenML: An R Package to Connect to the Networked Machine Learning Platform.",
+    	  "reference":"Computational Statistics, 32 (3), 1-15, 2017"},
+    	{ "authors":"Eerikainen, L.M., Vanschoren, J., Rooijakkers, M.J., Vullings, R., Aarts, R.M.",
+    	  "url":"https://www.researchgate.net/publication/305645179",
+    	  "title":"Reduction of false arrhythmia alarms using signal selection and machine learning.",
+    	  "reference":"Physiological Measurement, 37 (8), 1204- 1216, 2016"},
+    	{ "authors":"Bischl, B., Kerschke, P., Kotthoff, L., Lindauer, M., Malitsky, Y., Frechette, A., Hoos, H., Hutter, F., Leyton-Brown, K., Tierney, K., Vanschoren, J.",
+    	  "url":"https://www.researchgate.net/publication/277958776",
+    	  "title":"ASlib: A Benchmark Library for Algorithm Selection.",
+    	  "reference":"Artificial Intelligence, 237, 41-58, 2016"},
+    	{ "authors":"Gao, B., Berendt, B. and Vanschoren, J.",
+    	  "url":"https://www.researchgate.net/publication/307630558",
+    	  "title":"Towards understanding online sentiment expression - An interdisciplinary approach with subgroup comparison and visualization.",
+    	  "reference":"Social Network Analysis and Mining, 6 (1), 68:1-68:16, 2016"},
+      { "authors":"Vanschoren, J., van Rijn, J.N., Bischl, B. and Torgo, L.",
+        "url":"https://www.researchgate.net/publication/263890323",
+        "title":"OpenML: networked science in machine learning.",
+        "reference":"ACM SIGKDD Explorations, 15 (2), 49-60, 2013"},
+      { "authors":"Serban, F.*, Vanschoren, J.*, Kietz, J.U. and Bernstein, A.",
+    	  "url":"https://www.researchgate.net/publication/262405094",
+    	  "title":"A Survey of Intelligent Assistants for Data Analysis.",
+    	  "reference":"ACM Computing Surveys, 45 (3), Art. 31, 2013"},
+      { "authors":"Vanschoren, J., Blockeel, H., Pfahringer, B. and Holmes, G.",
+    	  "url":"https://www.researchgate.net/publication/257618363",
+    	  "title":"Experiment Databases: A new way to share, organize and learn from experiments.",
+    	  "reference":"Machine Learning, 87(2), 127-158, 2012"}
+      ],
+      "conference papers": [
+    	{ "authors":"van Rijn, J.N., Holmes, G., Pfahringer, B., Vanschoren, J.",
+    	  "url":"https://www.researchgate.net/publication/289252355",
+    	  "title":"Having a Blast: Meta-Learning and Heterogeneous Ensembles for Data Streams",
+    	  "reference":"IEEE Proceedings of ICDM 2015"},
+    	{ "authors":"Vanschoren, J., Bischl, B., Hutter, F., Sebag, M., Kegl, B., Schmid, M., Napolitano, G., Wolstencroft, K., Williams, A.R, Lawrence, N",
+    	  "url":"https://www.researchgate.net/publication/289828607",
+    	  "title":"Towards a Data Science Collaboratory",
+    	  "reference":"Advances in Intelligent Data Analysis XIV (IDA 2015), Lecture Notes in Computer Science 9385, XIX-XXI"},
+    	{ "authors":"van Rijn, J.N., Abdulrahman, S.M., Brazdil, P. and Vanschoren, J.",
+    	  "url":"https://www.researchgate.net/publication/289380279",
+    	  "title":"Fast Algorithm Selection Using Learning Curves",
+    	  "reference":"Advances in Intelligent Data Analysis XIV (IDA 2015), Lecture Notes in Computer Science 9385, 298-309"},
+    	{ "authors":"Vanschoren, J,. van Rijn, J.N. and Bischl, B.",
+    	  "url":"https://www.researchgate.net/publication/289253193",
+    	  "title":"Taking machine learning research online with OpenML",
+    	  "reference":"JMLR Workshop and Conference Proceedings (BigMine 2015), 41, 1-4, 2015"},
+    	{ "authors":"Eerikainen, L.M., Vanschoren, J., Rooijakkers, M.J., Vullings, R., Aarts, R.M.",
+    	  "url":"https://www.researchgate.net/publication/289996580",
+    	  "title":"Decreasing the False Alarm Rate of Arrhythmias in Intensive Care Using a Machine Learning Approach",
+    	  "reference":"IEEE Computing in Cardiology, 42, 293-297, 2015"},
+    	{ "authors":"Gao, B., Berendt, B. and Vanschoren, J.",
+    	  "url":"https://www.researchgate.net/publication/289252401",
+    	  "title":"Who is more positive in private? Analyzing sentiment differences across privacy levels and demographic factors in Facebook chats and posts",
+    	  "reference":"IEEE/ACM Proceedings of ASONAM 2015, 605-610"},
+    	{ "authors":"Mantovani, R.G., Rossi, A.L.D., Vanschoren, J., Bischl, B. and Carvalho, A.C.P.L.F.",
+    	  "url":"https://www.researchgate.net/publication/275966269",
+    	  "title":"To tune or not to tune: Recommending when to adjust SVM hyper-parameters via meta-learning",
+    	  "reference":"IEEE Proceedings of IJCNN 2015, 1-8"},
+    	{ "authors":"Mantovani, R.G., Rossi, A.L.D., Vanschoren, J., Bischl, B. and Carvalho, A.C.P.L.F.",
+    	  "url":"https://www.researchgate.net/publication/275966194",
+    	  "title":"Effectiveness of Random Search in SVM hyper-parameter tuning",
+    	  "reference":"IEEE Proceedings of IJCNN 2015, 1-8"},
+    	{ "authors":"van Rijn, J.N., Holmes, G., Pfahringer, B. and Vanschoren, J.",
+    	  "url":"https://www.researchgate.net/publication/267213201",
+    	  "title":"Algorithm Selection on Data Streams.",
+    	  "reference":"Proceedings of Discovery Science 2014. Lecture Notes in Computer Science 8777, 325-336."},
+    	{ "authors":"van Rijn, J., Bischl, B., Torgo, L., Gao, B., Umaashankar, V., Fischer, S., Winter, P., Wiswedel, B., Berthold, M.R., and Vanschoren, J.",
+    	  "url":"https://www.researchgate.net/publication/257364389",
+    	  "title":"OpenML: A Collaborative Science Platform.",
+    	  "reference":"Proceedings of ECMLPKDD 2013, Lecture Notes in Computer Science 8190, 645-649"},
+    	{ "authors":"Reuttemann, P., Vanschoren, J.",
+    	  "url":"https://www.researchgate.net/publication/260311281",
+    	  "title":"Scientific Workflow Management with ADAMS.",
+    	  "reference":"Proceedings of ECMLPKDD 2012, Lecture Notes in Computer Science 7524, 833-837"},
+    	{ "authors":"Vespier, U., Knobbe, A.J., Nijssen, S., Vanschoren, J.",
+    	  "url":"https://www.researchgate.net/publication/260311284",
+    	  "title":"MDL-Based Analysis of Time Series at Multiple Time-Scales.",
+    	  "reference":"Proceedings of ECMLPKDD 2012, Lecture Notes in Computer Science 7524, 371-386"},
+    	{ "authors":"Leite, R., Brazdil P., Vanschoren, J.",
+    	  "url":"https://www.researchgate.net/publication/260311386",
+    	  "title":"Selecting Classification Algorithms with Active Testing.",
+    	  "reference":"Proceedings of MLDM 2012, Lecture Notes in Computer Science 7376, 117-131"},
+    	{ "authors":"Vespier, U., Knobbe, A., Vanschoren, J., Miao, S., Koopman, A., Obladen, B., and Bosma, C.",
+    	  "url":"https://www.researchgate.net/publication/221461028",
+    	  "title":"Traffic Events Modeling for Structural Health Monitoring.",
+    	  "reference":"Proceedings of IDA 2011, Lecture Notes in Computer Science 7014, 276-387"},
+    	{ "authors":"Vanschoren, J., Blockeel, H.",
+    	  "url":"https://www.researchgate.net/publication/220699153",
+    	  "title":"A community-based platform for machine learning experimentation.",
+    	  "reference":"Proceedings of ECMLPKDD 2009, Lecture Notes In Computer Science 5782, 750-754"},
+    	{ "authors":"Vanschoren, J., Pfahringer, B., Holmes, G.",
+    	  "url":"https://www.researchgate.net/publication/33051185",
+    	  "title":"Learning from the past with experiment databases.",
+    	  "reference":"Proceedings of PRICAI 2008, Lecture Notes in Artificial Intelligence 5351, 485-496"},
+    	{ "authors":"Vanschoren, J., Blockeel, H., Pfahringer, B., Holmes, G.",
+    	  "url":"https://www.researchgate.net/publication/221430852",
+    	  "title":"Organizing the world's machine learning information.",
+    	  "reference":"Proceedings of ISOLA 2008, Communications in Computer and Information Science, 17, 693-708"},
+    	{ "authors":"Vanschoren, J., Blockeel, H.",
+    	  "url":"https://www.researchgate.net/publication/221649448",
+    	  "title":"Investigating classifier learning behavior with experiment databases.",
+    	  "reference":"Proceedings of GfKL 2008, Data Analysis, Machine Learning and Applications, 421-428"},
+    	{ "authors":"Blockeel, H.*, Vanschoren, J.*",
+    	  "url":"https://www.researchgate.net/publication/220699279",
+    	  "title":"Experiment databases: Towards an improved experimental methodology in machine learning.",
+    	  "reference":"Proceedings of ECMLPKDD 2007, Lecture Notes in Computer Science 4702, 6-17"}
+    	],
+    	"workshop papers": [
+    	{ "authors":"Zhu, Y., Aoun, M., Krijn, M., Vanschoren, J.",
+    	  "url":"",
+    	  "title":"Data Augmentation using Conditional Generative Adversarial Networks for Leaf Counting in Arabidopsis Plants.",
+    	  "reference":"CCCPV Workshop @ BMVC 2018."},
+    	{ "authors":"Gijsbers, P., Vanschoren, J., Olson, R.",
+    	  "url":"",
+    	  "title":"Layered TPOT: Speeding up Tree-based Pipeline Optimization.",
+    	  "reference":"AutoML Workshop @ ECML 2017. CEUR Workshop Proceedings vol. 1998."},
+    	{ "authors":"Mantovani, R.G., Horvath, T., Cerri, R., Carvalho, A.P.L.F., Vanschoren, J.",
+    	  "url":"https://www.researchgate.net/publication/308608633",
+    	  "title":"Hyper-parameter Tuning of a Decision Tree Induction Algorithm.",
+    	  "reference":"Brazilian Conference on Intelligent Systems (BRACIS 2016)"},
+    	{ "authors":"Zhang, C., van Wissen, A., Lakens, D., Vanschoren, J., de Ruyter, B.E.R., IJsselsteijn, W.A.",
+    	  "url":"https://www.researchgate.net/publication/305636593",
+    	  "title":"Anticipating habit formation: a psychological computing approach to behavior change support.",
+    	  "reference":"UbiComp Adjunct, 2016: 1247-1254"},
+    	{ "authors":"Bischl, B., Bossek, J., Casalicchio, G., Hofner, B., Kerschke, P., Kirchhoff, D., Lang, M., Seibold, H., Vanschoren, J.",
+    	  "url":"https://www.researchgate.net/publication/308608826",
+    	  "title":"Connecting R to the OpenML project for Open Machine Learning.",
+    	  "reference":"useR Conference 2016"},
+    	{ "authors":"Abdulrahman, S, Brazdil, P., van Rijn, J.N., Vanschoren, J.",
+    	  "url":"https://www.researchgate.net/publication/283559030",
+    	  "title":"Algorithm Selection via Meta-learning and Sample-based Active Testing.",
+    	  "reference":"MetaSel Workshop @ PKDD/ECML 2015, CEUR Workshop Proceedings 1455, 55-66"},
+    	{ "authors":"Mantovani, R.G., Rossi, A.L.D., Vanschoren, J., Carvalho, A.C.P.L.F.",
+    	  "url":"https://www.researchgate.net/publication/282809201",
+    	  "title":"Meta-learning Recommendation of Default Hyper-parameter Values for SVMs in Classification Tasks",
+    	  "reference":"MetaSel Workshop @ PKDD/ECML 2015, CEUR Workshop Proceedings 1455, 80-92"},
+    	{ "authors":"van Rijn, J.N., Vanschoren, J.",
+    	  "url":"https://www.researchgate.net/publication/283764352",
+    	  "title":"Sharing RapidMiner Workflows and Experiments with OpenML.",
+    	  "reference":"MetaSel Workshop @ PKDD/ECML 2015, CEUR Workshop Proceedings 1455, 93-103"},
+    	{ "authors":"Vukicevic, M., Radovanovic, S., Vanschoren, J., Napolitano, G., Delibasic, B.",
+    	  "url":"https://www.researchgate.net/publication/289380566",
+    	  "title":"Towards a Collaborative Platform for Advanced Meta-Learning in Healthcare Predictive Analytics.",
+    	  "reference":"MetaSel Workshop @ PKDD/ECML 2015, CEUR Workshop Proceedings 1455, 112-114"},
+    	{ "authors":"Knobbe A.J., Meeng M. Vanschoren J., Rees Jones S., Merlo Penning S.",
+    	  "url":"https://www.researchgate.net/publication/275966769",
+    	  "title":"Reconstructing Medieval Social Networks from English and Latin Charters.",
+    	  "reference":"Population Reconstruction 2014"},
+    	{ "authors":"van Rijn, J.N., Holmes, G., Pfahringer, B. and Vanschoren, J.",
+    	  "url":"https://www.researchgate.net/publication/267213271",
+    	  "title":"Towards Meta-learning on Data Streams.",
+    	  "publication":"MetaSel Workshop @ ECAI 2014, CEUR Workshop Proceedings, 1201, 37-38"},
+    	{ "authors":"Vanschoren, J., Braun, M. and Ong, C.S.",
+    	  "url":"https://www.researchgate.net/publication/260366696",
+    	  "title":"Open science in machine learning.",
+    	  "reference":"Proceedings of CLADAG 2013, 462-465."},
+    	{ "authors":"van Rijn, J., Umaashankar, V., Fischer, S., Bischl, B., Torgo, L., Gao, B., Winter, P., Wiswedel, B., Berthold, M.R., and Vanschoren, J.",
+    	  "url":"https://www.researchgate.net/publication/260311444",
+    	  "title":"A RapidMiner extension for Open Machine Learning.",
+    	  "reference":"Proceedings of RCOMM 2013, 59-70."},
+    	{ "authors":"van Rijn, J. and Vanschoren, J.",
+    	  "url":"https://www.researchgate.net/publication/260311303",
+    	  "title":"OpenML: An Open Science Platform for Machine Learning.",
+    	  "reference":"Machine Learning Conference of Belgium and The Netherlands 2013, 99-100"},
+    	{ "authors":"Miao S., Vespier U., Vanschoren J. Knobbe A.J., De Gouveia da Costa Cachucho R.E.",
+    	  "url":"https://www.researchgate.net/publication/261623484",
+    	  "title":"Modeling Sensor Dependencies between Multiple Sensor Types.",
+    	  "reference":"Machine Learning Conference of Belgium and The Netherlands 2013, p. 66-73"},
+    	{ "authors":"Vanschoren, J.",
+    	  "url":"https://www.researchgate.net/publication/275967146",
+    	  "title":"The Experiment Database for machine learning.",
+    	  "reference":"PlanLearn Workshop @ ECAI 2012, CEUR Workshop Proceedings, 950, 30-37"},
+    	{ "authors":"Leite, R., Brazdil P., Vanschoren, J.",
+    	  "url":"https://www.researchgate.net/publication/275966928",
+    	  "title":"Selecting Classification Algorithms with Active Testing on Similar Datasets.",
+    	  "reference":"PlanLearn Workshop @ ECAI 2012, CEUR Workshop Proceedings, 950, 30-37"},
+    	{ "authors":"Vespier, U., Knobbe, A., Nijssen, S., Vanschoren, S.",
+    	  "url":"https://www.researchgate.net/publication/289380384",
+    	  "title":"MDL-Based Identification of Relevant Temporal Scales in Time Series.",
+    	  "reference":"Workshop on Information Theoretic Methods in Science and Engineering, WITMSE 2012"},
+    	{ "authors":"Gao, B. and Vanschoren, J.",
+    	  "url":"https://www.researchgate.net/publication/260311308",
+    	  "title":"Visualizations of Machine Learning Behavior with Dimensionality Reduction Techniques.",
+    	  "reference":"Machine Learning Conference of Belgium and The Netherlands 2011, 35-42."},
+    	{ "authors":"Miao, S., Knobbe, A., Vanschoren, J., Vespier, U., Koopman, A., Cachucho, R., Chen, X.",
+    	  "url":"https://www.researchgate.net/publication/289380568",
+    	  "title":"A Range of Data Mining Techniques to Correlate Multiple Sensor Types.",
+    	  "reference":"Dutch-Belgian Database Day 2011, Art.5"},
+    	{ "authors":"Vanschoren, J., Soldatova, S.",
+    	  "url":"https://www.researchgate.net/publication/228525536",
+    	  "title":"Exposé: An Ontology for Data Mining Experiments.",
+    	  "reference":"Workshop on Third Generation Data Mining @ ECMLPKDD 2010, 31-46"},
+    	{ "authors":"Vanschoren, J., Soldatova, S.",
+    	  "url":"https://www.researchgate.net/publication/228346232",
+    	  "title":"Collaborative Meta-Learning.",
+    	  "reference":"Planning to Learn workshop @ ECAI 2010, 37-46"},
+    	{ "authors":"Vanschoren, J., Blockeel, H.",
+    	  "url":"https://www.researchgate.net/publication/242142515",
+    	  "title":"Stand on the shoulders of giants: towards a portal for collaborative experimentation in data mining.",
+    	  "reference":"3rd Generation Data Mining Workshop @ ECMLPKDD 2009, 88-99"},
+    	{ "authors":"Bauzá, M., Vanschoren, J., Funes, M.P., Barrera, G.M., López De Luise, D.",
+    	  "url":"https://www.researchgate.net/publication/266498517",
+    	  "title":"Sistema de Autentificación Facial.",
+    	  "reference":"Congreso de Inteligencia Computacional Aplicada (CICA) 2009"},
+    	{ "authors":"Vanschoren, J.",
+    	  "url":"https://www.researchgate.net/publication/289380495",
+    	  "title":"Experiment databases for machine learning.",
+    	  "reference":"NIPS Workshop on Machine Learning Open Source Software @ NIPS 2008"},
+    	{ "authors":"Vanschoren, J., Blockeel, H., Pfahringer, B., Holmes, G.",
+    	  "url":"https://www.researchgate.net/publication/33051998",
+    	  "title":"Experiment databases: Creating a new platform for meta-learning research.",
+    	  "reference":"Planning to Learn Workshop @ ICML 2008, 10-15"},
+    	{ "authors":"Vanschoren, J., Van Assche, A., Vens, C., Blockeel, H.",
+    	  "url":"https://www.researchgate.net/publication/228951137",
+    	  "title":"Meta-learning from experiment databases: An illustration.",
+    	  "reference":"Machine Learning Conference of Belgium and The Netherlands 2007, 120-127"},
+    	{ "authors":"Vanschoren, J., Blockeel, H.",
+    	  "url":"https://www.researchgate.net/publication/228376299",
+    	  "title":"Towards understanding learning behavior.",
+    	  "reference":"Machine Learning Conference of Belgium and The Netherlands 2006, 89-96"}
+    	],
+    	"book chapters": [
+    	{ "authors":"Lawrynowicz, A., Esteves, D., Panov. P., Soru, T., Dzeroski, S., Vanschoren, J",
+    	  "url":"https://www.researchgate.net/publication/308608405",
+    	  "title":"An Algorithm, Implementation and Execution Ontology Design Pattern.",
+    	  "reference":"In: Studies on the Semantic Web (forthcoming), 2016"},
+    	{ "authors":"Vanschoren, J., Vespier, U., Miao, S., Cachucho, R. and Knobbe, A.",
+    	  "url":"https://www.researchgate.net/publication/260311405",
+    	  "title":"Large-scale sensor network analysis.",
+    	  "reference":"In: Big Data Management, Technologies, and Applications (W-C. Hu, N. Kaabouch, ed.), IGI Global, 2013"},
+    	{ "authors":"Vanschoren, J.",
+    	  "url":"https://www.researchgate.net/publication/226597515",
+    	  "title":"Meta-learning architectures.",
+    	  "reference":"In: Meta-learning in Computational Intelligence (N. Jankowski, W. Duch, K. Grabczewski, ed.), Springer, 2011"},
+    	{ "authors":"Berendt, B., Vanschoren, J. and Gao, B.",
+    	  "url":"https://www.researchgate.net/publication/260311541",
+    	  "title":"Datenanalyse und -visualisierung.",
+    	  "reference":"In: Handbuch Forschungsdatenmanagement (S. Büttner, H-C. Hobohm, L. Müller, ed.), Bock+Herchen, 2011"},
+    	{ "authors":"Vanschoren, J., Blockeel, H.",
+    	  "url":"https://www.researchgate.net/publication/226922608",
+    	  "title":"Experiment Databases.",
+    	  "publication":"In: Inductive Databases and Constraint-Based Data Mining (S. Dzeroski, B. Goethals, P. Panov, ed.), Springer, 2010"}
+    	],
+    	"books edited": [
+    	{ "authors":"Vanschoren, J., Brazdil, P., Giraud-Carrier, C.G., Kotthoff, L. (Eds.)",
+    	  "url":"https://www.researchgate.net/publication/289380479",
+    	  "title":"Proceedings of the 2015 International Workshop on Meta-Learning and Algorithm Selection @ ECMLPKDD",
+    	  "reference":"CEUR Workshop Proceedings 1455, CEUR 2015"},
+    	{ "authors":"Vanschoren, J., Brazdil, P., Soares, C., Kotthoff, L. (Eds.)",
+    	  "url":"https://www.researchgate.net/publication/275966998",
+    	  "title":"Proceedings of the 2014 International Workshop on Meta-Learning and Algorithm Selection @ ECAI",
+    	  "reference":"CEUR Workshop Proceedings 1201, CEUR 2014"},
+    	{ "authors":"Vanschoren, J., Brazdil, P., Kietz, J-U. (Eds.)",
+    	  "url":"https://www.researchgate.net/publication/260311461",
+    	  "title":"Proceedings of the International Workshop on Planning to Learn @ ECAI",
+    	  "reference":"CEUR Workshop Proceedings 950, CEUR 2012"},
+    	{ "authors":"Vanschoren, J., Duivesteijn, W. (Eds.)",
+    	  "url":"https://www.researchgate.net/publication/260311717",
+    	  "title":"The Silver Lining. Proceedings of the International Workshop on Learning from Unexpected Results @ ECMLPKDD",
+    	  "reference":"Leiden University"},
+    	{ "authors":"van der Putten, P.H.W, Veenman, C., Vanschoren, J., Israel, M., Blockeel, H. (Eds.)",
+    	  "url":"https://www.researchgate.net/publication/275967042",
+    	  "title":"Proceedings of the 20th Annual Belgian-Dutch Conference on Machine Learning",
+    	  "reference":"Leiden University, 2011"}
+    	],
+    	"dissertations": [
+    	{ "authors":"Vanschoren, J.",
+    	  "url":"https://www.researchgate.net/publication/289380311",
+    	  "title":"Understanding Machine Learning Performance with Experiment Databases",
+    	  "reference":"PhD Thesis, Katholieke Universiteit Leuven, 2010"},
+    	{ "authors":"Vanschoren, J.",
+    	  "url":"https://www.researchgate.net/publication/289380388",
+    	  "title":"A framework for high-level perception",
+    	  "reference":"MSc Thesis, Katholieke Universiteit Leuven, 2005"}
+    	]
+  }
+}
